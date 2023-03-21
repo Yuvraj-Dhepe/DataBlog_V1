@@ -38,7 +38,7 @@ website:
     title: false
     pinned: true
     left: 
-      - text: Hello
+      - text: Hello There
         href: index.qmd
       #- text: "Projects"
       #  href: index.qmd

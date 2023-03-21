@@ -1,0 +1,11 @@
+{
+  "listingMap": {
+    "docs/blog/index.qmd": [
+      "."
+    ],
+    "index.qmd": [
+      "/docs/blogs.yml",
+      "/docs/projects.yml"
+    ]
+  }
+}

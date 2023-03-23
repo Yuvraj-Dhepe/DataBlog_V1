@@ -1,31 +1,4 @@
-on:
-  workflow_dispatch:
-  push:
-    branches: main
-
-name: Quarto Publish on Github Pages
-
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-        with:
-          node-version: 16.x
-        # Update Node.js version to 16
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2 #using quarto-development github pages to use actions for gh-pages posting. 
-        with:
-          # to install LaTeX to build PDF book
-          tinytex: true
-
-      - name: Render and Publish #Publishing to github pages and rendering.
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions so no need to add it again in secrets
+- source: project
+  quarto-pub:
+    - id: "token: qpa_yGF16BHd4ra4ZKOAU82mVIM811f9819pKvZ30wVYnU9YPvL0fCw4p1uCTdvEfewK"
+      url: "https://njones.quarto.pub/blog"

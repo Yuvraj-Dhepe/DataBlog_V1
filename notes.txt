@@ -7,6 +7,7 @@ git commit --allow-empty -m "Initialising gh-pages branch"
 git push <repo_name> gh-pages #Remember for current branch the repo_name is my_repo, but by default the name is origin.
 
 # Also add the _publish.yml file manually with the following content
+
 on:
   workflow_dispatch:
   push:
@@ -27,7 +28,7 @@ jobs:
         # Update Node.js version to 16
 
       - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+        uses: quarto-dev/quarto-actions/setup@v2 #using quarto-development github pages to use actions for gh-pages posting. 
         with:
           # to install LaTeX to build PDF book
           tinytex: true
@@ -39,3 +40,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions so no need to add it again in secrets
 
+# For the first time I am publishing to quarto_pub
+token_name: Blog_V1
+token: qpa_yGF16BHd4ra4ZKOAU82mVIM811f9819pKvZ30wVYnU9YPvL0fCw4p1uCTdvEfewK

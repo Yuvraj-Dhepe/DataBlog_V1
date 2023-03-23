@@ -9,8 +9,8 @@ website:
   title: "Data Science Blog - Yuvraj Dhepe" 
   #site-path
   page-navigation: true 
-  image: "./images/lotus.jpg"
-  favicon: "./images/lotus.jpg"
+  image: images/lotus.jpg
+  favicon: images/lotus.jpg
   open-graph: true
   search:
     type: overlay

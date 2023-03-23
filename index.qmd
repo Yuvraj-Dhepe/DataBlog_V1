@@ -6,7 +6,7 @@ toc: true
 about:
   id: hero-heading
   template: jolla
-  image: lotus.jpg
+  image: images/lotus.jpg
   
 listing:
   - id: blog-listings

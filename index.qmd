@@ -38,8 +38,7 @@ format:
 ---
 
 ### About Me
-<h4 style="text-align: justify;">Hello, I'm Yuvraj. I'm a student studying Data Science at University of Potsdam who loves working with data by using full-stack data science tools. 
-I am an enthusiastic learner, curious about human behaviour and psychology. Passionate about driving technology to build sustainable bits for future generations.</h4> 
+<h4 style="text-align: justify;">Hello, I'm Yuvraj. Currently I am a student at University of Potsdam, Germany studying Data Science. I love communicating insights from the data extracted by using full-stack data science tools. I am an enthusiastic learner, curious about human behaviour and psychology. Passionate about driving technology to build sustainable bits for future generations.</h4> 
 ---
 
 ### Education
@@ -51,7 +50,7 @@ I am an enthusiastic learner, curious about human behaviour and psychology. Pass
 
 ### 💼 Get In Touch
 
-I'm open to work on Machine Learning and Deep Learning Projects, in computer vision, NLP and other forms of Data Projects.
+I'm open to work on Machine Learning and Deep Learning Projects, in computer vision, NLP and any other forms of Data Projects that can solve simple problems.
 
 Email me at [![](./images/icon-gmail.png){width="3%"}](mailto:yuvraj.dhepe22@gmail.com), or DM me on [![](./images/icon-linkedin.png){width="3%"}](https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/)
 

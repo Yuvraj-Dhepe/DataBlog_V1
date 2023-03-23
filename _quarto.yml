@@ -106,8 +106,8 @@ format:
   html:
     toc: true
     theme: 
-      light: [cosmo,theme.scss]
       dark: [superhero,theme-dark.scss]
+      light: [cosmo,theme.scss]
     code-copy: true
     code-overflow: wrap
     css:

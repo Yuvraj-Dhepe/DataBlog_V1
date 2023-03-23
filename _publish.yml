@@ -18,7 +18,7 @@ jobs:
         # Update Node.js version to 16
 
       - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+        uses: quarto-dev/quarto-actions/setup@v2 #using quarto-development github pages to use actions for gh-pages posting. 
         with:
           # to install LaTeX to build PDF book
           tinytex: true

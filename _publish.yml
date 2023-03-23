@@ -1,4 +1,4 @@
 - source: project
   quarto-pub:
-    - id: "token: qpa_yGF16BHd4ra4ZKOAU82mVIM811f9819pKvZ30wVYnU9YPvL0fCw4p1uCTdvEfewK"
-      url: "https://njones.quarto.pub/blog"
+    - id: 'qpa_yGF16BHd4ra4ZKOAU82mVIM811f9819pKvZ30wVYnU9YPvL0fCw4p1uCTdvEfewK'
+      url: 'https://quartopub.com/sites/yuvraj-dhepe/data-science-blog---yuvraj-dhepe'

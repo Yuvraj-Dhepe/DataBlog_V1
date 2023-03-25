@@ -40,9 +40,8 @@ website:
     left: 
       - text: Hello There
         href: index.qmd
-      #- text: "Projects"
-      #  href: index.qmd
-        #href: docs/projects/index.qmd
+      - text: "Projects"
+        href: docs/projects/index.qmd
       - text: "Blog"
         href: docs/blog/index.qmd
         

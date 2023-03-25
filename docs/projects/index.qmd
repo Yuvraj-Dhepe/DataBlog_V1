@@ -1,13 +1,15 @@
 ---
-title: All About Data
+title: Data Projects
 description: My Projects From The Data field
 listing:
+  type: grid
   sort: "date desc"
   contents: "."
   sort-ui: false
   filter-ui: false
   categories: true
   date-format: medium
+  fields: [image, date, title, author, reading-time, description]
   #feed: true
 page-layout: full
 #margin-header: signup.html

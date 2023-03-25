@@ -1,10 +1,21 @@
 ---
 title: "AtliQ Hardware Dummy Sales Insights"
+description: "PowerBI Sales Data Analysis with the help of dummy data."
 format:
-    html:   
+    html:
         code-fold: true
 render-on-save: true
 jupyter: python3
+output:
+  quarto::html_document:
+    self_contained: false
+    keep_md: false
+
+categories:
+    - PowerBI
+    - Data Analysis
+
+image: ./images/Atliq_Hardware_logo.svg
 ---
 
 ## Problem Statement
@@ -250,13 +261,62 @@ display.Image("./images/DB_Schema.jpg")
 
 ## Dashboard Created in PowerBI
 - P.S. Viewing the dashboard requires PowerBI professional account.
-    - If the viewer doesn't have one, kindly use the [pdf link](./projects/files/sales_insights_report.pdf) to view overall analytical dashboard
+    - If the viewer doesn't have one, kindly use the pdf below to view overall analytical dashboard or the following link to download it.
+
+<a href="./files/sales_insights_report.pdf" download>Download File</a>
+
+
+```{python}
+#| echo: false
+import base64
+from IPython.display import HTML
+
+def embed_pdf_with_pdfjs(pdf_path):
+    # Load PDF file
+    with open(pdf_path, "rb") as f:
+        pdf_data = f.read()
+
+    # Encode PDF file as base64
+    pdf_base64 = base64.b64encode(pdf_data).decode()
+
+    # Generate HTML code to embed the PDF
+    html = f"""
+        <div id="pdf-container"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+        <script>
+            var pdfData = atob("{pdf_base64}");
+            PDFJS.getDocument({{"data": pdfData}}).promise.then(function(pdf) {{
+                pdf.getPage(1).then(function(page) {{
+                    var viewport = page.getViewport({{"scale": 1.5}});
+                    var canvas = document.createElement("canvas");
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    document.getElementById("pdf-container").appendChild(canvas);
+                    page.render({{
+                        canvasContext: canvas.getContext("2d"),
+                        viewport: viewport
+                    }});
+                }});
+            }});
+        </script>
+    """
+
+    return HTML(html)
+# Embed the PDF
+pdf_path = "./files/sales_insights_report.pdf"
+embed_pdf_with_pdfjs(pdf_path)
+```
 
 ```{python}
 #| echo: false
 %%html
-<iframe title="sales_insight_pbi" width="800" height="656"  src="https://app.powerbi.com/reportEmbed?reportId=43d06eb5-ec4b-4b42-98c9-923f1574632b&autoAuth=true&ctid=3531ade6-1052-4651-9242-3199d6164d67" frameborder="0" allowFullScreen="true"></iframe>
+<div class="row">
+  <div class="col-md-12">
+    <iframe title="sales_insight_pbi" width="100%" height="500" src="https://app.powerbi.com/reportEmbed?reportId=43d06eb5-ec4b-4b42-98c9-923f1574632b&autoAuth=true&ctid=3531ade6-1052-4651-9242-3199d6164d67" frameborder="0"></iframe>
+  </div>
+</div>
 ```
+
 
 ### Major Insights from the Dashboard
 ---

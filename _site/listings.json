@@ -8,7 +8,9 @@
   },
   {
     "listing": "/index.html",
-    "items": []
+    "items": [
+      "/docs/projects/B1_Sales_Insights.html"
+    ]
   },
   {
     "listing": "/docs/projects/index.html",

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Science Blog - Yuvraj Dhepe - AtliQ Hardware Dummy Sales Insights</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/lotus.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - AtliQ Hardware Dummy Sales Insights">
+<meta property="og:description" content="P.S. The problem statement is virtual and doesn’t relate to any real-world entity, any such occurence is just a matter of coincidence.">
+<meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Hello There</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docs/blog/index.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link active" data-scroll-target="#problem-statement">Problem Statement</a></li>
+  <li><a href="#project-planning-and-data-discovery" id="toc-project-planning-and-data-discovery" class="nav-link" data-scroll-target="#project-planning-and-data-discovery">Project Planning and Data Discovery</a></li>
+  <li><a href="#data-cleaning-and-data-merging-or-wrangling" id="toc-data-cleaning-and-data-merging-or-wrangling" class="nav-link" data-scroll-target="#data-cleaning-and-data-merging-or-wrangling">Data Cleaning and Data Merging or Wrangling</a>
+  <ul class="collapse">
+  <li><a href="#basic-insights-from-db" id="toc-basic-insights-from-db" class="nav-link" data-scroll-target="#basic-insights-from-db">Basic Insights from DB</a></li>
+  <li><a href="#etl" id="toc-etl" class="nav-link" data-scroll-target="#etl">ETL</a></li>
+  </ul></li>
+  <li><a href="#dashboard-created-in-powerbi" id="toc-dashboard-created-in-powerbi" class="nav-link" data-scroll-target="#dashboard-created-in-powerbi">Dashboard Created in PowerBI</a>
+  <ul class="collapse">
+  <li><a href="#major-insights-from-the-dashboard" id="toc-major-insights-from-the-dashboard" class="nav-link" data-scroll-target="#major-insights-from-the-dashboard">Major Insights from the Dashboard</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/edit/main/docs/projects/B1_Sales_Insights.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">AtliQ Hardware Dummy Sales Insights</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
+<ul>
+<li>AtliQ Hardware supplies computer hardware and peripherals to various clients across India and has a head office in Delhi and regional offices throughout India.</li>
+<li>Bhavin Patel, the sales director of the company, is facing challenges in tracking the sales in the dynamically growing market and getting insights into his business.</li>
+<li>The regional managers tend to give verbal feedback that paints a rosy picture and provide complex Excel files, making it challenging for Bhavin to get a clear picture of the business.</li>
+<li>Bhavin wants simple and digestible insights, such as the top five customers, the weakest regions, and the year-to-date revenue, etc,. to make data-driven decisions for the business.</li>
+<li>The ultimate goal is to improve the declining sales and make informed business decisions based on real-time data analytics.</li>
+<li>PowerBI can provide a solution to visualize the data and present simple and actionable insights for Bhavin.</li>
+</ul>
+<p>P.S. The problem statement is virtual and doesn’t relate to any real-world entity, any such occurence is just a matter of coincidence.</p>
+</section>
+<section id="project-planning-and-data-discovery" class="level2">
+<h2 class="anchored" data-anchor-id="project-planning-and-data-discovery">Project Planning and Data Discovery</h2>
+<ul>
+<li>Project planning using AIMS grid.
+<ul>
+<li>Bhavin patel who is a sales director of at Atliq hardware realizes the pains of getting sales insights and thinks of having a data analytical solution for this problem.</li>
+<li>He calls a couple of people like an IT head or a head of data department and schedules a meeting on how exactly we should do this data analytics project.</li>
+<li>Together with IT head, he also gathers other stake holders in the room together and they brainstorm on project planning using AIMS grid.</li>
+</ul></li>
+<li>AIMS grid
+<ul>
+<li>AIMS grid is a project management tool having four components.
+<ul>
+<li>First component is Purpose
+<ul>
+<li>Determining what is the pain point and what needs to be done to resolve the pain point</li>
+</ul></li>
+<li>Second component is the Stakeholders
+<ul>
+<li>In this project who all will be involved</li>
+<li>The main stakeholders involved for this data analytical projects are the marketing team ,the sales team who is facing these issues to do proper sales analysis</li>
+<li>IT team (The Falcons) a group of software engineers that AtliQ hardware has who manages all the software requirements of Atliq</li>
+<li>The data analytics (The Data Masters) team which is inhouse</li>
+</ul></li>
+<li>Third component is the end result i.e., once the project is over what needs to be achieved
+<ul>
+<li>For the data analytics project the end result is to have a power bi dashboard something that our sales director or even Regional Managers can go and look into and it gives you a real-time information on the sales numbers</li>
+</ul></li>
+<li>Fourth component is the success criteria after the project is over, how do we define that the project was successful
+<ul>
+<li>In our project scenario the success criteria would be, we want the costs to go down by 10% on management of these sales data</li>
+<li>We want to utilize the saved business time by the use of dashboard to take data driven descisions and increase the growth of company by let’s say 10%</li>
+<li>Dashboards uncovering sales order insights with latest data available</li>
+<li>Sales team able to take better decisions and prove 10% cost savings of total spend</li>
+<li>Sales Analysts stop data gathering manually (merging excel files) in order to save business time and reinvest it value added activity</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Other Important points
+<ul>
+<li>Falcons team, manages the software of Atliq Sales Management which is keeping track of all the sales number so whenever they sell any computer or any hard days in any local region this software is printing the invoice so it has all the records stored in a MySQL database.</li>
+<li>Data Masters team will reach out to Falcons and to use the AtliQ SQL database because this is the database which has all the records that we need for our analytics and what we’ll do is we’ll integrate MySQL. We will use MySQL as a source in our power bi tool and we will build dashboard on top of it.</li>
+</ul></li>
+<li>Real World Scenarios
+<ul>
+<li>In real world direct access of data from IT team is not allowed cause if the data volume is high we want to make sure that MySQL database is not affected by the queries that Falcons are doing in your PowerBi, so many times companies, have a Data Warehouse as part of the Data Ecosystem.</li>
+<li>MySQL which is also known as OLTP which is online transaction processing system it is a very critical system and a company cannot afford for that system to go down otherwise the regular sales operations gets hampered.</li>
+<li>For any business analytics is important but then it’s a secondary thing so what companies do is they pull the data from OLTP which is MySQL in our case they do all the transformation which is also called ETL which means extract transform and load and after doing that transformation they store the data in a data warehouse.</li>
+<li>There are various types of Data Warehouse management tools like Snowflake and there are various ways to transform the data like using Pandas or other data processing libraries.</li>
+<li>Most companies working on huge data analytical projects have another in-house teams who manage the data warehouse known as Data Engineers (The Data Miners).</li>
+</ul></li>
+<li>Conclusion &amp; Data Discovery
+<ul>
+<li>Assuming our data is not that big, the data is simply taken from the Falcons, by our Data Masters.</li>
+<li>The Data Masters will plug PowerBI directly to SQL database and build the necessary analytical dashboard. Also some times data analysts will spend their time to capture information for analytics, which might not be available in the organization at all. But for this project we will not do that.</li>
+<li>Once the Data Masters have the data, they do data cleaning (data wrangling) and data merging (data munging), all this can be done via specialized software. But our data being simple we will do it via PowerBi itself.</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-cleaning-and-data-merging-or-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-and-data-merging-or-wrangling">Data Cleaning and Data Merging or Wrangling</h2>
+<ul>
+<li>Load the data in SQL taken from the Falcons team
+<ul>
+<li>Find Basic Insights about the data in SQL.</li>
+<li>Find out few inconsistencies in data in SQL itself and make a note to remove them in PowerBI later.</li>
+</ul></li>
+<li>Do the ETL in PowerBi
+<ul>
+<li>First Load the data</li>
+<li>Do the data modelling, i.e., link the tables well, along with their relationships.</li>
+<li>Start data transformations on the data to make it good enough for the data analysis.</li>
+<li>Once the ETL is done, now start building the dashboards</li>
+</ul></li>
+</ul>
+<section id="basic-insights-from-db" class="level3">
+<h3 class="anchored" data-anchor-id="basic-insights-from-db">Basic Insights from DB</h3>
+<hr>
+<section id="db_schema" class="level4">
+<h4 class="anchored" data-anchor-id="db_schema">DB_Schema</h4>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython <span class="im">import</span> display</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>display.Image(<span class="st">"./images/DB_Schema.jpg"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Can use ![alternative text](path-to-image) but it works out of zsh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<p><img src="B1_Sales_Insights_files/figure-html/cell-2-output-1.jpeg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="db_queries" class="level4">
+<h4 class="anchored" data-anchor-id="db_queries">DB_Queries</h4>
+<section id="customers-table" class="level5">
+<h5 class="anchored" data-anchor-id="customers-table">Customers Table</h5>
+<ul>
+<li>Get the total number of customers doing business with AtliQ hardwares
+<ul>
+<li>Insights: There are total of 38 customers doing business with AtliQ hardwares</li>
+</ul>
+<pre class="{mysql}"><code>SELECT count(*) FROM sales.customers; </code></pre></li>
+<li>Get count of customers according to their types
+<ul>
+<li>Insights: Only 2 customer types i.e.&nbsp;of Brick Mortar and E-Commerce</li>
+</ul>
+<pre class="{mysql}"><code>SELECT count(cs.customer_code) as total_customer_per_type, cs.customer_type 
+FROM sales.CUSTOMERS as cs 
+GROUP BY cs.customer_type; </code></pre></li>
+<li>Checking unique customers in the customer category.
+<ul>
+<li>Insights: All the 38 customers are unique</li>
+</ul>
+<pre class="{mysql}"><code>SELECT COUNT(DISTINCT tb.custmer_name) as total_unique_customer_name_count
+FROM 
+( 
+# Seeing whether each customer_code belongs to unique customer name or not. :- It does.
+SELECT cs.custmer_name, COUNT(cs.customer_code) as total_unique_customer_names
+FROM sales.customers as cs
+GROUP BY cs.custmer_name
+) as tb;</code></pre></li>
+</ul>
+</section>
+<section id="date-table" class="level5">
+<h5 class="anchored" data-anchor-id="date-table">Date Table</h5>
+<ul>
+<li><p>Insights: Total unique dates : 1126 and that is the total dates in the table itself.</p>
+<pre class="{mysql}"><code>SELECT (count(distinct dt.date)) as total_unique_dates  
+FROM sales.date as dt;</code></pre></li>
+<li><p>Insight: Seeing the trend of number of transactions each year</p>
+<pre class="{mysql}"><code>SELECT dt.year, count(dt.year) as total_transactions_in_each_year 
+FROM sales.date as dt
+GROUP BY dt.year;</code></pre></li>
+<li><p>Insights: We have on average 30 transactions per month in each year</p>
+<pre class="{mysql}"><code>SELECT 
+    dt.month_name,dt.year,count(dt.month_name) as transactions_per_month_per_year
+FROM
+    sales.date AS dt
+GROUP BY dt.year, dt.month_name;</code></pre></li>
+</ul>
+</section>
+<section id="market-table" class="level5">
+<h5 class="anchored" data-anchor-id="market-table">Market table</h5>
+<ul>
+<li><p>Insights: Total of 17 markets each having it’s own unique identifier code</p>
+<pre class="{mysql}"><code>SELECT count(mk.markets_name) 
+FROM sales.markets as mk;</code></pre></li>
+<li><p>Inconsistency:</p>
+<ul>
+<li>There are only 2 international sales in the data, so it’s better to not consider them as we don’t have much information about them now.</li>
+</ul></li>
+</ul>
+</section>
+<section id="transactions-table" class="level5">
+<h5 class="anchored" data-anchor-id="transactions-table">Transactions Table</h5>
+<ul>
+<li><p>Insights: There are a total of 150283 transaction.</p>
+<pre class="{mysql}"><code>SELECT count(*) FROM sales.transactions;</code></pre></li>
+<li><p>Insights: The total_sales_qty: 2444415 and reverified the same via net_sales_per_month_per_year</p>
+<pre class="{mysql}"><code>SELECT SUM(tr.sales_qty) as net_sales_in_all
+FROM sales.transactions as tr;</code></pre></li>
+<li><p>Insights: Finding the different type of currencies used while doing the transactions.</p>
+<pre class="{mysql}"><code>SELECT distinct(tr.currency) ,count(*) as number_of_transactions_currency_wise
+FROM sales.transactions as tr
+GROUP BY tr.currency;</code></pre></li>
+<li><p>Inconsistencies:</p>
+<ul>
+<li>Few transactions are in USD, they need to be converted to INR</li>
+<li>The currency column, has an inherent error to show INR and USD 2 times when grouped by currency. The error was because entry in currency field was INR USDhile creating the data.
+<ul>
+<li>Removed inconsistency by formating the table well.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="products-table" class="level5">
+<h5 class="anchored" data-anchor-id="products-table">Products Table</h5>
+<ul>
+<li><p>Insights: Finding the distribution of product type</p>
+<pre class="{mysql}"><code>SELECT pr.product_type, count(pr.product_code) AS product_count_forthis_type
+FROM sales.products as pr
+GROUP BY pr.product_type;</code></pre></li>
+<li><p>Insights: Every product code is unique</p>
+<pre class="{mysql}"><code>SELECT count(distinct pr.product_code) 
+FROM sales.products as pr;
+SELECT count(*) FROM sales.products;
+SELECT * FROM sales.products;</code></pre></li>
+</ul>
+</section>
+</section>
+<section id="general-queries" class="level4">
+<h4 class="anchored" data-anchor-id="general-queries">General Queries</h4>
+<ul>
+<li><p>Insights: Getting revenues per year per product</p>
+<pre class="{mysql}"><code>SELECT st.product_code, SUM(st.sales_amount) as Total_Sales
+FROM sales.transactions as st
+JOIN sales.date as dt
+ON st.order_date = dt.date
+WHERE dt.year = 2020
+GROUP BY st.product_code
+ORDER BY Total_sales DESC;</code></pre></li>
+<li><p>Insights: Getting revenues per year per product in Chennaicustomers</p>
+<pre class="{mysql}"><code>SELECT st.product_code, SUM(st.sales_amount) as Total_Sales
+FROM sales.transactions as st
+JOIN sales.date as dt
+ON st.order_date = dt.date
+WHERE dt.year = 2020 and st.market_code = "Mark001"
+GROUP BY st.product_code
+ORDER BY Total_sales DESC;</code></pre></li>
+<li><p>Insights: Found out which market makes the most of the sales and which one the least.</p>
+<pre class="{mysql}"><code>SELECT mk.markets_code, sum(tr.sales_qty) as net_sales_per_market, mk.markets_name
+FROM sales.transactions as tr
+JOIN sales.markets as mk
+ON tr.market_code = mk.markets_code
+GROUP BY mk.markets_code
+ORDER BY net_sales_per_market DESC;</code></pre></li>
+<li><p>Insights: Finding which year has made the most of the transactions and in which month</p>
+<pre class="{mysql}"><code>SELECT sum(net_sales_per_month_per_year)
+FROM 
+( 
+SELECT dt.year, dt.month_name, sum(tr.sales_qty) AS net_sales_per_month_per_year
+FROM sales.transactions as tr
+JOIN sales.date as dt
+ON dt.date = tr.order_date
+GROUP BY dt.year, dt.month_name
+ORDER BY net_sales_per_month_per_year
+) AS tb;</code></pre></li>
+<li><p>Insights: Finding sales_qty per product, looking at it seems like own brand is in more demand</p>
+<pre class="{mysql}"><code>SELECT pr.product_code, sum(tr.sales_qty) as net_sales_per_product, pr.product_type
+FROM sales.transactions as tr
+JOIN sales.products as pr
+ON pr.product_code = tr.product_code
+GROUP BY pr.product_code
+ORDER BY net_sales_per_product DESC;</code></pre></li>
+</ul>
+</section>
+</section>
+<section id="etl" class="level3">
+<h3 class="anchored" data-anchor-id="etl">ETL</h3>
+<hr>
+<ul>
+<li>Did a bit of Data Modelling, linking tables well of the DB</li>
+<li>Removed the inconsistencies in the PowerBI from Market and Transaction table</li>
+</ul>
+</section>
+</section>
+<section id="dashboard-created-in-powerbi" class="level2">
+<h2 class="anchored" data-anchor-id="dashboard-created-in-powerbi">Dashboard Created in PowerBI</h2>
+<ul>
+<li>P.S. Viewing the dashboard requires PowerBI professional account.
+<ul>
+<li>If the viewer doesn’t have one, kindly use the <a href="./projects/files/sales_insights_report.pdf">pdf link</a> to view overall analytical dashboard</li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<iframe title="sales_insight_pbi" width="800" height="656" src="https://app.powerbi.com/reportEmbed?reportId=43d06eb5-ec4b-4b42-98c9-923f1574632b&amp;autoAuth=true&amp;ctid=3531ade6-1052-4651-9242-3199d6164d67" frameborder="0" allowfullscreen="true"></iframe>
+</div>
+</div>
+<section id="major-insights-from-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="major-insights-from-the-dashboard">Major Insights from the Dashboard</h3>
+<hr>
+<ul>
+<li>Key Insights Dashboard
+<ul>
+<li>Delhi NCR seems to give major Revenue and Sales Qty followed by Mumbai, Ahemdabad and other city ares.</li>
+<li>Brick n Mortar Seems to contribute to majority of Revenue</li>
+<li>Product revenue has an error, we can’t see the major revenue generating product code</li>
+<li>Over the years the revenue trend seems to decline</li>
+<li>Revenue seems to increase in Q3 n Q4 generally</li>
+</ul></li>
+<li>Profit Analysis Dashboard
+<ul>
+<li>Though revenue contribution of Delhi n major city markets is more, the profit contribution is not much high for them.
+<ul>
+<li>Action points for AtliQ:
+<ul>
+<li><ol type="1">
+<li>Focus more on the major profit% generating cities</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Find why the profit % is less in major revenue generating cities</li>
+</ol></li>
+</ul></li>
+</ul></li>
+<li>Focus on the customers which provide more Profit Margin Contribution by encouraging them like by giving them discounts</li>
+</ul></li>
+<li>Peformance Insights Dashboard
+<ul>
+<li>Analyze the data by breakdown to zones, markets and customers</li>
+<li>Observe the zones that don’t fulfill the profit margin</li>
+<li>Observe Previous year revenue trend as a comparision with current year revenue trend</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org">Quarto</a></div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/">
+      <i class="bi bi-linkedin" role="img" aria-label="My LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Yuvraj-Dhepe">
+      <i class="bi bi-github" role="img" aria-label="My Github">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://medium.com/@yuvrajdhepe">
+      <i class="bi bi-medium" role="img" aria-label="My Medium">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

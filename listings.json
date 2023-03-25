@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/docs/projects/index.html",
+    "items": [
+      "/docs/projects/B1_Sales_Insights.html"
+    ]
+  },
+  {
     "listing": "/docs/blog/index.html",
     "items": [
       "/docs/blog/welcome/index.html",

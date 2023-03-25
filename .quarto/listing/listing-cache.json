@@ -6,6 +6,9 @@
     "index.qmd": [
       "/docs/blogs.yml",
       "/docs/projects.yml"
+    ],
+    "docs/projects/index.qmd": [
+      "."
     ]
   }
 }

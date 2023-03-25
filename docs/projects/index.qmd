@@ -1,6 +1,6 @@
 ---
 title: All About Data
-description: My Learnings From The Data field
+description: My Projects From The Data field
 listing:
   sort: "date desc"
   contents: "."

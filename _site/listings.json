@@ -9,5 +9,11 @@
   {
     "listing": "/index.html",
     "items": []
+  },
+  {
+    "listing": "/docs/projects/index.html",
+    "items": [
+      "/docs/projects/B1_Sales_Insights.html"
+    ]
   }
 ]

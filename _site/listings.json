@@ -7,13 +7,14 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/docs/projects/index.html",
     "items": [
+      "/docs/projects/Youtube_API_EDA.html",
       "/docs/projects/B1_Sales_Insights.html"
     ]
   },
   {
-    "listing": "/docs/projects/index.html",
+    "listing": "/index.html",
     "items": [
       "/docs/projects/B1_Sales_Insights.html"
     ]

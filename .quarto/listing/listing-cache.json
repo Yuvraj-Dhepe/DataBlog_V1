@@ -3,12 +3,12 @@
     "docs/blog/index.qmd": [
       "."
     ],
+    "docs/projects/index.qmd": [
+      "."
+    ],
     "index.qmd": [
       "/docs/blogs.yml",
       "/docs/projects.yml"
-    ],
-    "docs/projects/index.qmd": [
-      "."
     ]
   }
 }

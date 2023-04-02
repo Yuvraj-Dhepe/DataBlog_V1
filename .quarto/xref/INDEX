@@ -31,5 +31,8 @@
   },
   "docs/projects/index.qmd": {
     "index.html": "f7bc04b4"
+  },
+  "docs/projects/Youtube_API_EDA.ipynb": {
+    "Youtube_API_EDA.html": "cb126cc2"
   }
 }

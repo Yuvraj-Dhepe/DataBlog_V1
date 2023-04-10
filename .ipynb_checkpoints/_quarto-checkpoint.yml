@@ -17,16 +17,6 @@ website:
   reader-mode: true
   repo-url: https://github.com/quarto-dev/quarto-demo
   repo-actions: [edit,issue]
-  comments:
-      giscus:
-          repo: "Yuvraj-Dhepe/DataBlog_V1"
-          repo-id: "R_kgDOJMncgA"
-          category-id: "DIC_kwDOJMncgM4CVqbZ"
-          mapping: "title"
-          reactions-enabled: true
-          input-position: "top"
-          theme: "light_protanopia"
-          language: "en"
   
   page-footer:
     left: "This page is built with ❤️ and [Quarto](https://quarto.org)"
@@ -62,7 +52,17 @@ website:
       - icon: github
         href: https://github.com/Yuvraj-Dhepe
       
-
+  comments:
+      giscus:
+          repo: "Yuvraj-Dhepe/DataBlog_V1"
+          repo-id: "R_kgDOJMncgA"
+          category: "Announcements"
+          category-id: "DIC_kwDOJMncgM4CVqbZ"
+          mapping: "pathname"
+          reactions-enabled: true
+          input-position: "top"
+          theme: "light_protanopia"
+          language: "en"
 
   #sidebar:
     # - id: Projects

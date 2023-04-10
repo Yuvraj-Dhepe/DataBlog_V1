@@ -1,0 +1,19 @@
+---
+title: Data Projects
+description: My Projects From The Data field
+listing:
+  type: grid
+  sort: "date desc"
+  contents: "."
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  date-format: medium
+  fields: [image, date, title, author, description]
+  #feed: true
+page-layout: full
+#margin-header: signup.html
+title-block-banner: true
+title-block-banner-color: body
+search: false
+---

@@ -1,0 +1,18 @@
+---
+title: All About Data
+description: My Learnings From The Data field
+listing:
+  sort: "date desc"
+  contents: "."
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  date-format: medium
+  #feed: true
+
+page-layout: full
+#margin-header: signup.html
+title-block-banner: true
+title-block-banner-color: body
+search: false
+---

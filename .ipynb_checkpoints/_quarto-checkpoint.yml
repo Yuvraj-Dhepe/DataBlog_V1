@@ -1,0 +1,128 @@
+project:
+  type: website
+  output-dir: _site
+  preview:
+    port: 4200
+    browser: false
+
+website:
+  title: "Data Science Blog - Yuvraj Dhepe" 
+  #site-path
+  page-navigation: true 
+  image: images/lotus.jpg
+  favicon: images/lotus.jpg
+  open-graph: true
+  search:
+    type: overlay
+  reader-mode: true
+  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-actions: [edit,issue]
+  comments:
+      giscus:
+          repo: "Yuvraj-Dhepe/DataBlog_V1"
+          repo-id: "R_kgDOJMncgA"
+          category-id: "DIC_kwDOJMncgM4CVqbZ"
+          mapping: "title"
+          reactions-enabled: true
+          input-position: "top"
+          theme: "light_protanopia"
+          language: "en"
+  
+  page-footer:
+    left: "This page is built with ❤️ and [Quarto](https://quarto.org)"
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/
+        aria-label: "My LinkedIn"
+      - icon: github
+        href: https://github.com/Yuvraj-Dhepe
+        aria-label: "My Github"
+      - icon: medium
+        href: https://medium.com/@yuvrajdhepe        
+        aria-label: "My Medium"
+
+  navbar:
+    background: light
+    logo-href: index.qmd
+    collapse-below: lg
+    title: false
+    pinned: true
+    left: 
+      - text: Hello There
+        href: index.qmd
+      - text: "Projects"
+        href: docs/projects/index.qmd
+      - text: "Blog"
+        href: docs/blog/index.qmd
+        
+      #- text: "Notes"
+      # href: docs/notes/index.qmd
+      #  href: about.qmd
+    tools:
+      - icon: github
+        href: https://github.com/Yuvraj-Dhepe
+      
+
+
+  #sidebar:
+    # - id: Projects
+    #   title: "Projects"
+    #   style: "floating"
+    #   collapse-level: 1
+    #   type: light
+    #   background: dark
+    #   foreground: light
+    #   border: false
+    #   align: right
+    #   contents:
+    #     - text: "Guide"     
+    #       href: index.qmd
+        
+    #     - section: "Visualization based Projects"
+    #       contents:
+    #       - text: "P1"
+    #         href: "https://www.google.com/"
+    #       - text: "P2"
+    #         href: "https://www.microsoft.com/"
+
+    #     - section: "Modelling based Projects"
+    #       contents:
+    #         - text: "Projects"
+    #         - section: "Regression based Projects"
+    #           contents:
+    #             - text: "R1"  
+    #             - text: "R2"
+    #         - section: "Clustering based Projects"
+    #           contents:
+    #             - text: "C1"
+    #             - text: "C2"
+
+    #     - section: "Deep learning based Projects"
+    #       contents:
+    #         - text: "D1"
+    #         - text: "D2"
+    #     - section: "End-to-End Projects"
+    #       href: about.qmd 
+          
+
+    # - title: Notes
+    #   pinned: false
+    #   collapse-level: 1
+    #   style: docked
+
+
+format:
+  html:
+    toc: true
+    theme: 
+      dark: [superhero,theme-dark.scss]
+      light: [cosmo,theme.scss]
+    code-copy: true
+    code-overflow: wrap
+    css:
+      - styles.css
+editor: visual
+freeze: auto
+
+execute: 
+  freeze: auto

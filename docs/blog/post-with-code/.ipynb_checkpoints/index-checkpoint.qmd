@@ -1,0 +1,14 @@
+---
+title: "Using Callouts"
+subtitle: Use callouts to draw attention to important complementary content without interupting the document flow
+description: |
+  Callouts are an excellent way to draw extra attention to certain concepts, or to more clearly indicate that certain content is supplemental or applicable to only some scenarios.
+categories:
+  - Features
+  - Authoring
+author: Charles Teague
+date: 2/13/2022
+image: image.jpg
+---
+
+This is a post with executable code.

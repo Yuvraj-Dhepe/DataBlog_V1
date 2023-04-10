@@ -9,7 +9,7 @@ listing:
   filter-ui: false
   categories: true
   date-format: medium
-  fields: [image, date, title, author, reading-time, description]
+  fields: [image, date, title, author, description]
   #feed: true
 page-layout: full
 #margin-header: signup.html

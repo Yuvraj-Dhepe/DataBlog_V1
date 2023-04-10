@@ -1,3 +1,10 @@
+- title: "End to End Machine Learning Project on Student Performance Dataset"
+  path: /docs/projects/StudPerformance_end_to_end.ipynb
+  date: 2023-04-10
+  categories: [Jupyter, Quarto, nbdev]
+  description: |
+    Building the first end to end ML pipeline.
+
 - title: "AtliQ Hardware Sales Insights"
   path: /docs/projects/B1_Sales_Insights.qmd
   date: 2022-07-28

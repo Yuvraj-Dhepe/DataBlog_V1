@@ -1,0 +1,20 @@
+- title: "End to End Machine Learning Project on Student Performance Dataset"
+  path: /docs/projects/StudPerformance_end_to_end.ipynb
+  date: 2023-04-10
+  categories: [Jupyter, Quarto, nbdev]
+  description: |
+    Building the first end to end ML pipeline.
+
+- title: "AtliQ Hardware Sales Insights"
+  path: /docs/projects/B1_Sales_Insights.qmd
+  date: 2022-07-28
+  categories: [Jupyter, Quarto, nbdev]
+  description: |
+    Our favorite tool for software engineering productivity–nbdev, now re-written with Quarto.
+
+- title: "Spiritual Youtube Channels Data Scraping"
+  path: /docs/projects/Youtube_API_EDA.ipynb
+  date: 2022-02-09
+  categories: [Metaflow, Jupyter]
+  description: |
+   Introduces a new Metaflow feature that allows users to use notebooks in production ML workflows.

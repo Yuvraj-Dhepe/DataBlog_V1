@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Docker Basics P4">
+
+<title>Data Science Blog - Yuvraj Dhepe - Docker Tutorial Part 4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/lotus.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - Docker Tutorial Part 4">
+<meta property="og:description" content="Docker Basics P4">
+<meta property="og:image" content="https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/notes/images/docker.png">
+<meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
+<meta property="og:image:height" content="794">
+<meta property="og:image:width" content="960">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">Hello There</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docs/projects/index.html">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docs/blog/index.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docs/notes/index.html">
+ <span class="menu-text">Notes</span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#docker-multicontainer-apps" id="toc-docker-multicontainer-apps" class="nav-link active" data-scroll-target="#docker-multicontainer-apps">Docker MultiContainer Apps</a>
+  <ul class="collapse">
+  <li><a href="#why-multicontainer-apps" id="toc-why-multicontainer-apps" class="nav-link" data-scroll-target="#why-multicontainer-apps">Why MultiContainer Apps</a></li>
+  <li><a href="#container-networking" id="toc-container-networking" class="nav-link" data-scroll-target="#container-networking">Container networking</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
+  <li><a href="#using-docker-compose" id="toc-using-docker-compose" class="nav-link" data-scroll-target="#using-docker-compose">Using Docker Compose</a>
+  <ul class="collapse">
+  <li><a href="#installing-docker-compose" id="toc-installing-docker-compose" class="nav-link" data-scroll-target="#installing-docker-compose">Installing Docker Compose</a></li>
+  <li><a href="#creation-of-compose-file" id="toc-creation-of-compose-file" class="nav-link" data-scroll-target="#creation-of-compose-file">Creation of Compose file</a></li>
+  <li><a href="#running-the-application-stack" id="toc-running-the-application-stack" class="nav-link" data-scroll-target="#running-the-application-stack">Running the application stack</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/edit/main/docs/notes/Docker_Notes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Docker Tutorial Part 4</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Docker</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Docker Basics P4
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Mar 4, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="docker-multicontainer-apps" class="level2">
+<h2 class="anchored" data-anchor-id="docker-multicontainer-apps">Docker MultiContainer Apps</h2>
+<section id="why-multicontainer-apps" class="level3">
+<h3 class="anchored" data-anchor-id="why-multicontainer-apps">Why MultiContainer Apps</h3>
+<ul>
+<li><p>Once we have worked with the single container apps, being a data scientist, we need to deal with various processes, at the same time to interact with our data. For example we can have redis to cache the process, we can have MySql, MongoDb and much more. So where to run these other processes.</p></li>
+<li><p>In general the philosophy of docker is that each container should do one thing and do it well. So the few reasons because of which we will run any different process in a seperate container are:</p>
+<ul>
+<li>Scaling of API’s and front-ends differently than databases in our dummy example, but we can apply it to any process.</li>
+<li>Seperate containers allow one to version and update versions of different processes in isolation.</li>
+<li>Using a seperate container is a good habit, so that builds up the practice to use managed services in production, like for our example using a managed service for database in production, in this case we will not ship our database engine with the app.</li>
+<li>Running multiple processes together adds complexity to startup and shutdown of the processes, but this is simplified by using multiple containers.</li>
+</ul></li>
+<li><p>So with these reasons, it’s better to go with seperate containers for different processes for the application.</p></li>
+</ul>
+</section>
+<section id="container-networking" class="level3">
+<h3 class="anchored" data-anchor-id="container-networking">Container networking</h3>
+<ul>
+<li>Containers by default run in isolation and don’t know anythign about other processes or containers on the same machine.</li>
+<li>Thus to have multiple containers for different interlinked processes, like in our case, our frontend process communicating with the db at the backend, we need some sort of mechanism to make one container talk to the other.</li>
+<li>Here networking comes into play, if there are 2 containers on the same network they can talk to each other.</li>
+<li>There are 2 ways to do this communication possible.
+<ul>
+<li>Assign the network when starting the container</li>
+<li>Connect an already running container to a network.</li>
+</ul></li>
+</ul>
+<section id="lets-begin-with-mysql" class="level4">
+<h4 class="anchored" data-anchor-id="lets-begin-with-mysql">Lets begin with MySQL</h4>
+<ol type="1">
+<li>For MySQL we assign a network while starting the container.</li>
+</ol>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creation of a network</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>docker network create todo<span class="op">-</span>app</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="2" type="1">
+<li>Starting a MySQL container and attaching it to the network, here we are usign few env variables that the DB will use to initialize the db.</li>
+</ol>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="op">-</span>d <span class="op">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="op">--</span>network todo<span class="op">-</span>app <span class="op">--</span>network<span class="op">-</span>alias mysql <span class="op">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="op">-</span>v todo<span class="op">-</span>mysql<span class="op">-</span>data:<span class="op">/</span>var<span class="op">/</span>lib<span class="op">/</span>mysql <span class="op">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="op">-</span>e MYSQL_ROOT_PASSWORD<span class="op">=</span>secret <span class="op">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="op">-</span>e MYSQL_DATABASE<span class="op">=</span>todos <span class="op">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     mysql:<span class="fl">8.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Here the volume named as todo-mysql-data is mounted to /var/lib/mysql, and here it runs without creating a new volume via docker volume create command.</p>
+<ol start="3" type="1">
+<li>To confirm the database is up and running, we connect to db and verify that it connects.</li>
+</ol>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>docker <span class="bu">exec</span> <span class="op">-</span>it <span class="op">&lt;</span>mysql<span class="op">-</span>container<span class="op">-</span><span class="bu">id</span><span class="op">&gt;</span> mysql <span class="op">-</span>u root <span class="op">-</span>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="4" type="1">
+<li>For the password promp type <code>secret</code>. In the MySQL shell, list the databases and verify you see the todos databse.</li>
+</ol>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mysql<span class="op">&gt;</span> SHOW DATABASES<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="5" type="1">
+<li>The op will be something like this:</li>
+</ol>
+<pre class="{bash}"><code> +--------------------+
+ | Database           |
+ +--------------------+
+ | information_schema |
+ | mysql              |
+ | performance_schema |
+ | sys                |
+ | todos              |
+ +--------------------+
+ 5 rows in set (0.00 sec)</code></pre>
+<ol start="6" type="1">
+<li>Exit the MySQL shell to return to the shell on your machine.</li>
+</ol>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mysql<span class="op">&gt;</span> exit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>With all this setup we have a todos database ready for use on the network we created earlier.</p>
+</section>
+<section id="connecting-to-mysql" class="level4">
+<h4 class="anchored" data-anchor-id="connecting-to-mysql">Connecting to MySQl</h4>
+<ul>
+<li>This step is simply used to see it’s IP address of MySQL container.</li>
+<li>Now that MySQL is running we can use it, but now we need another container to connect to MySQL’s container, on the same network.
+<ul>
+<li>The question is how will the other container find the MySQL container… the solution is each container has it’s own IP address.</li>
+<li>To better understand container networking, you’re going to make use of the nicolaka/netshoot container, which ships with a lot of tools that are useful for troubleshooting or debugging networking issues.</li>
+</ul></li>
+<li>Start a new container using the nicolaka/netshoot image, and make sure, it is connected to the same network of todo.</li>
+</ul>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="op">-</span>it <span class="op">--</span>network todo<span class="op">-</span>app nicolaka<span class="op">/</span>netshoot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Inside the container, we’re going to use the dig command, which is a useful DNS too. We’re going to look up the IP address for the hostname mysql.</li>
+</ul>
+<pre class="{bash}"><code>dig mysql</code></pre>
+<ul>
+<li>The output of dig will be as follows</li>
+</ul>
+<pre class="{bash}"><code>; &lt;&lt;&gt;&gt; DiG 9.18.8 &lt;&lt;&gt;&gt; mysql
+ ;; global options: +cmd
+ ;; Got answer:
+ ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 32162
+ ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+ ;; QUESTION SECTION:
+ ;mysql.                IN  A
+
+ ;; ANSWER SECTION:
+ mysql.         600 IN  A   172.23.0.2
+
+ ;; Query time: 0 msec
+ ;; SERVER: 127.0.0.11#53(127.0.0.11)
+ ;; WHEN: Tue Oct 01 23:47:24 UTC 2019
+ ;; MSG SIZE  rcvd: 44</code></pre>
+<ul>
+<li>In the “ANSWER SECTION”, we see an A record for mysql that resolevs to 172.23.0.2 (your ip address may be different). While mysql isn’t normally a valid hostname, Docker was able to resolve it to the IP address of the container that had that network alias. Remember, the <code>--network-alias</code> used earlier with the creation of SQL container.
+<ul>
+<li>This means that our app only needs to connect to a host named <code>mysql</code> and it’ll talk to the database.</li>
+</ul></li>
+</ul>
+</section>
+<section id="running-the-app-with-mysql-container." class="level4">
+<h4 class="anchored" data-anchor-id="running-the-app-with-mysql-container.">Running the app with MySQL container.</h4>
+<ul>
+<li><p>Now once we know the ip address of MySQL container, we will simply connect our todo app’s container to it.</p></li>
+<li><p>The todo app supports a few MySQL env variables setup.</p>
+<ul>
+<li><code>MYSQL_HOST</code> - the hostname for the running MySQL server</li>
+<li><code>MYSQL_USER</code> - the username to use for the connection</li>
+<li><code>MYSQL_PASSWORD</code> - the password to use for the connection</li>
+<li><code>MYSQL_DB</code> - the database to use once connected</li>
+</ul></li>
+<li><p>While using env vars to set connection settings is generally accepted for development, it’s highly discouraged when running applications in production. Diogo Monica, a former lead of security at Docker, wrote a <a href="https://blog.diogomonica.com//2017/03/27/why-you-shouldnt-use-env-variables-for-secret-data/">fantastic blog post</a> explaining why.</p>
+<ul>
+<li>A more secure mechanism is to use the secret support provided by your container orchestration framework. In most cases, these secrets are mounted as files in the running container. You’ll see many apps (including the MySQL image and the todo app) also support env vars with a _FILE suffix to point to a file containing the variable.</li>
+<li>As an example, setting the MYSQL_PASSWORD_FILE var will cause the app to use the contents of the referenced file as the connection password. Docker doesn’t do anything to support these env vars. Your app will need to know to look for the variable and get the file contents.</li>
+</ul></li>
+<li><p>We can now start the dev-ready container.</p>
+<ul>
+<li>Specify each of the environment variables above, as well as connect the container to the app network from the <code>getting-started/app directory</code>.</li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="7">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="op">-</span>dp <span class="dv">3000</span>:<span class="dv">3000</span> <span class="op">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="op">-</span>w <span class="op">/</span>app <span class="op">-</span>v <span class="st">"$(pwd):/app"</span> \</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="op">--</span>network todo<span class="op">-</span>app <span class="op">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">-</span>e MYSQL_HOST<span class="op">=</span>mysql <span class="op">\</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>   <span class="op">-</span>e MYSQL_USER<span class="op">=</span>root <span class="op">\</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">-</span>e MYSQL_PASSWORD<span class="op">=</span>secret <span class="op">\</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">-</span>e MYSQL_DB<span class="op">=</span>todos <span class="op">\</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>   node:<span class="dv">18</span><span class="op">-</span>alpine <span class="op">\</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>   sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>If you look at the logs for the container (docker logs -f <container-id>), you should see a message similar to the following, which indicates it’s using the mysql database.</container-id></li>
+</ul>
+<div class="cell" data-execution_count="8">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nodemon src<span class="op">/</span>index.js</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> [nodemon] <span class="fl">2.0.20</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a> [nodemon] to restart at <span class="bu">any</span> time, enter `rs`</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> [nodemon] watching <span class="bu">dir</span>(s): <span class="op">*</span>.<span class="op">*</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a> [nodemon] starting `node src<span class="op">/</span>index.js`</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a> Connected to mysql db at host mysql</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a> Listening on port <span class="dv">3000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li><p>Open the app in your browser and add a few items to your todo list.</p></li>
+<li><p>Connect to the mysql database and prove that the items are being written to the database. Remember, the password is secret.</p></li>
+</ul>
+<div class="cell" data-execution_count="9">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>docker <span class="bu">exec</span> <span class="op">-</span>it <span class="op">&lt;</span>mysql<span class="op">-</span>container<span class="op">-</span><span class="bu">id</span><span class="op">&gt;</span> mysql <span class="op">-</span>p todos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>And in the mysql shell, run the following which will generate the output the items from the todo list:</li>
+</ul>
+<div class="cell" data-execution_count="10">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mysql<span class="op">&gt;</span> select <span class="op">*</span> <span class="im">from</span> todo_items<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<pre class="{bash}"><code> +--------------------------------------+--------------------+-----------+
+ | id                                   | name               | completed |
+ +--------------------------------------+--------------------+-----------+
+ | c906ff08-60e6-44e6-8f49-ed56a0853e85 | Do amazing things! |         0 |
+ | 2912a79e-8486-4bc3-a4c5-460793a575ab | Be awesome!        |         0 |
+ +--------------------------------------+--------------------+-----------+</code></pre>
+</section>
+</section>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next Steps</h3>
+<ul>
+<li>At this point we have an application that stores it’s data in an external database running in a separate container.
+<ul>
+<li>We learned a little bit about container networking and service discovery using DNS.</li>
+</ul></li>
+<li>But there’s a good chance you are starting to feel a little overwhelmed with everything you need to do start up this application. You have to create a network, start containers, specify all of the env variables, expose ports and more!. That’s a lot to remember and it’s actually making things harder to pass aloong to someone else.</li>
+<li>In the following section, we’ll see Docker Compose. With Docker compose, we can share the application stacks in a much easier way and let others spin them up with a single, simple command.</li>
+</ul>
+</section>
+</section>
+<section id="using-docker-compose" class="level2">
+<h2 class="anchored" data-anchor-id="using-docker-compose">Using Docker Compose</h2>
+<ul>
+<li>Docker compose is a tool that was developed to help define and share multi-container applications. With compose, we can create a YAML file to define the services and with a single command, which can spin everything up or tear it all down.</li>
+<li>The big advantage of compose is one can define the application stack in a file, keep it at the root of the project repo, and easily enable someone else to contribute to one’s project. Someone would only need to clone the repo and start the compose app.</li>
+</ul>
+<section id="installing-docker-compose" class="level3">
+<h3 class="anchored" data-anchor-id="installing-docker-compose">Installing Docker Compose</h3>
+<ul>
+<li>If you installed Docker Desktop/Toolbox for either Windows or Mac, you already have Docker Compose! Play-with-Docker instances already have Docker Compose installed as well.</li>
+</ul>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>$ docker compose version <span class="co">#check the installed version.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="creation-of-compose-file" class="level3">
+<h3 class="anchored" data-anchor-id="creation-of-compose-file">Creation of Compose file</h3>
+<ul>
+<li>At the root of the <code>/getting-started/app</code> folder, create a file named <code>docker-compose.yml</code></li>
+<li>In the compose file, we’ll start off by defining the list of services (or containers) we want to run as part of our application.</li>
+<li>Now we’ll start migrating a service at a time into the compose file.</li>
+</ul>
+<section id="define-the-app-service" class="level4">
+<h4 class="anchored" data-anchor-id="define-the-app-service">Define the app service</h4>
+<ul>
+<li>To remember, this was the command we were usign to define our app container.</li>
+</ul>
+<div class="cell" data-execution_count="12">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="op">-</span>dp <span class="dv">3000</span>:<span class="dv">3000</span> <span class="op">\</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>w <span class="op">/</span>app <span class="op">-</span>v <span class="st">"$(pwd):/app"</span> \</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">--</span>network todo<span class="op">-</span>app <span class="op">\</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>e MYSQL_HOST<span class="op">=</span>mysql <span class="op">\</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>e MYSQL_USER<span class="op">=</span>root <span class="op">\</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>e MYSQL_PASSWORD<span class="op">=</span>secret <span class="op">\</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>e MYSQL_DB<span class="op">=</span>todos <span class="op">\</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  node:<span class="dv">18</span><span class="op">-</span>alpine <span class="op">\</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>First, let’s define the service entry and the image for the container. We can pick any name for the service. The name will automatically become a network alias, which will be useful when defining our MySQL service.</li>
+</ul>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    image: node:<span class="dv">18</span><span class="op">-</span>alpine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Typically, you will see the command close to the image definition, although there is no requirement on ordering. So, let’s go ahead and move that into our file.</li>
+</ul>
+<div class="cell" data-execution_count="14">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    image: node:<span class="dv">18</span><span class="op">-</span>alpine</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    command: sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Let’s migrate the -p 3000:3000 part of the command by defining the ports for the service. We will use the short syntax here, but there is also a more verbose long syntax available as well.</li>
+</ul>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    image: node:<span class="dv">18</span><span class="op">-</span>alpine</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    command: sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    ports:</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> <span class="dv">3000</span>:<span class="dv">3000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Next, we’ll migrate both the working directory (-w /app) and the volume mapping (-v “$(pwd):/app”) by using the working_dir and volumes definitions. Volumes also has a short and long syntax. One advantage of Docker Compose volume definitions is we can use relative paths from the current directory.</li>
+</ul>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    image: node:<span class="dv">18</span><span class="op">-</span>alpine</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    command: sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    ports:</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> <span class="dv">3000</span>:<span class="dv">3000</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    working_dir: <span class="op">/</span>app</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    volumes:</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> .<span class="op">/</span>:<span class="op">/</span>app</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Finally, we need to migrate the environment variable definitions using the environment key.</li>
+</ul>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    image: node:<span class="dv">18</span><span class="op">-</span>alpine</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    command: sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    ports:</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> <span class="dv">3000</span>:<span class="dv">3000</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    working_dir: <span class="op">/</span>app</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    volumes:</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> .<span class="op">/</span>:<span class="op">/</span>app</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    environment:</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      MYSQL_HOST: mysql</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      MYSQL_USER: root</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>      MYSQL_PASSWORD: secret</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>      MYSQL_DB: todos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="define-the-app-service-1" class="level4">
+<h4 class="anchored" data-anchor-id="define-the-app-service-1">Define the app service</h4>
+<ul>
+<li>The command we used for the MySQL container earlier was:</li>
+</ul>
+<div class="cell" data-execution_count="18">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="op">-</span>d <span class="op">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">--</span>network todo<span class="op">-</span>app <span class="op">--</span>network<span class="op">-</span>alias mysql <span class="op">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>v todo<span class="op">-</span>mysql<span class="op">-</span>data:<span class="op">/</span>var<span class="op">/</span>lib<span class="op">/</span>mysql <span class="op">\</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>e MYSQL_ROOT_PASSWORD<span class="op">=</span>secret <span class="op">\</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span>e MYSQL_DATABASE<span class="op">=</span>todos <span class="op">\</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  mysql:<span class="fl">8.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>In our services section of <code>docker-compose.yml</code> file we add a new service and name it <code>mysql</code> so it automatically gets the network alias. We’ll go ahead and specify the image to use as well.</li>
+</ul>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The app service definition</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  mysql:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    image: mysql:<span class="fl">8.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Next we’ll define the volume mapping. When we ran the container with <code>docker run</code>, the named volume was created automatically. However, that doesn’t happen when running with Compose. We need to define the volume in the top-level volumes: section and then specify the mountpoint in the service config. By simply providing only the volume name, the default options are used. there are many options available though.</li>
+</ul>
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The app service definition</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  mysql:</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    image: mysql:<span class="fl">8.0</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    volumes:</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> todo<span class="op">-</span>mysql<span class="op">-</span>data:<span class="op">/</span>var<span class="op">/</span>lib<span class="op">/</span>mysql</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>volumes:</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  todo<span class="op">-</span>mysql<span class="op">-</span>data:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Finally, we only need to specify the environment variables.</li>
+</ul>
+<div class="cell" data-execution_count="21">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The app service definition</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  mysql:</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    image: mysql:<span class="fl">8.0</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    volumes:</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> todo<span class="op">-</span>mysql<span class="op">-</span>data:<span class="op">/</span>var<span class="op">/</span>lib<span class="op">/</span>mysql</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    environment:</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>      MYSQL_ROOT_PASSWORD: secret</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>      MYSQL_DATABASE: todos</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>volumes:</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  todo<span class="op">-</span>mysql<span class="op">-</span>data:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>At this point the <code>docker-compose.yml</code> should look like this:</li>
+</ul>
+<div class="cell" data-execution_count="22">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>services:</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  app:</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    image: node:<span class="dv">18</span><span class="op">-</span>alpine</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    command: sh <span class="op">-</span>c <span class="st">"yarn install &amp;&amp; yarn run dev"</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    ports:</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> <span class="dv">3000</span>:<span class="dv">3000</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    working_dir: <span class="op">/</span>app</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    volumes:</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> .<span class="op">/</span>:<span class="op">/</span>app</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    environment:</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>      MYSQL_HOST: mysql</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>      MYSQL_USER: root</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>      MYSQL_PASSWORD: secret</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>      MYSQL_DB: todos</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  mysql:</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    image: mysql:<span class="fl">8.0</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    volumes:</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>      <span class="op">-</span> todo<span class="op">-</span>mysql<span class="op">-</span>data:<span class="op">/</span>var<span class="op">/</span>lib<span class="op">/</span>mysql</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    environment:</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>      MYSQL_ROOT_PASSWORD: secret</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>      MYSQL_DATABASE: todos</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>volumes:</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  todo<span class="op">-</span>mysql<span class="op">-</span>data:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="running-the-application-stack" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-application-stack">Running the application stack</h3>
+<ul>
+<li>Now that we have our <code>docker-compose.yml</code> file, we can start it up!
+<ul>
+<li>Make sure no other copies of the app/db are running first (<code>docker ps</code> and <code>docker rm -f &lt;container-ids&gt;</code>)</li>
+<li>Startup the application using the docker compose up command. We’ll add the -d flag to run everything in the background. You;ll notic that the volume was created as well a network! By default, Docker compose automatically creates a network specifically for the application stack (which is why we didn’t define one in the compose file, like we did for connecting App &amp; MySQL container previously.)</li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="23">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>docker compose up <span class="op">-</span>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Let’s look at the logs using the <code>docker compose logs -f</code> command. You’ll see the logs from each of the services interleaved into a single stream. This is incredibly useful when you want to watch for timing-related issues. The -f flag “follows” the log, so will give you live output as it’s generated.</li>
+</ul>
+<p>If you have run the command already, you’ll see output that looks like this:</p>
+<pre class="{bash}"><code>mysql_1  | 2019-10-03T03:07:16.083639Z 0 [Note] mysqld: ready for connections.
+ mysql_1  | Version: '8.0.31'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
+ app_1    | Connected to mysql db at host mysql
+ app_1    | Listening on port 3000</code></pre>
+<ul>
+<li>The service name is displayed at the beginning of the line (often colored) to help distinguish messages. If you want to view the logs for a specific service, you can add the service name to the end of the logs command (for example, docker compose logs -f app).</li>
+<li>At this point, you should be able to open your app and see it running. And hey! We’re down to a single command!</li>
+</ul>
+<section id="tear-it-all-down" class="level4">
+<h4 class="anchored" data-anchor-id="tear-it-all-down">Tear it all down</h4>
+<ul>
+<li>When you’re ready to tear it all down, simply run <code>docker compose down</code> or hit the trash can on the Docker Dashboard for the entire app. The containers will stop and the network will be removed.</li>
+<li>Removing Volumes
+<ul>
+<li>By default, named volumes in your compose file are NOT removed when running docker compose down. If you want to remove the volumes, you will need to add the –volumes flag.</li>
+<li>The Docker Dashboard does not remove volumes when you delete the app stack.</li>
+</ul></li>
+<li>Once torn down, you can switch to another project, run docker compose up and be ready to contribute to that project! It really doesn’t get much simpler than that!</li>
+</ul>
+<p>In this section, you learned about Docker Compose and how it helps you dramatically simplify the defining and sharing of multi-service applications. You created a Compose file by translating the commands you were using into the appropriate compose format. With this we can end the tutorial, but yup don’t forget to keep up with the dockers and docking from the <a href="https://docs.docker.com/get-started/overview/">official guides</a>.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="Yuvraj-Dhepe/DataBlog_V1" data-repo-id="R_kgDOJMncgA" data-category="Announcements" data-category-id="DIC_kwDOJMncgM4CVqbZ" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org">Quarto</a></div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/">
+      <i class="bi bi-linkedin" role="img" aria-label="My LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Yuvraj-Dhepe">
+      <i class="bi bi-github" role="img" aria-label="My Github">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://medium.com/@yuvrajdhepe">
+      <i class="bi bi-medium" role="img" aria-label="My Medium">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

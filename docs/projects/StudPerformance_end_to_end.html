@@ -156,6 +156,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="../../docs/blog/index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docs/notes/index.html">
+ <span class="menu-text">Notes</span></a>
+  </li>  
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -430,9 +434,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Creation of train and predict pipelines modules that will be connected to the above components, and will be a pipeline connecting the frontend user and the backend model of Machine learning.</li>
 </ul></li>
 </ul>
+<section id="action-a3.1-creation-of-utilities-loggers-n-exceptions" class="level5">
+<h5 class="anchored" data-anchor-id="action-a3.1-creation-of-utilities-loggers-n-exceptions">Action A3.1: Creation of Utilities, Loggers n Exceptions</h5>
 </section>
-<section id="action-a3.1-creation-of-utilities-loggers-n-exceptions" class="level4">
-<h4 class="anchored" data-anchor-id="action-a3.1-creation-of-utilities-loggers-n-exceptions">Action A3.1: Creation of Utilities, Loggers n Exceptions</h4>
 <section id="action-a3.1.1-creation-of-utilities" class="level5">
 <h5 class="anchored" data-anchor-id="action-a3.1.1-creation-of-utilities">Action A3.1.1: Creation of Utilities</h5>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Common functionalities for the whole project: Utilities.py</span></span>
@@ -1061,6 +1065,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Data Scientists play a crucial role in both the train and predict pipelines. They must ensure that the training data is representative of the problem at hand, and that the model is trained and optimized to meet the desired level of accuracy. In addition, they must ensure that the predict pipeline is efficient and reliable, and that the model generates accurate predictions in real-time.</p></li>
 <li><p>Ultimately, the train and predict pipelines are essential to the machine learning process, as they allow Data Scientists to build and deploy models that can generate valuable insights and drive business decisions.</p></li>
 </ul>
+</section>
+</section>
+<section id="action-a4" class="level4">
+<h4 class="anchored" data-anchor-id="action-a4">Action A4</h4>
+<ul>
+<li>Deployment of Model into a production environment:
+<ul>
+<li>We will be doing the deployment of model locally first via use of flask.</li>
+<li>Later on we will use AWS to deploy the same flask application.</li>
+</ul></li>
+</ul>
+<section id="action-a4.1" class="level5">
+<h5 class="anchored" data-anchor-id="action-a4.1">Action A4.1</h5>
+<ul>
+<li>Following is the code of the flask application that will use the predict pipeline and flask api.
+<ul>
+<li>Flask api is used to fetch the data from the frontend to backend and vice-versa.</li>
+<li>This prediction pipeline makes predictions in the backend and finally the results are shared with the user by use of the Flask api.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, render_template</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.pipeline.predict_pipeline <span class="im">import</span> CustomData, PredictPipeline</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.exception <span class="im">import</span> CustomException</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.logger <span class="im">import</span> logging</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>application <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> application</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Route for a home page</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'index.html'</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/predictdata'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>,<span class="st">'POST'</span>])</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_datapoint():</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> request.method <span class="op">==</span> <span class="st">'GET'</span>:</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> render_template(<span class="st">'home.html'</span>)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> CustomData(</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>                gender <span class="op">=</span> request.form.get(<span class="st">'gender'</span>),</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>                race_ethnicity<span class="op">=</span>request.form.get(<span class="st">'ethnicity'</span>),</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>                parental_level_of_education<span class="op">=</span>request.form.get(<span class="st">'parental_level_of_education'</span>),</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>                lunch <span class="op">=</span> request.form.get(<span class="st">'lunch'</span>),</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>                test_preparation_course<span class="op">=</span>request.form.get(<span class="st">'test_preparation_course'</span>),</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>                reading_score<span class="op">=</span>request.form.get(<span class="st">'reading_score'</span>),</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>                writing_score<span class="op">=</span>request.form.get(<span class="st">'writing_score'</span>),</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>            pred_df <span class="op">=</span> data.get_data_as_data_frame()</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(pred_df)</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>            predict_pipeline <span class="op">=</span> PredictPipeline()</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>            results <span class="op">=</span> predict_pipeline.predict(pred_df)</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> render_template(<span class="st">'home.html'</span>,results <span class="op">=</span> results)</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>            logging.error(<span class="ss">f"Error occured while predicting the data:</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> render_template(<span class="st">'home.html'</span>,results <span class="op">=</span> e)</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span><span class="op">==</span><span class="st">'__main__'</span>:</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    app.run(host <span class="op">=</span> <span class="st">'0.0.0.0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="action-a4.2" class="level5">
+<h5 class="anchored" data-anchor-id="action-a4.2">Action A4.2</h5>
+<ul>
+<li>Components of Deployment
+<ul>
+<li>Elastic Beanstalk : Step 1 is this cloud environment creation.
+<ul>
+<li>It’s a kind of server or cloud environment of some instance, like a linux machine. On this instance we will be deploying our code.</li>
+<li>To run this Elastic Beanstalk, we need the config file, which we had setup earlier in the .ebextensions folder (present in the root directory of project), by creation of python.config file, containing the following code.</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">option_settings:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="st">"aws:elasticbeanstalk:container:python"</span><span class="ex">:</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">WSGIPath:</span> application:application</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>- Github Repo: Step 2 is creation of all the application code.
+    - This contains all the code of our application, now to deploy the code on the linux instance, there has to be a pipeline, connecting the github repo and the beanstalk server. Such a pipeline is called as a **code pipeline** in *AWS* . Whenever any changes happens in our code... the code pipelines makes real-time changes to the deployed application via help of a button.
+    - This pipeline in general is called as a continuous delivery pipeline.
+
+- Creation of a code pipeline</code></pre>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Beanstalk</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> Create Application</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section>

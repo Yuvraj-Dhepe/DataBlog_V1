@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A collection of technical blogs, notes and projects on machine learning and data science.">
+<meta name="description" content="Notes for everything that I will look up for self or share with someone else.">
 
-<title>Data Science Blog - Yuvraj Dhepe</title>
+<title>Data Science Blog - Yuvraj Dhepe - Notes on Tool, Concepts in the Data Industry</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,25 +24,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/lotus.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/lotus.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -65,76 +66,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-notes-listings .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-path","listing-date","listing-date-format","listing-categories","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-notes-listings'] = new List('listing-notes-listings', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-blog-listings .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-path","listing-date","listing-categories","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-blog-listings'] = new List('listing-blog-listings', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-project-listings .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
-      
-      searchColumns: ["listing-title","listing-path","listing-date","listing-categories","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-project-listings'] = new List('listing-project-listings', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -150,14 +95,13 @@ ul.task-list li input[type="checkbox"] {
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="">
-<meta property="og:description" content="A collection of technical blogs, notes and projects on machine learning and data science.">
-<meta property="og:image" content="https://github.com/Yuvraj-Dhepe/DataBlog_V1/lotus.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - Notes on Tool, Concepts in the Data Industry">
+<meta property="og:description" content="Notes for everything that I will look up for self or share with someone else.">
 <meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -169,19 +113,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Hello There</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./docs/projects/index.html">
+    <a class="nav-link" href="../../docs/projects/index.html">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./docs/blog/index.html">
+    <a class="nav-link" href="../../docs/blog/index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./docs/notes/index.html">
+    <a class="nav-link active" href="../../docs/notes/index.html" aria-current="page">
  <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -199,159 +143,83 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Notes on Tool, Concepts in the Data Industry</h1>
+                  <div>
+        <div class="description">
+          Notes for everything that I will look up for self or share with someone else.
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Docker">Docker <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="images/lotus.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <main class="content" id="quarto-document-content">
-<section id="about-me" class="level3">
-<h3 data-anchor-id="about-me">About Me</h3>
-<h4 style="text-align: justify;">
-Hello, I’m Yuvraj. Currently I am a student at University of Potsdam, Germany studying Data Science. I love communicating insights from the data extracted by using full-stack data science tools. I am an enthusiastic learner, curious about human behaviour and psychology. Passionate about driving technology to build sustainable bits for future generations.
-</h4>
-<hr>
-</section>
-<section id="education" class="level3">
-<h3 data-anchor-id="education">Education</h3>
-<ul>
-<li><h5 style="text-align: justify;">
-Masters In Data Science | University Of Potsdam, Germany | Oct 2022 - Ongoing
-</h5></li>
-<li><h5 style="text-align: justify;">
-Bachelors In Computer Science And Systems Engineering | Kalinga Institute of Industrial Technology, Bhubaneshwar, India | Jul 2018 – May 2022
-</h5></li>
-</ul>
-<hr>
-</section>
-<section id="get-in-touch" class="level3">
-<h3 data-anchor-id="get-in-touch">💼 Get In Touch</h3>
-<p>I’m open to work on Machine Learning and Deep Learning Projects, in computer vision, NLP and any other forms of Data Projects that can solve simple problems.</p>
-<p>Email me at <a href="mailto:yuvraj.dhepe22@gmail.com"><img src="./images/icon-gmail.png" class="img-fluid" style="width:3.0%"></a>, or DM me on <a href="https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/"><img src="./images/icon-linkedin.png" class="img-fluid" style="width:3.0%"></a></p>
-<hr>
-</section>
-<section id="latest-projects" class="level2">
-<h2 data-anchor-id="latest-projects"><img src="./images/icon-collaborate.png" class="img-fluid" style="width:11.0%"> Latest Projects</h2>
-<div id="listing-project-listings" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1681084800000" data-listing-title-sort="End to End Machine Learning Project on Student Performance Dataset">
-<td class="listing-date">
-4/10/23
-</td>
-<td class="listing-title">
-<a href="./docs/projects/StudPerformance_end_to_end.html" class="title">End to End Machine Learning Project on Student Performance Dataset</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1658966400000" data-listing-title-sort="AtliQ Hardware Sales Insights">
-<td class="listing-date">
-7/28/22
-</td>
-<td class="listing-title">
-<a href="./docs/projects/B1_Sales_Insights.html" class="title">AtliQ Hardware Sales Insights</a>
-</td>
-</tr>
-<tr data-index="2" data-categories="Metaflow,Jupyter" data-listing-date-sort="1644364800000" data-listing-title-sort="Spiritual Youtube Channels Data Scraping">
-<td class="listing-date">
-2/9/22
-</td>
-<td class="listing-title">
-<a href="./docs/projects/Youtube_API_EDA.html" class="title">Spiritual Youtube Channels Data Scraping</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="noting-down-currently" class="level2">
-<h2 data-anchor-id="noting-down-currently">📝 Noting Down Currently</h2>
-<div id="listing-notes-listings" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1678406400000" data-listing-title-sort="Docker Tutorial">
-<td class="listing-date">
-3/10/23
-</td>
-<td class="listing-title">
-<a href="./docs/notes/Docker_Notes.html" class="title">Docker Tutorial</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="recent-blog" class="level2">
-<h2 data-anchor-id="recent-blog">📮 Recent Blog</h2>
-<div id="listing-blog-listings" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1658966400000" data-listing-title-sort="Dummy Blog">
-<td class="listing-date">
-7/28/22
-</td>
-<td class="listing-title">
-<a href="./docs/blog/welcome" class="title">Dummy Blog</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="Metaflow,Jupyter" data-listing-date-sort="1644364800000" data-listing-title-sort="Dummy Blog">
-<td class="listing-date">
-2/9/22
-</td>
-<td class="listing-title">
-<a href="./docs/blog/post-with-code" class="title">Dummy Blog</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
-</section>
-</main>  
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Description
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="Docker" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1681316046794" data-listing-reading-time-sort="15.165" data-listing-title-sort="Docker Tutorial Part 4" data-listing-filename-sort="Docker_Notes.qmd">
+<td class="listing-image">
+<img src="../../docs/notes/images/docker.png" style="height: 40px;">
+</td>
+<td class="listing-date">
+Mar 4, 2023
+</td>
+<td class="listing-title">
+<a href="../../docs/notes/Docker_Notes.html" class="title">Docker Tutorial Part 4</a>
+</td>
+<td class="listing-description">
+Docker Basics P4
+</td>
+</tr>
+</tbody>
+
+</table>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
- <!-- /main -->
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -487,6 +355,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;

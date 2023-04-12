@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/docs/notes/Docker_Notes.html",
       "/docs/projects/StudPerformance_end_to_end.html",
       "/docs/projects/B1_Sales_Insights.html",
       "/docs/projects/Youtube_API_EDA.html"
@@ -20,6 +21,12 @@
       "/docs/projects/B1_Sales_Insights.html",
       "/docs/projects/StudPerformance_end_to_end.html",
       "/docs/projects/Youtube_API_EDA.html"
+    ]
+  },
+  {
+    "listing": "/docs/notes/index.html",
+    "items": [
+      "/docs/notes/Docker_Notes.html"
     ]
   }
 ]

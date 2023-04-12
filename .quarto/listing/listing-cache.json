@@ -8,7 +8,11 @@
     ],
     "index.qmd": [
       "/docs/blogs.yml",
-      "/docs/projects.yml"
+      "/docs/projects.yml",
+      "/docs/notes.yml"
+    ],
+    "docs/notes/index.qmd": [
+      "."
     ]
   }
 }

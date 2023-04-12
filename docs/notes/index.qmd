@@ -1,0 +1,20 @@
+---
+title: Notes on Tool, Concepts in the Data Industry
+description: Notes for everything that I will look up for self or share with someone else.
+listing:
+  type: table
+  sort: "date desc"
+  contents: "."
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  date-format: medium
+  fields: [image, date, title, description]
+  #feed: true
+  
+page-layout: full
+#margin-header: signup.html
+title-block-banner: true
+title-block-banner-color: body
+search: false
+---

@@ -1,0 +1,390 @@
+---
+title: "Docker Tutorial Part 4"
+description: "Docker Basics P4"
+date: Mar 04, 2023
+date-format: medium
+execute:
+  echo: true
+  eval: false
+  
+format:
+    html:
+        code-fold: true
+render-on-save: true
+jupyter: python3
+output:
+  quarto::html_document:
+    self_contained: false
+    keep_md: false
+
+categories:
+    - Docker    
+image: ./images/docker.png
+---
+
+## Docker MultiContainer Apps
+
+### Why MultiContainer Apps
+- Once we have worked with the single container apps, being a data scientist, we need to deal with various processes, at the same time to interact with our data. For example we can have redis to cache the process, we can have MySql, MongoDb and much more. So where to run these other processes.
+
+- In general the philosophy of docker is that each container should do one thing and do it well. So the few reasons because of which we will run any different process in a seperate container are:
+    - Scaling of API's and front-ends differently than databases in our dummy example, but we can apply it to any process.
+    - Seperate containers allow one to version and update versions of different processes in isolation.
+    - Using a seperate container is a good habit, so that builds up the practice to use managed services in production, like for our example using a managed service for database in production, in this case we will not ship our database engine with the app.
+    - Running multiple processes together adds complexity to startup and shutdown of the processes, but this is simplified by using multiple containers.
+    
+- So with these reasons, it's better to go with seperate containers for different processes for the application.
+
+### Container networking
+- Containers by default run in isolation and don't know anythign about other processes or containers on the same machine. 
+- Thus to have multiple containers for different interlinked processes, like in our case, our frontend process communicating with the db at the backend, we need some sort of mechanism to make one container talk to the other. 
+- Here networking comes into play, if there are 2 containers on the same network they can talk to each other.
+- There are 2 ways to do this communication possible.
+    - Assign the network when starting the container
+    - Connect an already running container to a network.
+
+#### Lets begin with MySQL 
+1. For MySQL we assign a network while starting the container.
+
+```{python}
+# Creation of a network
+docker network create todo-app
+```
+
+2. Starting a MySQL container and attaching it to the network, here we are usign few env variables that the DB will use to initialize the db. 
+```{python}
+docker run -d \
+     --network todo-app --network-alias mysql \
+     -v todo-mysql-data:/var/lib/mysql \
+     -e MYSQL_ROOT_PASSWORD=secret \
+     -e MYSQL_DATABASE=todos \
+     mysql:8.0
+```
+Here the volume named as todo-mysql-data is mounted to /var/lib/mysql, and here it runs without creating a new volume via docker volume create command.
+    
+3. To confirm the database is up and running, we connect to db and verify that it connects.
+```{python}
+docker exec -it <mysql-container-id> mysql -u root -p
+```
+
+4. For the password promp type `secret`. In the MySQL shell, list the databases and verify you see the todos databse.
+```{python}
+mysql> SHOW DATABASES;
+```
+
+5. The op will be something like this:
+```{bash} 
+ +--------------------+
+ | Database           |
+ +--------------------+
+ | information_schema |
+ | mysql              |
+ | performance_schema |
+ | sys                |
+ | todos              |
+ +--------------------+
+ 5 rows in set (0.00 sec)
+```
+
+6. Exit the MySQL shell to return to the shell on your machine.
+```{python}
+mysql> exit
+```
+With all this setup we have a todos database ready for use on the network we created earlier.
+
+#### Connecting to MySQl 
+- This step is simply used to see it's IP address of MySQL container.
+- Now that MySQL is running we can use it, but now we need another container to connect to MySQL's container, on the same network.
+    - The question is how will the other container find the MySQL container... the solution is each container has it's own IP address.
+    - To better understand container networking, you’re going to make use of the nicolaka/netshoot container, which ships with a lot of tools that are useful for troubleshooting or debugging networking issues.
+    
+- Start a new container using the nicolaka/netshoot image, and make sure, it is connected to the same network of todo.
+```{python}
+docker run -it --network todo-app nicolaka/netshoot
+```
+- Inside the container, we're going to use the dig command, which is a useful DNS too. We're going to look up the IP address for the hostname mysql.
+``` {bash}
+dig mysql
+```
+- The output of dig will be as follows
+```{bash}
+; <<>> DiG 9.18.8 <<>> mysql
+ ;; global options: +cmd
+ ;; Got answer:
+ ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 32162
+ ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+ ;; QUESTION SECTION:
+ ;mysql.				IN	A
+
+ ;; ANSWER SECTION:
+ mysql.			600	IN	A	172.23.0.2
+
+ ;; Query time: 0 msec
+ ;; SERVER: 127.0.0.11#53(127.0.0.11)
+ ;; WHEN: Tue Oct 01 23:47:24 UTC 2019
+ ;; MSG SIZE  rcvd: 44
+```
+
+- In the "ANSWER SECTION", we see an A record for mysql that resolevs to 172.23.0.2 (your ip address may be different). While mysql isn't normally a valid hostname, Docker was able to resolve it to the IP address of the container that had that network alias. Remember, the `--network-alias` used earlier with the creation of SQL container.
+    - This means that our app only needs to connect to a host named `mysql` and it'll talk to the database.
+
+#### Running the app with MySQL container.
+- Now once we know the ip address of MySQL container, we will simply connect our todo app's container to it.
+
+- The todo app supports a few MySQL env variables setup.
+    - `MYSQL_HOST` - the hostname for the running MySQL server
+    - `MYSQL_USER` - the username to use for the connection
+    - `MYSQL_PASSWORD` - the password to use for the connection
+    - `MYSQL_DB` - the database to use once connected
+    
+- While using env vars to set connection settings is generally accepted for development, it’s highly discouraged when running applications in production. Diogo Monica, a former lead of security at Docker, wrote a [fantastic blog post](https://blog.diogomonica.com//2017/03/27/why-you-shouldnt-use-env-variables-for-secret-data/) explaining why.
+    - A more secure mechanism is to use the secret support provided by your container orchestration framework. In most cases, these secrets are mounted as files in the running container. You’ll see many apps (including the MySQL image and the todo app) also support env vars with a _FILE suffix to point to a file containing the variable.
+    - As an example, setting the MYSQL_PASSWORD_FILE var will cause the app to use the contents of the referenced file as the connection password. Docker doesn’t do anything to support these env vars. Your app will need to know to look for the variable and get the file contents.
+    
+- We can now start the dev-ready container.
+    - Specify each of the environment variables above, as well as connect the container to the app network from the `getting-started/app directory`.
+```{python}
+docker run -dp 3000:3000 \
+   -w /app -v "$(pwd):/app" \
+   --network todo-app \
+   -e MYSQL_HOST=mysql \
+   -e MYSQL_USER=root \
+   -e MYSQL_PASSWORD=secret \
+   -e MYSQL_DB=todos \
+   node:18-alpine \
+   sh -c "yarn install && yarn run dev"
+```
+- If you look at the logs for the container (docker logs -f <container-id>), you should see a message similar to the following, which indicates it’s using the mysql database.
+```{python}
+nodemon src/index.js
+ [nodemon] 2.0.20
+ [nodemon] to restart at any time, enter `rs`
+ [nodemon] watching dir(s): *.*
+ [nodemon] starting `node src/index.js`
+ Connected to mysql db at host mysql
+ Listening on port 3000
+```
+- Open the app in your browser and add a few items to your todo list.
+
+- Connect to the mysql database and prove that the items are being written to the database. Remember, the password is secret.
+```{python}
+docker exec -it <mysql-container-id> mysql -p todos
+```
+
+- And in the mysql shell, run the following which will generate the output the items from the todo list:
+```{python}
+mysql> select * from todo_items;
+```
+
+```{bash}
+ +--------------------------------------+--------------------+-----------+
+ | id                                   | name               | completed |
+ +--------------------------------------+--------------------+-----------+
+ | c906ff08-60e6-44e6-8f49-ed56a0853e85 | Do amazing things! |         0 |
+ | 2912a79e-8486-4bc3-a4c5-460793a575ab | Be awesome!        |         0 |
+ +--------------------------------------+--------------------+-----------+
+```
+
+### Next Steps
+- At this point we have an application that stores it's data in an external database running in a separate container. 
+    - We learned a little bit about container networking and service discovery using DNS.
+- But there's a good chance you are starting to feel a little overwhelmed with everything you need to do start up this application. You have to create a network, start containers, specify all of the env variables, expose ports and more!. That's a lot to remember and it's actually making things harder to pass aloong to someone else.
+- In the following section, we'll see Docker Compose. With Docker compose, we can share the application stacks in a much easier way and let others spin them up with a single, simple command.
+
+
+## Using Docker Compose
+- Docker compose is a tool that was developed to help define and share multi-container applications. With compose, we can create a YAML file to define the services and with a single command, which can spin everything up or tear it all down.
+- The big advantage of compose is one can define the application stack in a file, keep it at the root of the project repo, and easily enable someone else to contribute to one's project. Someone would only need to clone the repo and start the compose app.
+
+### Installing Docker Compose
+- If you installed Docker Desktop/Toolbox for either Windows or Mac, you already have Docker Compose! Play-with-Docker instances already have Docker Compose installed as well.
+
+```{python}
+$ docker compose version #check the installed version.
+```
+
+### Creation of Compose file
+- At the root of the `/getting-started/app` folder, create a file named `docker-compose.yml`
+- In the compose file, we'll start off by defining the list of services (or containers) we want to run as part of our application.
+- Now we'll start migrating a service at a time into the compose file.
+
+#### Define the app service
+- To remember, this was the command we were usign to define our app container.
+```{python}
+docker run -dp 3000:3000 \
+  -w /app -v "$(pwd):/app" \
+  --network todo-app \
+  -e MYSQL_HOST=mysql \
+  -e MYSQL_USER=root \
+  -e MYSQL_PASSWORD=secret \
+  -e MYSQL_DB=todos \
+  node:18-alpine \
+  sh -c "yarn install && yarn run dev"
+```
+- First, let’s define the service entry and the image for the container. We can pick any name for the service. The name will automatically become a network alias, which will be useful when defining our MySQL service.
+
+```{python}
+services:
+  app:
+    image: node:18-alpine
+```
+
+- Typically, you will see the command close to the image definition, although there is no requirement on ordering. So, let’s go ahead and move that into our file.
+```{python}
+services:
+  app:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+```
+- Let’s migrate the -p 3000:3000 part of the command by defining the ports for the service. We will use the short syntax here, but there is also a more verbose long syntax available as well.
+```{python}
+services:
+  app:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+```
+- Next, we’ll migrate both the working directory (-w /app) and the volume mapping (-v "$(pwd):/app") by using the working_dir and volumes definitions. Volumes also has a short and long syntax. One advantage of Docker Compose volume definitions is we can use relative paths from the current directory.
+
+```{python}
+services:
+  app:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+```
+- Finally, we need to migrate the environment variable definitions using the environment key.
+
+```{python}
+services:
+  app:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+```
+
+#### Define the app service
+- The command we used for the MySQL container earlier was:
+
+```{python}
+docker run -d \
+  --network todo-app --network-alias mysql \
+  -v todo-mysql-data:/var/lib/mysql \
+  -e MYSQL_ROOT_PASSWORD=secret \
+  -e MYSQL_DATABASE=todos \
+  mysql:8.0
+```
+
+- In our services section of `docker-compose.yml` file we add a new service and name it `mysql` so it automatically gets the network alias. We'll go ahead and specify the image to use as well.
+```{python}
+services:
+  app:
+    # The app service definition
+  mysql:
+    image: mysql:8.0
+```
+
+- Next we'll define the volume mapping. When we ran the container with `docker run`, the named volume was created automatically. However, that doesn't happen when running with Compose. We need to define the volume in the top-level volumes: section and then specify the mountpoint in the service config. By simply providing only the volume name, the default options are used. there are many options available though.
+```{python}
+services:
+  app:
+    # The app service definition
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+
+volumes:
+  todo-mysql-data:
+```
+
+- Finally, we only need to specify the environment variables.
+```{python}
+services:
+  app:
+    # The app service definition
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+volumes:
+  todo-mysql-data:
+```
+
+- At this point the `docker-compose.yml` should look like this:
+```{python}
+services:
+  app:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+volumes:
+  todo-mysql-data:
+```
+
+### Running the application stack
+- Now that we have our `docker-compose.yml` file, we can start it up!
+    - Make sure no other copies of the app/db are running first (`docker ps` and `docker rm -f <container-ids>`)
+    - Startup the application using the docker compose up command. We'll add the -d flag to run everything in the background. You;ll notic that the volume was created as well a network! By default, Docker compose automatically creates a network specifically for the application stack (which is why we didn't define one in the compose file, like we did for connecting App & MySQL container previously.)
+
+```{python}
+docker compose up -d
+```
+
+- Let’s look at the logs using the `docker compose logs -f` command. You’ll see the logs from each of the services interleaved into a single stream. This is incredibly useful when you want to watch for timing-related issues. The -f flag “follows” the log, so will give you live output as it’s generated.
+
+If you have run the command already, you’ll see output that looks like this:
+```{bash}
+mysql_1  | 2019-10-03T03:07:16.083639Z 0 [Note] mysqld: ready for connections.
+ mysql_1  | Version: '8.0.31'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
+ app_1    | Connected to mysql db at host mysql
+ app_1    | Listening on port 3000
+```
+- The service name is displayed at the beginning of the line (often colored) to help distinguish messages. If you want to view the logs for a specific service, you can add the service name to the end of the logs command (for example, docker compose logs -f app).
+- At this point, you should be able to open your app and see it running. And hey! We’re down to a single command!
+
+#### Tear it all down
+- When you’re ready to tear it all down, simply run `docker compose down` or hit the trash can on the Docker Dashboard for the entire app. The containers will stop and the network will be removed.
+- Removing Volumes
+    - By default, named volumes in your compose file are NOT removed when running docker compose down. If you want to remove the volumes, you will need to add the --volumes flag.
+    - The Docker Dashboard does not remove volumes when you delete the app stack.
+- Once torn down, you can switch to another project, run docker compose up and be ready to contribute to that project! It really doesn’t get much simpler than that!
+
+In this section, you learned about Docker Compose and how it helps you dramatically simplify the defining and sharing of multi-service applications. You created a Compose file by translating the commands you were using into the appropriate compose format. With this we can end the tutorial, but yup don't forget to keep up with the dockers and docking from the [official guides](https://docs.docker.com/get-started/overview/).

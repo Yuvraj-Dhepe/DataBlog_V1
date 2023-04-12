@@ -65,6 +65,34 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-notes-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-path","listing-date","listing-categories","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-notes-listings'] = new List('listing-notes-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-blog-listings .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -125,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="">
 <meta property="og:description" content="A collection of technical blogs, notes and projects on machine learning and data science.">
-<meta property="og:image" content="https://quartopub.com/sites/yuvraj-dhepe/data-science-blog/lotus.png">
+<meta property="og:image" content="lotus.png">
 <meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
 </head>
 
@@ -151,6 +179,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./docs/blog/index.html">
  <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./docs/notes/index.html">
+ <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -201,44 +233,6 @@ Bachelors In Computer Science And Systems Engineering | Kalinga Institute of Ind
 <p>Email me at <a href="mailto:yuvraj.dhepe22@gmail.com"><img src="./images/icon-gmail.png" class="img-fluid" style="width:3.0%"></a>, or DM me on <a href="https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/"><img src="./images/icon-linkedin.png" class="img-fluid" style="width:3.0%"></a></p>
 <hr>
 </section>
-<section id="recent-blogs" class="level2">
-<h2 data-anchor-id="recent-blogs">📮 Recent Blogs</h2>
-<div id="listing-blog-listings" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1658959200000" data-listing-title-sort="Blog 1">
-<td class="listing-date">
-7/28/22
-</td>
-<td class="listing-title">
-<a href="./docs/blog/welcome" class="title">Blog 1</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="Metaflow,Jupyter" data-listing-date-sort="1644361200000" data-listing-title-sort="Blog 2">
-<td class="listing-date">
-2/9/22
-</td>
-<td class="listing-title">
-<a href="./docs/blog/post-with-code" class="title">Blog 2</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
 <section id="latest-projects" class="level2">
 <h2 data-anchor-id="latest-projects"><img src="./images/icon-collaborate.png" class="img-fluid" style="width:11.0%"> Latest Projects</h2>
 <div id="listing-project-listings" class="quarto-listing quarto-listing-container-table">
@@ -276,6 +270,74 @@ Title
 </td>
 <td class="listing-title">
 <a href="./docs/projects/Youtube_API_EDA.html" class="title">Spiritual Youtube Channels Data Scraping</a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="noting-down-currently" class="level2">
+<h2 data-anchor-id="noting-down-currently">📝 Noting Down Currently</h2>
+<div id="listing-notes-listings" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1681077600000" data-listing-title-sort="Docker Tutorial">
+<td class="listing-date">
+4/10/23
+</td>
+<td class="listing-title">
+<a href="./docs/notes/Docker_Notes.html" class="title">Docker Tutorial</a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="recent-blog" class="level2">
+<h2 data-anchor-id="recent-blog">📮 Recent Blog</h2>
+<div id="listing-blog-listings" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="Jupyter,Quarto,nbdev" data-listing-date-sort="1658959200000" data-listing-title-sort="Dummy Blog">
+<td class="listing-date">
+7/28/22
+</td>
+<td class="listing-title">
+<a href="./docs/blog/welcome" class="title">Dummy Blog</a>
+</td>
+</tr>
+<tr data-index="1" data-categories="Metaflow,Jupyter" data-listing-date-sort="1644361200000" data-listing-title-sort="Dummy Blog">
+<td class="listing-date">
+2/9/22
+</td>
+<td class="listing-title">
+<a href="./docs/blog/post-with-code" class="title">Dummy Blog</a>
 </td>
 </tr>
 </tbody>

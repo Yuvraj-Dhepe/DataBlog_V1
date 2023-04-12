@@ -9,6 +9,17 @@ about:
   image: images/lotus.jpg
   
 listing:
+  - id: notes-listings
+    date-format: short
+    feed: false
+    filter-ui: false
+    type: table
+    sort-ui: false
+    sort: "date desc"
+    categories: false
+    fields: [date, title]
+    contents: [/docs/notes.yml]
+
   - id: blog-listings
     date-format: short
     feed: false
@@ -56,11 +67,17 @@ Email me at [![](./images/icon-gmail.png){width="3%"}](mailto:yuvraj.dhepe22@gma
 
 ---
 
-## 📮 Recent Blogs
+## ![](./images/icon-collaborate.png){width="11%"} Latest Projects
 
-::: {#blog-listings}
+::: {#project-listings}
 :::
 
-## ![](./images/icon-collaborate.png){width="11%"} Latest Projects
-::: {#project-listings}
+## 📝 Noting Down Currently
+
+::: {#notes-listings}
+:::
+
+## 📮 Recent Blog
+
+::: {#blog-listings}
 :::

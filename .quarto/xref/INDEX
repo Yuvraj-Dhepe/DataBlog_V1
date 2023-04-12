@@ -37,5 +37,11 @@
   },
   "docs/projects/StudPerformance_end_to_end.ipynb": {
     "StudPerformance_end_to_end.html": "cd45ca89"
+  },
+  "docs/notes/Docker_Notes.qmd": {
+    "Docker_Notes.html": "5380583b"
+  },
+  "docs/notes/index.qmd": {
+    "index.html": "01824d92"
   }
 }

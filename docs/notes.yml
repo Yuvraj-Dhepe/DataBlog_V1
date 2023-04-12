@@ -1,0 +1,7 @@
+- title: "Docker Tutorial"
+  path: /docs/notes/Docker_Notes.qmd
+  date: Mar 10, 2023
+  date-format: medium
+  categories: [Jupyter, Quarto, nbdev]
+  description: |
+    Favorite Whale

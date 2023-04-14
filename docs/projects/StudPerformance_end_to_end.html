@@ -338,10 +338,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <section id="task-t2.1-setup-file" class="level5">
 <h5 class="anchored" data-anchor-id="task-t2.1-setup-file">Task T2.1: Setup File</h5>
-<ul>
-<li>Code for setup file,</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setuptools <span class="im">import</span> find_packages,setup</span>
+<div class="cell" data-tags="[]">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> setuptools <span class="im">import</span> find_packages,setup</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_requirements(file_path:<span class="bu">str</span>)<span class="op">-&gt;</span>List[<span class="bu">str</span>]:</span>
@@ -368,6 +368,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    packages<span class="op">=</span>find_packages(), <span class="co"># This will use the codes or modules that we write for our ML pipeline, to ensure that our every module can be used for building the package, we have a __init__.py in src, or any directory that can be reused.</span></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    install_requires<span class="op">=</span>get_requirements(<span class="st">'requirements.txt'</span>) </span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <ul>
 <li>contents of requirements.txt file</li>
 </ul>
@@ -440,7 +442,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="action-a3.1.1-creation-of-utilities" class="level5">
 <h5 class="anchored" data-anchor-id="action-a3.1.1-creation-of-utilities">Action A3.1.1: Creation of Utilities</h5>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Common functionalities for the whole project: Utilities.py</span></span>
+<div class="cell" data-tags="[]">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Common functionalities for the whole project: Utilities.py</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -501,10 +506,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> CustomException(e,sys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="action-a3.1.2-creation-of-logger" class="level5">
 <h5 class="anchored" data-anchor-id="action-a3.1.2-creation-of-logger">Action A3.1.2: Creation of Logger</h5>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logger is for the purpose of logging all the events in the program from execution to termination.</span></span>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logger is for the purpose of logging all the events in the program from execution to termination.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, whenever there is an exception, we can log the exception info in a file via use of logger.</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read logger documentation at https://docs.python.org/3/library/logging.html</span></span>
@@ -529,46 +539,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    logging.warning(<span class="st">"This is a warning log"</span>)</span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    logging.error(<span class="st">"This is an error log"</span>)</span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    logging.critical(<span class="st">"This is a critical log"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="action-a3.1.3-creation-of-exception.py" class="level5">
 <h5 class="anchored" data-anchor-id="action-a3.1.3-creation-of-exception.py">Action A3.1.3: Creation of Exception.py</h5>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We use this custom exception handling in the project to handle all the errors that will come into the project, simply we can say that we are handling all the errors that will come into the project in a single place.</span></span>
+<div class="cell" data-tags="[]">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We use this custom exception handling in the project to handle all the errors that will come into the project, simply we can say that we are handling all the errors that will come into the project in a single place.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sys module in python provides various functions and variables that are used to manipulate different parts of the python runtime environment. It allows operating on the python interpreter as it provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read more about sys module here: https://docs.python.org/3/library/sys.html</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.logger <span class="im">import</span> logging</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sys module in python provides various functions and variables that are used to manipulate different parts of the python runtime environment. It allows operating on the python interpreter as it provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read more about sys module here: https://docs.python.org/3/library/sys.html</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.logger <span class="im">import</span> logging</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_message_detail(error,error_detail:sys):</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    _,_,exec_tb <span class="op">=</span> error_detail.exc_info()</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> exec_tb.tb_frame.f_code.co_filename</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    error_message <span class="op">=</span> <span class="ss">f"Error occured in python script name </span><span class="sc">{</span>file_name<span class="sc">}</span><span class="ss"> on line number </span><span class="sc">{</span>exec_tb<span class="sc">.</span>tb_lineno<span class="sc">}</span><span class="ss"> and error is </span><span class="sc">{</span><span class="bu">str</span>(error)<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> error_message</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomException(<span class="pp">Exception</span>):</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,error_message,error_detail:sys):</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(error_message)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.error_message <span class="op">=</span> error_message_detail(error_message,error_detail<span class="op">=</span> error_detail)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">#self.error_detail = error_detail        </span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>error_message<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Read more about custom exception handling here: https://www.programiz.com/python-programming/user-defined-exception</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> a<span class="op">/</span>b</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(c)</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>        logging.error(e)</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> CustomException(e,error_detail<span class="op">=</span>sys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_message_detail(error,error_detail:sys):</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    _,_,exec_tb <span class="op">=</span> error_detail.exc_info()</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    file_name <span class="op">=</span> exec_tb.tb_frame.f_code.co_filename</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    error_message <span class="op">=</span> <span class="ss">f"Error occured in python script name </span><span class="sc">{</span>file_name<span class="sc">}</span><span class="ss"> on line number </span><span class="sc">{</span>exec_tb<span class="sc">.</span>tb_lineno<span class="sc">}</span><span class="ss"> and error is </span><span class="sc">{</span><span class="bu">str</span>(error)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> error_message</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomException(<span class="pp">Exception</span>):</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,error_message,error_detail:sys):</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(error_message)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.error_message <span class="op">=</span> error_message_detail(error_message,error_detail<span class="op">=</span> error_detail)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">#self.error_detail = error_detail        </span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>error_message<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Read more about custom exception handling here: https://www.programiz.com/python-programming/user-defined-exception</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> a<span class="op">/</span>b</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(c)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>        logging.error(e)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> CustomException(e,error_detail<span class="op">=</span>sys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="action-a3.2-creation-of-components" class="level5">
 <h5 class="anchored" data-anchor-id="action-a3.2-creation-of-components">Action A3.2: Creation of Components</h5>
@@ -585,7 +601,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Data ingestion is a crucial step in any project that involves handling data. This process involves extracting data from different sources, such as databases or warehouses, and loading it into a centralized location, such as a data warehouse, data lake, or data mart. Typically, this task is performed by a specialized big data team, whose responsibility is to ensure that data is obtained from various sources and stored in different formats, such as Hadoop or MongoDB.</li>
 <li>As Data Scientists, it’s essential to have knowledge of how to extract data from different sources, such as Hadoop, MongoDB, MySQL, or Oracle, and make it available for analysis. Since data is a critical asset in any project, understanding the process of data ingestion is vital to ensure that the data is organized and stored in a way that facilitates analysis.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -654,6 +673,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>    modeltrainer <span class="op">=</span> ModelTrainer()</span>
 <span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(modeltrainer.initiate_model_trainer(train_arr, test_arr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="a3.2.1-data-transformation-component" class="level5">
 <h5 class="anchored" data-anchor-id="a3.2.1-data-transformation-component">A3.2.1 Data Transformation Component</h5>
@@ -667,7 +688,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>A data transformation component is a crucial part of the data science process, which involves transforming raw data into a format that can be used for analysis. Data Scientists play a vital role in this process as they use various techniques such as feature engineering, feature selection, feature scaling, data cleaning, and handling null values to ensure the quality of data used for analysis. By understanding the process of data transformation, Data Scientists can generate valuable insights from raw data and make informed business decisions.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -790,6 +814,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>                </span>
 <span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CustomException(e,sys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="a3.1.1-model-trainer-component" class="level5">
 <h5 class="anchored" data-anchor-id="a3.1.1-model-trainer-component">A3.1.1 Model Trainer Component</h5>
@@ -801,7 +827,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>The model trainer component is responsible for training machine learning models on the transformed data. Data Scientists use this component to select an appropriate algorithm, tune hyperparameters, and train the model on the data. The trained model is then evaluated for its performance, and if it meets the desired level of accuracy, it is deployed for production use. The role of Data Scientists in this component is to select and fine-tune the machine learning models that best fit the problem at hand, and ensure that the models meet the business requirements. Ultimately, the model trainer component helps Data Scientists to generate insights and make predictions that can drive business decisions.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<div class="cell" data-tags="[]">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dataclasses <span class="im">import</span> dataclass</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -922,6 +951,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CustomException(e,sys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="action-a3.3-creation-of-train-and-predict-pipelines" class="level5">
 <h5 class="anchored" data-anchor-id="action-a3.3-creation-of-train-and-predict-pipelines">Action A3.3: Creation of train and predict pipelines</h5>
@@ -940,7 +971,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>To run this pipeline, and train models, simply run the file with appropriate raw data</li>
 </ul>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>python3 .<span class="op">/</span>src<span class="op">/</span>pipeline<span class="op">/</span>train_pipeline.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Pipeline File</span></span>
+<div class="cell" data-tags="[]">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train Pipeline File</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.logger <span class="im">import</span> logging</span>
@@ -978,6 +1012,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
 <span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    train_pipeline_obj <span class="op">=</span> TrainPipeline(<span class="st">"data/NewSPerformance.csv"</span>)</span>
 <span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    train_pipeline_obj.train()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 </section>
 <section id="a3.3.2-predict-pipeline-component" class="level5">
@@ -989,7 +1025,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>PredictPipeline class, takes the CustomData class returned df object as features, scales them via the DT component generated transformer and finally, makes predictions by using the best model, from the MT component and showcases them back to the user.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction pipeline file.</span></span>
+<div class="cell" data-tags="[]">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction pipeline file.</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.exception <span class="im">import</span> CustomException</span>
@@ -1060,6 +1099,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
 <span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> CustomException(e, sys)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <ul>
 <li><p>The train and predict pipelines are a critical component of the machine learning process. The train pipeline is responsible for training the machine learning model on the training data. This process involves selecting an appropriate algorithm, fine-tuning hyperparameters, and fitting the model to the training data.</p></li>
 <li><p>Once the model is trained, it is deployed to the predict pipeline, which is responsible for making predictions on new data. The predict pipeline involves processing the data, applying any necessary transformations, and using the trained model to generate predictions.</p></li>
@@ -1088,20 +1129,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>This local app can be directly run by running python application.py in the terminal.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, render_template</span>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, render_template</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.pipeline.predict_pipeline <span class="im">import</span> CustomData, PredictPipeline</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.exception <span class="im">import</span> CustomException</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.logger <span class="im">import</span> logging</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>application <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> application</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Route for a home page</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>application <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> application</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">## Route for a home page</span></span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'index.html'</span>)</span>
@@ -1136,7 +1180,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> render_template(<span class="st">'home.html'</span>,results <span class="op">=</span> e)</span>
 <span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span><span class="op">==</span><span class="st">'__main__'</span>:</span>
-<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    app.run(host <span class="op">=</span> <span class="st">'0.0.0.0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    port <span class="op">=</span> <span class="bu">int</span>(os.environ.get(<span class="st">"PORT"</span>, <span class="dv">8080</span>))</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>    app.run(host<span class="op">=</span><span class="st">'0.0.0.0'</span>, port<span class="op">=</span>port) <span class="co"># This is the port assigned by the beanstalk or AWS instance, if not provided by them any... else we use the 8080 port in the host to run our application. Rest the docker run </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><a href="https://youtu.be/d6Jw5hGb65Y?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG&amp;t=304">Local Deployment Video</a> by Krish Naik Sir</p>
 </section>
 <section id="action-a4.2-deployment-of-model-via-codepipeline-and-beanstalk." class="level5">
 <h5 class="anchored" data-anchor-id="action-a4.2-deployment-of-model-via-codepipeline-and-beanstalk.">Action A4.2: Deployment of Model via Codepipeline, and Beanstalk.</h5>
@@ -1194,6 +1242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 </ul>
+<p><a href="https://youtu.be/gbJn2Ls2QsI?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG&amp;t=780">Beanstalk Deployment Video</a> by Krish Naik Sir</p>
 </section>
 </section>
 <section id="a4.3-deployment-of-model-via-docker-github-action-runners-aws-ecr-ec2-instances." class="level4">
@@ -1281,6 +1330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Now simply go to the ec2 instance url, and paste :8080 in front of it, to see the application running. Play with it and have fun predicting marks of students.</li>
 </ul>
+<p><a href="https://youtu.be/Xniji2m85LY?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG&amp;t=890">AWS CI/CD Pipeline Deployment Video</a> by Krish Naik Sir.</p>
 </section>
 </section>
 </section>

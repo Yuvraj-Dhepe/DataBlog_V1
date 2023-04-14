@@ -189,9 +189,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#star-analysis" id="toc-star-analysis" class="nav-link" data-scroll-target="#star-analysis">STAR ANALYSIS</a>
   <ul class="collapse">
   <li><a href="#situation" id="toc-situation" class="nav-link" data-scroll-target="#situation">Situation</a></li>
-  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
-  <li><a href="#action" id="toc-action" class="nav-link" data-scroll-target="#action">Action</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
+  <li><a href="#actions" id="toc-actions" class="nav-link" data-scroll-target="#actions">Actions</a></li>
   </ul></li>
+  <li><a href="#thanks-to-the-support-of-krish-naik-sir-in-this-project-journey" id="toc-thanks-to-the-support-of-krish-naik-sir-in-this-project-journey" class="nav-link" data-scroll-target="#thanks-to-the-support-of-krish-naik-sir-in-this-project-journey">Thanks to the support of Krish Naik sir, in this project journey</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/quarto-dev/quarto-demo/blob/main/docs/projects/StudPerformance_end_to_end.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -265,8 +266,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>With the situation being clear let’s jump to a bit about task that was required to be done for this situation</p>
 </section>
-<section id="task" class="level3">
-<h3 class="anchored" data-anchor-id="task">Task</h3>
+<section id="tasks" class="level3">
+<h3 class="anchored" data-anchor-id="tasks">Tasks</h3>
 <ul>
 <li>T1. Creating a folder structure, for a real-world entity project.
 <ul>
@@ -276,13 +277,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A. Developing an End to End ML pipeline and then performing web deployment for using the ML model.</li>
 </ul>
 <p>With the basic overview of task now, let’s look onto every task in details</p>
-<section id="task-t1" class="level4">
-<h4 class="anchored" data-anchor-id="task-t1">Task T1</h4>
+<section id="task-t1-creation-of-project-structure" class="level4">
+<h4 class="anchored" data-anchor-id="task-t1-creation-of-project-structure">Task T1: Creation of Project Structure</h4>
 <ul>
 <li>Creating a folder structure for our real-world project. This is an essential part for any real-world code project, as it introduces modularity to our code. This modularity helps us to deal with complexity of huge projects in simple way, where a team can work together on different parts of the project, re-use each others work and combine it all at the end.</li>
 </ul>
 <section id="t1.1-folder-structure-creation" class="level5">
-<h5 class="anchored" data-anchor-id="t1.1-folder-structure-creation">T1.1 Folder Structure Creation</h5>
+<h5 class="anchored" data-anchor-id="t1.1-folder-structure-creation">T1.1: Folder Structure Creation</h5>
 <ul>
 <li>First setup a github repo (ML_Web_Project is my repo), keeping all the options to default.</li>
 <li>Locally setup a folder (END_To_END_ML_PROJECT is my base local folder setup on WSL, but the one can use windows or mac as well)
@@ -330,13 +331,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="ex">-</span> train_pipeline.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="task-t2" class="level4">
-<h4 class="anchored" data-anchor-id="task-t2">Task T2</h4>
+<section id="task-t2-environment-creation-and-setup" class="level4">
+<h4 class="anchored" data-anchor-id="task-t2-environment-creation-and-setup">Task T2: Environment creation and setup</h4>
 <ul>
 <li>Creating an environment and setup file which later can be used to condense our ML pipeline in form of package. In this part we build the foundation for our ML pipeline, by creating the code for setup.py file.</li>
 </ul>
-<section id="task-t2.1" class="level5">
-<h5 class="anchored" data-anchor-id="task-t2.1">Task T2.1</h5>
+<section id="task-t2.1-setup-file" class="level5">
+<h5 class="anchored" data-anchor-id="task-t2.1-setup-file">Task T2.1: Setup File</h5>
 <ul>
 <li>Code for setup file,</li>
 </ul>
@@ -390,8 +391,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 </section>
 </section>
-<section id="action" class="level3">
-<h3 class="anchored" data-anchor-id="action">Action</h3>
+<section id="actions" class="level3">
+<h3 class="anchored" data-anchor-id="actions">Actions</h3>
 <ul>
 <li>A1. Project Idea: Using a student performance data to predict it’s grades or scores, depending on the other features of the dataset.</li>
 <li>A2. Data Collection and Preprocessing: We first do all EDA in a jupyter notebook to find patterns in the data and getting to know the type of preprocessing required to be done on the dataset.
@@ -401,8 +402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A3. Design and Development of ML pipeline components: After EDA, we try to create simple modular codes in a jupyter notebook, which do the job of development, training and evaluation of ML model. Later these modular codes are more or less split into the folder structure that we created earlier.</li>
 <li>A4. Deployment of model into a production environment: We use cloud tools like AWS or Streamlit or Flask n Django or any other web service to deploy the ML model online to be used on realtime data provided by user or fetched from a source.</li>
 </ul>
-<section id="action-a1-a2" class="level4">
-<h4 class="anchored" data-anchor-id="action-a1-a2">Action A1 &amp; A2</h4>
+<section id="action-a1-a2-project-idea-data-collection-and-preprocessing" class="level4">
+<h4 class="anchored" data-anchor-id="action-a1-a2-project-idea-data-collection-and-preprocessing">Action A1 &amp; A2: Project Idea, Data collection and Preprocessing</h4>
 <ul>
 <li>Project Idea
 <ul>
@@ -422,8 +423,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 </section>
-<section id="action-a3" class="level4">
-<h4 class="anchored" data-anchor-id="action-a3">Action A3</h4>
+<section id="action-a3-design-and-development-of-ml-pipeline-components" class="level4">
+<h4 class="anchored" data-anchor-id="action-a3-design-and-development-of-ml-pipeline-components">Action A3: Design and Development of ML pipeline components</h4>
 <ul>
 <li>Design and Development of ML pipeline components in form of modular codes</li>
 <li>Steps
@@ -1067,22 +1068,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </section>
 </section>
-<section id="action-a4" class="level4">
-<h4 class="anchored" data-anchor-id="action-a4">Action A4</h4>
+<section id="action-a4-model-deployment" class="level4">
+<h4 class="anchored" data-anchor-id="action-a4-model-deployment">Action A4: Model Deployment</h4>
 <ul>
 <li>Deployment of Model into a production environment:
 <ul>
-<li>We will be doing the deployment of model locally first via use of flask.</li>
-<li>Later on we will use AWS to deploy the same flask application.</li>
+<li>Deployment of model via Flask API locally</li>
+<li>Deployment of model via Codepipeline, and Beanstalk.</li>
+<li>Deployment of model via Docker, ECR, Github-Action-Runners, and ECS.</li>
 </ul></li>
 </ul>
-<section id="action-a4.1" class="level5">
-<h5 class="anchored" data-anchor-id="action-a4.1">Action A4.1</h5>
+<section id="action-a4.1-deployment-of-model-via-flask-api-locally" class="level5">
+<h5 class="anchored" data-anchor-id="action-a4.1-deployment-of-model-via-flask-api-locally">Action A4.1: Deployment of Model via Flask API locally</h5>
 <ul>
 <li>Following is the code of the flask application that will use the predict pipeline and flask api.
 <ul>
 <li>Flask api is used to fetch the data from the frontend to backend and vice-versa.</li>
 <li>This prediction pipeline makes predictions in the backend and finally the results are shared with the user by use of the Flask api.</li>
+<li>This local app can be directly run by running python application.py in the terminal.</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, render_template</span>
@@ -1135,38 +1138,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span><span class="op">==</span><span class="st">'__main__'</span>:</span>
 <span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    app.run(host <span class="op">=</span> <span class="st">'0.0.0.0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="action-a4.2" class="level5">
-<h5 class="anchored" data-anchor-id="action-a4.2">Action A4.2</h5>
+<section id="action-a4.2-deployment-of-model-via-codepipeline-and-beanstalk." class="level5">
+<h5 class="anchored" data-anchor-id="action-a4.2-deployment-of-model-via-codepipeline-and-beanstalk.">Action A4.2: Deployment of Model via Codepipeline, and Beanstalk.</h5>
+</section>
+<section id="a4.2.1-setting-up-beanstalk" class="level5">
+<h5 class="anchored" data-anchor-id="a4.2.1-setting-up-beanstalk">A4.2.1: Setting up Beanstalk</h5>
 <ul>
-<li>Components of Deployment
+<li>Elastick Beanstalk is a service that allows you to deploy your application on AWS on instances like linux machine based on EC2.
 <ul>
-<li>Elastic Beanstalk : Step 1 is this cloud environment creation.
+<li>To set up Beanstalk, you need to have an AWS account. If you don’t have one, you can create one for free.</li>
+<li>Open the AWS console and search for Elastic Beanstalk. Click on it and then click on create a new application.</li>
+<li>Follow the steps one by one, but remember to create an IAM role for the application with the permissions of AWSElasticBeanstalkFullAccess, AWSElasticBeanstalkWebTier, AWSElasticBeanstalkEnhancedHealth and AdministratorAccess-AWSElasticBeanstalk.</li>
+<li>Also in the steps, one will require ec2 key pair. You can create one on the AWS console, while creating the application.</li>
+<li>Rest setup the EC2 instance profile via the IAM role itself, in the steps, and then keeping default options in the steps create the application.</li>
+<li>Locally we also need a config file, which is called .ebextensions. This file contains the configuration for the Beanstalk instance.</li>
+<li>The code for the config file is given below</li>
+</ul></li>
+<li>After all the setup, get onto below steps, but before starting the code-pipeline, make sure that the beanstalk environment is running.
 <ul>
-<li>It’s a kind of server or cloud environment of some instance, like a linux machine. On this instance we will be deploying our code.</li>
-<li>To run this Elastic Beanstalk, we need the config file, which we had setup earlier in the .ebextensions folder (present in the root directory of project), by creation of python.config file, containing the following code.</li>
+<li>Also to view our application make sure, you setup ports in Beanstalk, by following steps given below.</li>
+<li>To do that navigate to the Beanstalk console, find your environment, and click on the “Configuration” tab.</li>
+<li>Scroll down to the “Software” section and click on “Edit”.</li>
+<li>In the “Environment Properties” section, add a new property called PORT with a value of 5000.</li>
+<li>Save the changes and wait for the environment to restart before you run the code-pipeline.</li>
+</ul></li>
+<li>.ebsextensions file</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">option_settings</span><span class="kw">:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"aws:elasticbeanstalk:container:python"</span><span class="kw">:</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">WSGIPath</span><span class="kw">:</span><span class="at"> application:application</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="a4.2.2-setting-up-the-github-repo" class="level5">
+<h5 class="anchored" data-anchor-id="a4.2.2-setting-up-the-github-repo">A4.2.2: Setting up the Github Repo</h5>
+<ul>
+<li>After setting up Beanstalk, simply push the github repo that we created at the beginning of application.
+<ul>
+<li>This contains all the code of our application, now to deploy the code on the linux instance, there has to be a pipeline, connecting the github repo and the beanstalk server. Such a pipeline is called as a <strong>code pipeline</strong> in <em>AWS</em> . Whenever any changes happens in our code… the code pipelines makes real-time changes to the deployed application via help of a button.</li>
+<li>This pipeline in general is called as a continuous delivery pipeline.</li>
+</ul></li>
+</ul>
+</section>
+<section id="a4.2.3-setting-up-the-code-pipeline" class="level5">
+<h5 class="anchored" data-anchor-id="a4.2.3-setting-up-the-code-pipeline">A4.2.3: Setting up the Code Pipeline</h5>
+<ul>
+<li>To set up the code pipeline, we need to have a code pipeline service in AWS.
+<ul>
+<li>We will use AWS code pipeline to create our code pipeline connecting our git repo to the elastic beanstalk.</li>
+<li>Follow the steps with default options, while setting up the pipeline, make sure, we have connected to github repo and the branch on which the code is present, by github version 1 connect for simplicity.</li>
+<li>Once the pipeline is connected, we need to build it and deploy it.
+<ul>
+<li>We skip the build part, but we do deploy our application in elastic beanstalk, while deploying we specify the name of application and the env as well.</li>
+<li>Now ensuring that the beanstalk env is already running on port 5000, start the code pipeline, which will connect to the github repo and deploy the application on the beanstalk env.</li>
+<li>Once the pipeline is running, we can view the application by clicking on the link given in domain column in elastic beanstalk application console.</li>
+<li>The link will be similar to http://studperformance-env.eba-wmtvi3wb.eu-central-1.elasticbeanstalk.com/</li>
 </ul></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">option_settings:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="st">"aws:elasticbeanstalk:container:python"</span><span class="ex">:</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">WSGIPath:</span> application:application</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>- Github Repo: Step 2 is creation of all the application code.
-    - This contains all the code of our application, now to deploy the code on the linux instance, there has to be a pipeline, connecting the github repo and the beanstalk server. Such a pipeline is called as a **code pipeline** in *AWS* . Whenever any changes happens in our code... the code pipelines makes real-time changes to the deployed application via help of a button.
-    - This pipeline in general is called as a continuous delivery pipeline.
-
-- Creation of a code pipeline</code></pre>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Beanstalk</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> Create Application</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-
-
+</section>
+</section>
+<section id="a4.3-deployment-of-model-via-docker-github-action-runners-aws-ecr-ec2-instances." class="level4">
+<h4 class="anchored" data-anchor-id="a4.3-deployment-of-model-via-docker-github-action-runners-aws-ecr-ec2-instances.">A4.3 Deployment of model via Docker, Github-Action-Runners, AWS ECR, EC2 instances.</h4>
+<section id="a4.3.1-setting-up-docker-containers" class="level5">
+<h5 class="anchored" data-anchor-id="a4.3.1-setting-up-docker-containers">A4.3.1 Setting up Docker Containers</h5>
+<ul>
+<li>Assuming that reader knows the basics about docker images, containers following the below steps ensure that our application is ready for deployment via AWS.</li>
+<li>Setup Docker container:
+<ul>
+<li>Build an image using Dockerfile, contents of docker file are given below, also add a .dockerignore file to ignore adding venv/ environement to the image.</li>
+<li>Run the image in a container using the command docker run -p 8080:8080 -v /path/to/ml_application:/app my-app
+<ul>
+<li>The -p flag is used to expose a port on the host machine, so that you can access it from outside the container. Here, we are exposing port 8080 on the host machine, which is mapped to port 8080 on the container.</li>
+<li>The -v flag is used to mount a volume, which allows the container to access a directory on the host machine. The first path is the path to the directory on the host machine, and the second path is the path to the directory in the container.</li>
+<li>The last argument my-app is the name of the image that you want to run.</li>
+<li>The container is listening on port 8080, so the application.py file should have the port number set to 8080.</li>
+<li>Access the application by visiting http://localhost:8080 in your web browser.</li>
+<li>If you want to run the container in the background, you can use the -d flag.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="a4.3.2-setting-aws-iam-role-ecr-repo-ec2-instance" class="level4">
+<h4 class="anchored" data-anchor-id="a4.3.2-setting-aws-iam-role-ecr-repo-ec2-instance">A4.3.2 Setting AWS IAM role, ECR repo, EC2 instance</h4>
+<ul>
+<li>Setup of AWS IAM role
+<ul>
+<li>Create a new user and allow the permissions of AmazonEC2ContainerRegistryFullAccess &amp; AmazonEC2FullAccess permissions to the user.</li>
+<li>Setup access keys for the user and also download it in csv format.</li>
+</ul></li>
+<li>Setup of ECR repo
+<ul>
+<li>Go to Elastic Container Registry and create a new repository named student performance and copy the URL for the repository to the aws yml file.</li>
+</ul></li>
+<li>Setup of EC2 instance
+<ul>
+<li>Use the default settings, with Ubuntu instance and use all HTTP connections on this instance in one of the steps, while seeting up the instance.</li>
+<li>Once the instance is up and running, connect to the instance.</li>
+<li>On the instance run the following commands to install docker.
+<ul>
+<li>sudo apt-get update -y</li>
+<li>sudo apt-get upgrade</li>
+<li>curl -fsSL https://get.docker.com -o get-docker.sh</li>
+<li>sudo sh get-docker.sh</li>
+<li>sudo usermod -aG docker ubuntu</li>
+<li>newgrp docker</li>
+</ul></li>
+<li>Single Command:</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt-get upgrade <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="ex">curl</span> <span class="at">-fsSL</span> https://get.docker.com <span class="at">-o</span> get-docker.sh <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> sh get-docker.sh <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> usermod <span class="at">-aG</span> docker ubuntu <span class="kw">&amp;&amp;</span> <span class="ex">newgrp</span> docker </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Also in the instance configuration under security groups in network, add a new inbound rule, which will be a custom TCP rule, which will help us access our application on 8080 port.</li>
+</ul></li>
+</ul>
+</section>
+<section id="a4.3.3-setup-github-workflow-github-runner-actions-and-github-secrets-to-be-used-by-the-workflow." class="level4">
+<h4 class="anchored" data-anchor-id="a4.3.3-setup-github-workflow-github-runner-actions-and-github-secrets-to-be-used-by-the-workflow.">A4.3.3 Setup Github Workflow, Github Runner Actions and Github secrets to be used by the workflow.</h4>
+<ul>
+<li>Github workflow:
+<ul>
+<li>It refers to the idea that our code which is in github, once we update it, from github, a docker image should be created in the ecr repository and then this docker image will get installed in the ec2 instance that we have created and from this installation our application will run on the ec2 instance.</li>
+<li>This same idea is represented in the aws.yaml file in our github workflow folder.</li>
+</ul></li>
+<li>Setting up runner in github to run the workflow:
+<ul>
+<li>This runner will trigger the workflow whenever there is a change in the code.</li>
+<li>Go to the instance and run all the commands to setup the runner in the ec2 instance as shown from the settings of github repo, when you create an self-hosted runner from the github-actions tab in settings for ml app repo.</li>
+<li>Keep default options as it is, while doing the setup, just when the name of runner is asked, I gave it as <code>self-hosted</code></li>
+<li><strong>Remember that after certain time, if we are not using the runner, it will go offline, to make it back online, and run the command <code>./run.sh</code> from the actions-runner folder in the ec2 instance.</strong></li>
+</ul></li>
+<li>After this add the following github secrets in actions tab in settings of the repo. These will be used in our workflow itself.
+<ul>
+<li>AWS_ACCESS_KEY_ID: Created when we created the user in IAM</li>
+<li>AWS_SECRET_ACCESS_KEY: Created when we created the user in IAM</li>
+<li>AWS_DEFAULT_REGION: See it in the ec2 instance details</li>
+<li>AWS_ECR_LOGIN_URI: See it in the ecr repository details #kind of format. but it doesn’t include the repository name.</li>
+<li>AWS_ECR_REPOSITORY: studentperformance or whatever name you have given to the repository</li>
+</ul></li>
+</ul>
+</section>
+<section id="a4.3.4-running-the-application" class="level4">
+<h4 class="anchored" data-anchor-id="a4.3.4-running-the-application">A4.3.4 Running the application</h4>
+<ul>
+<li>Now simply go to the ec2 instance url, and paste :8080 in front of it, to see the application running. Play with it and have fun predicting marks of students.</li>
+</ul>
 </section>
 </section>
 </section>
+<section id="thanks-to-the-support-of-krish-naik-sir-in-this-project-journey" class="level2">
+<h2 class="anchored" data-anchor-id="thanks-to-the-support-of-krish-naik-sir-in-this-project-journey">Thanks to the support of Krish Naik sir, in this project journey</h2>
+<ul>
+<li>The whole project creation outline and execution is of Krish Naik sir, whose efforts in making Data Science simple have been enormous through such projects. You can give him a big shoutout on <a href="https://www.linkedin.com/in/naikkrish/">linkedin</a>, learn from him on <a href="https://www.youtube.com/channel/UCNU_lfiiWBdtULKOw6X0Dig">youtube</a>.</li>
+</ul>
+
+
 </section>
 </section>
 

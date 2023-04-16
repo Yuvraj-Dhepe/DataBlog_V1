@@ -6,13 +6,13 @@
     "docs/projects/index.qmd": [
       "."
     ],
-    "index.qmd": [
-      "/docs/blogs.yml",
-      "/docs/projects.yml",
-      "/docs/notes.yml"
-    ],
     "docs/notes/index.qmd": [
       "."
+    ],
+    "index.qmd": [
+      "/docs/notes.yml",
+      "/docs/blogs.yml",
+      "/docs/projects.yml"
     ]
   }
 }

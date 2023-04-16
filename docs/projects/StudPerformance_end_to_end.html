@@ -124,6 +124,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -192,6 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
   <li><a href="#actions" id="toc-actions" class="nav-link" data-scroll-target="#actions">Actions</a></li>
   </ul></li>
+  <li><a href="#gradio-webapp" id="toc-gradio-webapp" class="nav-link" data-scroll-target="#gradio-webapp">Gradio Webapp</a></li>
   <li><a href="#thanks-to-the-support-of-krish-naik-sir-in-this-project-journey" id="toc-thanks-to-the-support-of-krish-naik-sir-in-this-project-journey" class="nav-link" data-scroll-target="#thanks-to-the-support-of-krish-naik-sir-in-this-project-journey">Thanks to the support of Krish Naik sir, in this project journey</a></li>
   </ul></li>
   </ul>
@@ -243,6 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Design and <a href="#action-a3">Develop Components and Pipelines</a>, where components interact with data in backend, whereas the pipelines interact with the user and components to get predictions from a trained ML model and finally provide result to the user.</li>
 </ul></li>
 <li><p>Follow the actions mentioned below to make your own copy of this end to end project</p></li>
+<li><p>You Can Try the <a href="#gradio-webapp">WebApp</a> created for this project before you get your hands dirty</p></li>
 <li><p>Notebook checkpoints</p>
 <ul>
 <li>STAR ANALYSIS</li>
@@ -1404,6 +1409,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://youtu.be/Xniji2m85LY?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG&amp;t=890">AWS CI/CD Pipeline Deployment Video</a> by Krish Naik Sir.</p>
 </section>
 </section>
+</section>
+<section id="gradio-webapp" class="level2">
+<h2 class="anchored" data-anchor-id="gradio-webapp">Gradio Webapp</h2>
+<div class="cell" data-tags="[]" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>html</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>script <span class="bu">type</span><span class="op">=</span><span class="st">"module"</span> src<span class="op">=</span><span class="st">"https://gradio.s3-us-west-2.amazonaws.com/3.24.1/gradio.js"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&lt;/</span>script<span class="op">&gt;&lt;</span>gradio<span class="op">-</span>app src<span class="op">=</span><span class="st">"https://yuvidhepe-studentperformance.hf.space"</span><span class="op">&gt;&lt;/</span>gradio<span class="op">-</span>app<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.24.1/gradio.js"></script><gradio-app src="https://yuvidhepe-studentperformance.hf.space"></gradio-app>
+</div>
+</div>
 </section>
 <section id="thanks-to-the-support-of-krish-naik-sir-in-this-project-journey" class="level2">
 <h2 class="anchored" data-anchor-id="thanks-to-the-support-of-krish-naik-sir-in-this-project-journey">Thanks to the support of Krish Naik sir, in this project journey</h2>

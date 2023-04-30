@@ -1,5 +1,5 @@
 ---
-title: "AtliQ Hardware Dummy Sales Insights"
+title: "AtliQ Hardware Sales Insights"
 description: "PowerBI Sales Data Analysis with the help of dummy data."
 format:
     html:

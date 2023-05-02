@@ -22,6 +22,7 @@ comments:
         theme: light_protanopia
         language: en
         loading: lazy
+        
 page-layout: full
 title-block-banner: true
 title-block-banner-color: body

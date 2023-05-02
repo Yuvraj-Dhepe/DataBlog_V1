@@ -4,18 +4,6 @@ description: "A collection of technical blogs, notes and projects on machine lea
 image: lotus.png
 toc: true
 
-comments:
-    giscus:
-        repo: Yuvraj-Dhepe/DataBlog_V1
-        repo-id: R_kgDOJMncgA
-        category: General
-        category-id: DIC_kwDOJMncgM4CVqba
-        mapping: pathname
-        reactions-enabled: true
-        input-position: bottom
-        theme: light_protanopia
-        language: en
-        loading: lazy
 about:
   id: hero-heading
   template: jolla
@@ -55,6 +43,19 @@ listing:
     fields: [date, title]
     contents: [/docs/projects.yml]
 
+comments:
+    giscus:
+        repo: Yuvraj-Dhepe/DataBlog_V1
+        repo-id: R_kgDOJMncgA
+        category: General
+        category-id: DIC_kwDOJMncgM4CVqba
+        mapping: pathname
+        reactions-enabled: true
+        input-position: bottom
+        theme: light_protanopia
+        language: en
+        loading: lazy
+        
 #aliases: ["docs/blog/"]
 format:
   html:

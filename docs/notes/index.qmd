@@ -12,8 +12,20 @@ listing:
   fields: [image, date, title, description]
   #feed: true
   
+comments:
+    giscus:
+        repo: Yuvraj-Dhepe/DataBlog_V1
+        repo-id: R_kgDOJMncgA
+        category: General
+        category-id: DIC_kwDOJMncgM4CVqba
+        mapping: pathname
+        reactions-enabled: true
+        input-position: bottom
+        theme: light_protanopia
+        language: en
+        loading: lazy
+  
 page-layout: full
-#margin-header: signup.html
 title-block-banner: true
 title-block-banner-color: body
 search: false

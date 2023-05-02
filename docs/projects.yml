@@ -6,7 +6,7 @@
     Building the first end to end ML pipeline.
 
 - title: "AtliQ Hardware Sales Insights"
-  path: /docs/projects/B1_Sales_Insights.qmd
+  path: /docs/projects/B1_Sales_Insights.ipynb
   date: 2022-07-28
   categories: [Jupyter, Quarto, nbdev]
   description: |

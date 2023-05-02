@@ -4,18 +4,6 @@ description: "A collection of technical blogs, notes and projects on machine lea
 image: lotus.png
 toc: true
 
-comments:
-    giscus:
-        repo: Yuvraj-Dhepe/DataBlog_V1
-        repo-id: R_kgDOJMncgA
-        category: General
-        category-id: DIC_kwDOJMncgM4CVqba
-        mapping: pathname
-        reactions-enabled: true
-        input-position: bottom
-        theme: light_protanopia
-        language: en
-        loading: lazy
 about:
   id: hero-heading
   template: jolla
@@ -55,6 +43,19 @@ listing:
     fields: [date, title]
     contents: [/docs/projects.yml]
 
+comments:
+    giscus:
+        repo: Yuvraj-Dhepe/DataBlog_V1
+        repo-id: R_kgDOJMncgA
+        category: General
+        category-id: DIC_kwDOJMncgM4CVqba
+        mapping: pathname
+        reactions-enabled: true
+        input-position: bottom
+        theme: light_protanopia
+        language: en
+        loading: lazy
+        
 #aliases: ["docs/blog/"]
 format:
   html:
@@ -76,7 +77,7 @@ format:
 
 I'm open to work on Machine Learning and Deep Learning Projects, in computer vision, NLP, Life Sciences and any other forms of Data Projects that can solve simple problems.
 
-Email me at [![](./images/icon-gmail.png){width="3%"}](mailto:yuvraj.dhepe22@gmail.com), or DM me on [![](./images/icon-linkedin.png){width="3%"}](https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/)
+Email me at [![](./images/icon-gmail.png){width="3%"}](mailto:yuvraj.dhepe22@gmail.com), or DM me on [![](./images/icon-linkedin.png){width="3%"}](https://www.linkedin.com/in/yuvraj-shivaji-dhepe/)
 
 ---
 

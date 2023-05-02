@@ -77,7 +77,7 @@ format:
 
 I'm open to work on Machine Learning and Deep Learning Projects, in computer vision, NLP, Life Sciences and any other forms of Data Projects that can solve simple problems.
 
-Email me at [![](./images/icon-gmail.png){width="3%"}](mailto:yuvraj.dhepe22@gmail.com), or DM me on [![](./images/icon-linkedin.png){width="3%"}](https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/)
+Email me at [![](./images/icon-gmail.png){width="3%"}](mailto:yuvraj.dhepe22@gmail.com), or DM me on [![](./images/icon-linkedin.png){width="3%"}](https://www.linkedin.com/in/yuvraj-shivaji-dhepe/)
 
 ---
 

@@ -1,47 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/Self_Instructions.html</loc>
-    <lastmod>2023-05-02T17:46:10.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/StudPerformance_end_to_end.html</loc>
-    <lastmod>2023-05-02T17:46:15.639Z</lastmod>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/index.html</loc>
+    <lastmod>2023-06-03T13:43:17.668Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/B1_Sales_Insights.html</loc>
-    <lastmod>2023-05-02T17:46:17.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/Youtube_API_EDA.html</loc>
-    <lastmod>2023-05-02T17:46:21.195Z</lastmod>
+    <lastmod>2023-06-03T13:43:20.804Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/index.html</loc>
-    <lastmod>2023-05-02T17:46:21.951Z</lastmod>
+    <lastmod>2023-06-03T13:43:21.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/MLConcepts.html</loc>
+    <lastmod>2023-06-03T13:43:22.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/images/Image Downloader.html</loc>
+    <lastmod>2023-06-03T13:43:22.492Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/StudPerformance_end_to_end.html</loc>
+    <lastmod>2023-06-03T13:43:24.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/RL2_IntroductionToQ-Learning.html</loc>
+    <lastmod>2023-06-03T13:43:25.744Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/project-4-us-accidents-model-runs.html</loc>
+    <lastmod>2023-06-03T13:43:29.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/RL3_DeepQ-Learning.html</loc>
+    <lastmod>2023-06-03T13:43:30.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/Youtube_API_EDA.html</loc>
+    <lastmod>2023-06-03T13:43:32.968Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/RL ML Agents.html</loc>
+    <lastmod>2023-06-03T13:43:33.616Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/RL1_Introduction.html</loc>
+    <lastmod>2023-06-03T13:43:34.600Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/post-with-code/index.html</loc>
-    <lastmod>2023-05-02T17:46:22.491Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/index.html</loc>
-    <lastmod>2023-05-02T17:46:23.267Z</lastmod>
+    <lastmod>2023-06-03T13:43:34.976Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/welcome/index.html</loc>
-    <lastmod>2023-05-02T17:46:23.767Z</lastmod>
+    <lastmod>2023-06-03T13:43:35.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/index.html</loc>
+    <lastmod>2023-06-03T13:43:35.832Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/notes/Docker_Notes.html</loc>
-    <lastmod>2023-05-02T17:46:25.819Z</lastmod>
+    <lastmod>2023-06-03T13:43:37.172Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/notes/index.html</loc>
-    <lastmod>2023-05-02T17:46:26.359Z</lastmod>
+    <lastmod>2023-06-03T13:43:37.556Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/index.html</loc>
-    <lastmod>2023-05-02T17:46:27.103Z</lastmod>
+    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/Self_Instructions.html</loc>
+    <lastmod>2023-06-03T13:43:38.016Z</lastmod>
   </url>
 </urlset>

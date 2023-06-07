@@ -21,18 +21,11 @@
     "text": "📮 Recent Blog\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n7/28/22\n\n\nDummy Blog\n\n\n\n\n2/9/22\n\n\nDummy Blog\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "docs/projects/B1_Sales_Insights.html",
-    "href": "docs/projects/B1_Sales_Insights.html",
-    "title": "AtliQ Hardware Sales Insights",
-    "section": "",
-    "text": "AtliQ Hardware supplies computer hardware and peripherals to various clients across India and has a head office in Delhi and regional offices throughout India.\nBhavin Patel, the sales director of the company, is facing challenges in tracking the sales in the dynamically growing market and getting insights into his business.\nThe regional managers tend to give verbal feedback that paints a rosy picture and provide complex Excel files, making it challenging for Bhavin to get a clear picture of the business.\nBhavin wants simple and digestible insights, such as the top five customers, the weakest regions, and the year-to-date revenue, etc,. to make data-driven decisions for the business.\nThe ultimate goal is to improve the declining sales and make informed business decisions based on real-time data analytics.\nPowerBI can provide a solution to visualize the data and present simple and actionable insights for Bhavin.\n\nP.S. The problem statement is virtual and doesn’t relate to any real-world entity, any such occurence is just a matter of coincidence."
-  },
-  {
     "objectID": "docs/projects/B1_Sales_Insights.html#problem-statement",
     "href": "docs/projects/B1_Sales_Insights.html#problem-statement",
     "title": "AtliQ Hardware Sales Insights",
-    "section": "",
-    "text": "AtliQ Hardware supplies computer hardware and peripherals to various clients across India and has a head office in Delhi and regional offices throughout India.\nBhavin Patel, the sales director of the company, is facing challenges in tracking the sales in the dynamically growing market and getting insights into his business.\nThe regional managers tend to give verbal feedback that paints a rosy picture and provide complex Excel files, making it challenging for Bhavin to get a clear picture of the business.\nBhavin wants simple and digestible insights, such as the top five customers, the weakest regions, and the year-to-date revenue, etc,. to make data-driven decisions for the business.\nThe ultimate goal is to improve the declining sales and make informed business decisions based on real-time data analytics.\nPowerBI can provide a solution to visualize the data and present simple and actionable insights for Bhavin.\n\nP.S. The problem statement is virtual and doesn’t relate to any real-world entity, any such occurence is just a matter of coincidence."
+    "section": "Problem Statement",
+    "text": "Problem Statement\n\nAtliQ Hardware supplies computer hardware and peripherals to various clients across India and has a head office in Delhi and regional offices throughout India.\nBhavin Patel, the sales director of the company, is facing challenges in tracking the sales in the dynamically growing market and getting insights into his business.\nThe regional managers tend to give verbal feedback that paints a rosy picture and provide complex Excel files, making it challenging for Bhavin to get a clear picture of the business.\nBhavin wants simple and digestible insights, such as the top five customers, the weakest regions, and the year-to-date revenue, etc,. to make data-driven decisions for the business.\nThe ultimate goal is to improve the declining sales and make informed business decisions based on real-time data analytics.\nPowerBI can provide a solution to visualize the data and present simple and actionable insights for Bhavin.\n\nP.S. The problem statement is virtual and doesn’t relate to any real-world entity, any such occurence is just a matter of coincidence."
   },
   {
     "objectID": "docs/projects/B1_Sales_Insights.html#project-planning-and-data-discovery",

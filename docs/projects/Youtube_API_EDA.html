@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,10 +18,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,13 +47,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -92,8 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -104,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - Youtube API Scraping of Spiritual Channels">
 <meta property="og:description" content="Finding what Makes Spiritual Channels A Hit">
-<meta property="og:image" content="https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/images/Yt_Scraping.png">
+<meta property="og:image" content="https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/images/Yt_Scraping.png">
 <meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
 <meta property="og:image:height" content="520">
 <meta property="og:image:width" content="1020">
@@ -116,38 +144,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Hello There</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/projects/index.html" rel="" target="">
+    <a class="nav-link" href="../../docs/projects/index.html">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/blog/index.html" rel="" target="">
+    <a class="nav-link" href="../../docs/blog/index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/notes/index.html" rel="" target="">
+    <a class="nav-link" href="../../docs/notes/index.html">
  <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="https://github.com/Yuvraj-Dhepe" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-</div>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -587,115 +614,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>l_channel_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="167">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">channelName</th>
-<th data-quarto-table-cell-role="th">subscribers</th>
-<th data-quarto-table-cell-role="th">views</th>
-<th data-quarto-table-cell-role="th">totalVideos</th>
-<th data-quarto-table-cell-role="th">playlistId</th>
-<th data-quarto-table-cell-role="th">publishedAt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Aaron Doughty</td>
-<td>1450000</td>
-<td>141121587</td>
-<td>1793</td>
-<td>UU48MclMZIY_EaOQwatzCpvw</td>
-<td>2014-07-10 04:24:58+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>The School of Life</td>
-<td>8380000</td>
-<td>820210489</td>
-<td>902</td>
-<td>UU7IcJI8PUf5Z3zKxnZvTBog</td>
-<td>2010-05-18 16:46:57+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Psych2Go</td>
-<td>10800000</td>
-<td>1477376571</td>
-<td>2380</td>
-<td>UUkJEpR7JmS36tajD34Gp4VA</td>
-<td>2014-10-05 06:27:31+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Gaia</td>
-<td>1520000</td>
-<td>127649328</td>
-<td>645</td>
-<td>UUFVqzO9_qHVckKqNC95o9tw</td>
-<td>2008-08-06 15:26:41+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Universe Inside You</td>
-<td>1790000</td>
-<td>118060252</td>
-<td>126</td>
-<td>UUOnnmKlDZltHAqJLz-XIpGA</td>
-<td>2017-03-30 10:55:39+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Mindvalley</td>
-<td>2260000</td>
-<td>468381830</td>
-<td>1662</td>
-<td>UUg3F5jxUrSvJQICen48cX4w</td>
-<td>2014-04-23 08:21:13+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Gaur Gopal Das</td>
-<td>4860000</td>
-<td>288878180</td>
-<td>356</td>
-<td>UUz22l7kbce-uFJAoaZqxD1A</td>
-<td>2016-04-12 18:16:24+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Vishuddha Das</td>
-<td>596000</td>
-<td>40838427</td>
-<td>381</td>
-<td>UUFJZQtrh5Ksncayy2FaoNbQ</td>
-<td>2014-09-24 14:04:59+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Actualized.org</td>
-<td>1100000</td>
-<td>107549192</td>
-<td>528</td>
-<td>UUgeicB5AuF3MyyUto0-M5Lw</td>
-<td>2012-01-23 20:08:34+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Spirit Science</td>
-<td>1300000</td>
-<td>79311991</td>
-<td>306</td>
-<td>UUEcMWs6GudljuLw0-Umf97A</td>
-<td>2011-12-29 05:49:29+00:00</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>channelName</th>
+      <th>subscribers</th>
+      <th>views</th>
+      <th>totalVideos</th>
+      <th>playlistId</th>
+      <th>publishedAt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aaron Doughty</td>
+      <td>1450000</td>
+      <td>141121587</td>
+      <td>1793</td>
+      <td>UU48MclMZIY_EaOQwatzCpvw</td>
+      <td>2014-07-10 04:24:58+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The School of Life</td>
+      <td>8380000</td>
+      <td>820210489</td>
+      <td>902</td>
+      <td>UU7IcJI8PUf5Z3zKxnZvTBog</td>
+      <td>2010-05-18 16:46:57+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Psych2Go</td>
+      <td>10800000</td>
+      <td>1477376571</td>
+      <td>2380</td>
+      <td>UUkJEpR7JmS36tajD34Gp4VA</td>
+      <td>2014-10-05 06:27:31+00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Gaia</td>
+      <td>1520000</td>
+      <td>127649328</td>
+      <td>645</td>
+      <td>UUFVqzO9_qHVckKqNC95o9tw</td>
+      <td>2008-08-06 15:26:41+00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Universe Inside You</td>
+      <td>1790000</td>
+      <td>118060252</td>
+      <td>126</td>
+      <td>UUOnnmKlDZltHAqJLz-XIpGA</td>
+      <td>2017-03-30 10:55:39+00:00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Mindvalley</td>
+      <td>2260000</td>
+      <td>468381830</td>
+      <td>1662</td>
+      <td>UUg3F5jxUrSvJQICen48cX4w</td>
+      <td>2014-04-23 08:21:13+00:00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Gaur Gopal Das</td>
+      <td>4860000</td>
+      <td>288878180</td>
+      <td>356</td>
+      <td>UUz22l7kbce-uFJAoaZqxD1A</td>
+      <td>2016-04-12 18:16:24+00:00</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Vishuddha Das</td>
+      <td>596000</td>
+      <td>40838427</td>
+      <td>381</td>
+      <td>UUFJZQtrh5Ksncayy2FaoNbQ</td>
+      <td>2014-09-24 14:04:59+00:00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Actualized.org</td>
+      <td>1100000</td>
+      <td>107549192</td>
+      <td>528</td>
+      <td>UUgeicB5AuF3MyyUto0-M5Lw</td>
+      <td>2012-01-23 20:08:34+00:00</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Spirit Science</td>
+      <td>1300000</td>
+      <td>79311991</td>
+      <td>306</td>
+      <td>UUEcMWs6GudljuLw0-Umf97A</td>
+      <td>2011-12-29 05:49:29+00:00</td>
+    </tr>
+  </tbody>
 </table>
-
 </div>
 </div>
 </div>
@@ -707,115 +733,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>chdd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="168">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">channelName</th>
-<th data-quarto-table-cell-role="th">subscribers</th>
-<th data-quarto-table-cell-role="th">views</th>
-<th data-quarto-table-cell-role="th">totalVideos</th>
-<th data-quarto-table-cell-role="th">playlistId</th>
-<th data-quarto-table-cell-role="th">publishedAt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Aaron Doughty</td>
-<td>1450000</td>
-<td>141121587</td>
-<td>1793</td>
-<td>UU48MclMZIY_EaOQwatzCpvw</td>
-<td>2014-07-10 04:24:58+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>The School of Life</td>
-<td>8380000</td>
-<td>820210489</td>
-<td>902</td>
-<td>UU7IcJI8PUf5Z3zKxnZvTBog</td>
-<td>2010-05-18 16:46:57+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Psych2Go</td>
-<td>10800000</td>
-<td>1477376571</td>
-<td>2380</td>
-<td>UUkJEpR7JmS36tajD34Gp4VA</td>
-<td>2014-10-05 06:27:31+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Gaia</td>
-<td>1520000</td>
-<td>127649328</td>
-<td>645</td>
-<td>UUFVqzO9_qHVckKqNC95o9tw</td>
-<td>2008-08-06 15:26:41+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Universe Inside You</td>
-<td>1790000</td>
-<td>118060252</td>
-<td>126</td>
-<td>UUOnnmKlDZltHAqJLz-XIpGA</td>
-<td>2017-03-30 10:55:39+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Mindvalley</td>
-<td>2260000</td>
-<td>468381830</td>
-<td>1662</td>
-<td>UUg3F5jxUrSvJQICen48cX4w</td>
-<td>2014-04-23 08:21:13+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Gaur Gopal Das</td>
-<td>4860000</td>
-<td>288878180</td>
-<td>356</td>
-<td>UUz22l7kbce-uFJAoaZqxD1A</td>
-<td>2016-04-12 18:16:24+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Vishuddha Das</td>
-<td>596000</td>
-<td>40838427</td>
-<td>381</td>
-<td>UUFJZQtrh5Ksncayy2FaoNbQ</td>
-<td>2014-09-24 14:04:59+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Actualized.org</td>
-<td>1100000</td>
-<td>107549192</td>
-<td>528</td>
-<td>UUgeicB5AuF3MyyUto0-M5Lw</td>
-<td>2012-01-23 20:08:34+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Spirit Science</td>
-<td>1300000</td>
-<td>79311991</td>
-<td>306</td>
-<td>UUEcMWs6GudljuLw0-Umf97A</td>
-<td>2011-12-29 05:49:29+00:00</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>channelName</th>
+      <th>subscribers</th>
+      <th>views</th>
+      <th>totalVideos</th>
+      <th>playlistId</th>
+      <th>publishedAt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aaron Doughty</td>
+      <td>1450000</td>
+      <td>141121587</td>
+      <td>1793</td>
+      <td>UU48MclMZIY_EaOQwatzCpvw</td>
+      <td>2014-07-10 04:24:58+00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The School of Life</td>
+      <td>8380000</td>
+      <td>820210489</td>
+      <td>902</td>
+      <td>UU7IcJI8PUf5Z3zKxnZvTBog</td>
+      <td>2010-05-18 16:46:57+00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Psych2Go</td>
+      <td>10800000</td>
+      <td>1477376571</td>
+      <td>2380</td>
+      <td>UUkJEpR7JmS36tajD34Gp4VA</td>
+      <td>2014-10-05 06:27:31+00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Gaia</td>
+      <td>1520000</td>
+      <td>127649328</td>
+      <td>645</td>
+      <td>UUFVqzO9_qHVckKqNC95o9tw</td>
+      <td>2008-08-06 15:26:41+00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Universe Inside You</td>
+      <td>1790000</td>
+      <td>118060252</td>
+      <td>126</td>
+      <td>UUOnnmKlDZltHAqJLz-XIpGA</td>
+      <td>2017-03-30 10:55:39+00:00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Mindvalley</td>
+      <td>2260000</td>
+      <td>468381830</td>
+      <td>1662</td>
+      <td>UUg3F5jxUrSvJQICen48cX4w</td>
+      <td>2014-04-23 08:21:13+00:00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Gaur Gopal Das</td>
+      <td>4860000</td>
+      <td>288878180</td>
+      <td>356</td>
+      <td>UUz22l7kbce-uFJAoaZqxD1A</td>
+      <td>2016-04-12 18:16:24+00:00</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Vishuddha Das</td>
+      <td>596000</td>
+      <td>40838427</td>
+      <td>381</td>
+      <td>UUFJZQtrh5Ksncayy2FaoNbQ</td>
+      <td>2014-09-24 14:04:59+00:00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Actualized.org</td>
+      <td>1100000</td>
+      <td>107549192</td>
+      <td>528</td>
+      <td>UUgeicB5AuF3MyyUto0-M5Lw</td>
+      <td>2012-01-23 20:08:34+00:00</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Spirit Science</td>
+      <td>1300000</td>
+      <td>79311991</td>
+      <td>306</td>
+      <td>UUEcMWs6GudljuLw0-Umf97A</td>
+      <td>2011-12-29 05:49:29+00:00</td>
+    </tr>
+  </tbody>
 </table>
-
 </div>
 </div>
 </div>
@@ -1017,256 +1042,255 @@ memory usage: 800.0+ bytes</code></pre>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>viddf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="185">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">video_id</th>
-<th data-quarto-table-cell-role="th">channelTitle</th>
-<th data-quarto-table-cell-role="th">title</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">tags</th>
-<th data-quarto-table-cell-role="th">viewCount</th>
-<th data-quarto-table-cell-role="th">likeCount</th>
-<th data-quarto-table-cell-role="th">favouriteCount</th>
-<th data-quarto-table-cell-role="th">commentCount</th>
-<th data-quarto-table-cell-role="th">duration</th>
-<th data-quarto-table-cell-role="th">definition</th>
-<th data-quarto-table-cell-role="th">caption</th>
-<th data-quarto-table-cell-role="th">pushblishDayName</th>
-<th data-quarto-table-cell-role="th">publishingYear</th>
-<th data-quarto-table-cell-role="th">publishingMonth</th>
-<th data-quarto-table-cell-role="th">publishingTime</th>
-<th data-quarto-table-cell-role="th">publishingMonthName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Q8dOR0bN-Mw</td>
-<td>Gaia</td>
-<td>Man Able to Project Thoughts Through Crystals</td>
-<td>Learn how crystals can hold a powerful place i...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>7218.0</td>
-<td>1309.0</td>
-<td>NaN</td>
-<td>31.0</td>
-<td>PT1M</td>
-<td>hd</td>
-<td>False</td>
-<td>Saturday</td>
-<td>2023</td>
-<td>4</td>
-<td>15:00:28</td>
-<td>April</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Ja1m4mHjZJY</td>
-<td>Gaia</td>
-<td>FULL EPISODE: Channeling - A Bridge to the Beyond</td>
-<td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>18104.0</td>
-<td>1394.0</td>
-<td>NaN</td>
-<td>113.0</td>
-<td>PT26M53S</td>
-<td>hd</td>
-<td>False</td>
-<td>Friday</td>
-<td>2023</td>
-<td>3</td>
-<td>16:00:07</td>
-<td>March</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>qixrU_pwvD0</td>
-<td>Gaia</td>
-<td>This Man Taught Princess Diana to Express Hers...</td>
-<td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>9462.0</td>
-<td>640.0</td>
-<td>NaN</td>
-<td>51.0</td>
-<td>PT4M47S</td>
-<td>hd</td>
-<td>False</td>
-<td>Wednesday</td>
-<td>2023</td>
-<td>3</td>
-<td>16:00:40</td>
-<td>March</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>deZsy9GYn8w</td>
-<td>Gaia</td>
-<td>Mysterious, Ancient Satellite Is Monitoring Earth</td>
-<td>Five of the world’s leading experts unravel my...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>73915.0</td>
-<td>10072.0</td>
-<td>NaN</td>
-<td>338.0</td>
-<td>PT1M</td>
-<td>hd</td>
-<td>False</td>
-<td>Tuesday</td>
-<td>2023</td>
-<td>3</td>
-<td>15:00:21</td>
-<td>March</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Kbfpd8zp3mk</td>
-<td>Gaia</td>
-<td>How Shamanic Dancing Leads to Altered States o...</td>
-<td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>14585.0</td>
-<td>932.0</td>
-<td>NaN</td>
-<td>54.0</td>
-<td>PT3M56S</td>
-<td>hd</td>
-<td>False</td>
-<td>Monday</td>
-<td>2023</td>
-<td>3</td>
-<td>16:00:21</td>
-<td>March</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8695</td>
-<td>ZS3sOfs5jBY</td>
-<td>Actualized.org</td>
-<td>Get Coached</td>
-<td>http://www.actualized.org/coaching\n\nResults ...</td>
-<td>['life coaching', 'Coaching (Profession)']</td>
-<td>10102.0</td>
-<td>323.0</td>
-<td>NaN</td>
-<td>31.0</td>
-<td>PT16M23S</td>
-<td>hd</td>
-<td>False</td>
-<td>Saturday</td>
-<td>2013</td>
-<td>5</td>
-<td>11:48:19</td>
-<td>May</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8696</td>
-<td>mlIYVsuIofs</td>
-<td>Actualized.org</td>
-<td>Be Different to Be Successful</td>
-<td>How doing things differently in your life is n...</td>
-<td>NaN</td>
-<td>27343.0</td>
-<td>929.0</td>
-<td>NaN</td>
-<td>41.0</td>
-<td>PT26M5S</td>
-<td>hd</td>
-<td>False</td>
-<td>Friday</td>
-<td>2013</td>
-<td>4</td>
-<td>10:24:43</td>
-<td>April</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8697</td>
-<td>8cbtMhHpLC8</td>
-<td>Actualized.org</td>
-<td>Why Life Coaching Works</td>
-<td>An explanation of how coaching works and why i...</td>
-<td>NaN</td>
-<td>20081.0</td>
-<td>647.0</td>
-<td>NaN</td>
-<td>42.0</td>
-<td>PT21M</td>
-<td>hd</td>
-<td>False</td>
-<td>Friday</td>
-<td>2013</td>
-<td>4</td>
-<td>08:53:35</td>
-<td>April</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8698</td>
-<td>C1QYF5WYzCo</td>
-<td>Actualized.org</td>
-<td>How to Invest In Yourself</td>
-<td>How a long-term investment mindset in yourself...</td>
-<td>NaN</td>
-<td>61685.0</td>
-<td>1805.0</td>
-<td>NaN</td>
-<td>193.0</td>
-<td>PT19M13S</td>
-<td>hd</td>
-<td>True</td>
-<td>Friday</td>
-<td>2013</td>
-<td>4</td>
-<td>07:29:27</td>
-<td>April</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8699</td>
-<td>_874QVgwvEk</td>
-<td>Actualized.org</td>
-<td>Mastery Part 1</td>
-<td>Test video for self-development blog. This vid...</td>
-<td>['mastery', 'self-help', 'self-development', '...</td>
-<td>5496.0</td>
-<td>217.0</td>
-<td>NaN</td>
-<td>63.0</td>
-<td>PT16M12S</td>
-<td>hd</td>
-<td>False</td>
-<td>Wednesday</td>
-<td>2012</td>
-<td>8</td>
-<td>08:24:31</td>
-<td>August</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>video_id</th>
+      <th>channelTitle</th>
+      <th>title</th>
+      <th>description</th>
+      <th>tags</th>
+      <th>viewCount</th>
+      <th>likeCount</th>
+      <th>favouriteCount</th>
+      <th>commentCount</th>
+      <th>duration</th>
+      <th>definition</th>
+      <th>caption</th>
+      <th>pushblishDayName</th>
+      <th>publishingYear</th>
+      <th>publishingMonth</th>
+      <th>publishingTime</th>
+      <th>publishingMonthName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Q8dOR0bN-Mw</td>
+      <td>Gaia</td>
+      <td>Man Able to Project Thoughts Through Crystals</td>
+      <td>Learn how crystals can hold a powerful place i...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>7218.0</td>
+      <td>1309.0</td>
+      <td>NaN</td>
+      <td>31.0</td>
+      <td>PT1M</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Saturday</td>
+      <td>2023</td>
+      <td>4</td>
+      <td>15:00:28</td>
+      <td>April</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ja1m4mHjZJY</td>
+      <td>Gaia</td>
+      <td>FULL EPISODE: Channeling - A Bridge to the Beyond</td>
+      <td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>18104.0</td>
+      <td>1394.0</td>
+      <td>NaN</td>
+      <td>113.0</td>
+      <td>PT26M53S</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Friday</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>16:00:07</td>
+      <td>March</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>qixrU_pwvD0</td>
+      <td>Gaia</td>
+      <td>This Man Taught Princess Diana to Express Hers...</td>
+      <td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>9462.0</td>
+      <td>640.0</td>
+      <td>NaN</td>
+      <td>51.0</td>
+      <td>PT4M47S</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Wednesday</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>16:00:40</td>
+      <td>March</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>deZsy9GYn8w</td>
+      <td>Gaia</td>
+      <td>Mysterious, Ancient Satellite Is Monitoring Earth</td>
+      <td>Five of the world’s leading experts unravel my...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>73915.0</td>
+      <td>10072.0</td>
+      <td>NaN</td>
+      <td>338.0</td>
+      <td>PT1M</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Tuesday</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>15:00:21</td>
+      <td>March</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kbfpd8zp3mk</td>
+      <td>Gaia</td>
+      <td>How Shamanic Dancing Leads to Altered States o...</td>
+      <td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>14585.0</td>
+      <td>932.0</td>
+      <td>NaN</td>
+      <td>54.0</td>
+      <td>PT3M56S</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Monday</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>16:00:21</td>
+      <td>March</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8695</th>
+      <td>ZS3sOfs5jBY</td>
+      <td>Actualized.org</td>
+      <td>Get Coached</td>
+      <td>http://www.actualized.org/coaching\n\nResults ...</td>
+      <td>['life coaching', 'Coaching (Profession)']</td>
+      <td>10102.0</td>
+      <td>323.0</td>
+      <td>NaN</td>
+      <td>31.0</td>
+      <td>PT16M23S</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Saturday</td>
+      <td>2013</td>
+      <td>5</td>
+      <td>11:48:19</td>
+      <td>May</td>
+    </tr>
+    <tr>
+      <th>8696</th>
+      <td>mlIYVsuIofs</td>
+      <td>Actualized.org</td>
+      <td>Be Different to Be Successful</td>
+      <td>How doing things differently in your life is n...</td>
+      <td>NaN</td>
+      <td>27343.0</td>
+      <td>929.0</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>PT26M5S</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Friday</td>
+      <td>2013</td>
+      <td>4</td>
+      <td>10:24:43</td>
+      <td>April</td>
+    </tr>
+    <tr>
+      <th>8697</th>
+      <td>8cbtMhHpLC8</td>
+      <td>Actualized.org</td>
+      <td>Why Life Coaching Works</td>
+      <td>An explanation of how coaching works and why i...</td>
+      <td>NaN</td>
+      <td>20081.0</td>
+      <td>647.0</td>
+      <td>NaN</td>
+      <td>42.0</td>
+      <td>PT21M</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Friday</td>
+      <td>2013</td>
+      <td>4</td>
+      <td>08:53:35</td>
+      <td>April</td>
+    </tr>
+    <tr>
+      <th>8698</th>
+      <td>C1QYF5WYzCo</td>
+      <td>Actualized.org</td>
+      <td>How to Invest In Yourself</td>
+      <td>How a long-term investment mindset in yourself...</td>
+      <td>NaN</td>
+      <td>61685.0</td>
+      <td>1805.0</td>
+      <td>NaN</td>
+      <td>193.0</td>
+      <td>PT19M13S</td>
+      <td>hd</td>
+      <td>True</td>
+      <td>Friday</td>
+      <td>2013</td>
+      <td>4</td>
+      <td>07:29:27</td>
+      <td>April</td>
+    </tr>
+    <tr>
+      <th>8699</th>
+      <td>_874QVgwvEk</td>
+      <td>Actualized.org</td>
+      <td>Mastery Part 1</td>
+      <td>Test video for self-development blog. This vid...</td>
+      <td>['mastery', 'self-help', 'self-development', '...</td>
+      <td>5496.0</td>
+      <td>217.0</td>
+      <td>NaN</td>
+      <td>63.0</td>
+      <td>PT16M12S</td>
+      <td>hd</td>
+      <td>False</td>
+      <td>Wednesday</td>
+      <td>2012</td>
+      <td>8</td>
+      <td>08:24:31</td>
+      <td>August</td>
+    </tr>
+  </tbody>
 </table>
-
 <p>8700 rows × 17 columns</p>
 </div>
 </div>
@@ -1278,76 +1302,75 @@ memory usage: 800.0+ bytes</code></pre>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>comdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="186">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">video_id</th>
-<th data-quarto-table-cell-role="th">comments</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Q8dOR0bN-Mw</td>
-<td>['Intentionally concentrating the mind setting...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Ja1m4mHjZJY</td>
-<td>['8,000+ Films, Shows &amp; Classes on Gaia. Start...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>qixrU_pwvD0</td>
-<td>['8,000+ Films, Shows &amp; Classes on Gaia. Start...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>deZsy9GYn8w</td>
-<td>['Watch more of the Awakening Conference with ...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Kbfpd8zp3mk</td>
-<td>['8,000+ Films, Shows &amp; Classes on Gaia. Start...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8669</td>
-<td>ZS3sOfs5jBY</td>
-<td>['Thanks', 'A legend is born..', 'Currently go...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8670</td>
-<td>mlIYVsuIofs</td>
-<td>['Great video 💫', 'Inspiring', 'Thanks', 'Than...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8671</td>
-<td>8cbtMhHpLC8</td>
-<td>['Thanks.', '0:00 a legend was born', 'Magic.'...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8672</td>
-<td>C1QYF5WYzCo</td>
-<td>['Thanks', "If you discovered this/him you've ...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8673</td>
-<td>_874QVgwvEk</td>
-<td>['Proud of you man. You helped me a lot', 'Who...</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>video_id</th>
+      <th>comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Q8dOR0bN-Mw</td>
+      <td>['Intentionally concentrating the mind setting...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ja1m4mHjZJY</td>
+      <td>['8,000+ Films, Shows &amp; Classes on Gaia. Start...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>qixrU_pwvD0</td>
+      <td>['8,000+ Films, Shows &amp; Classes on Gaia. Start...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>deZsy9GYn8w</td>
+      <td>['Watch more of the Awakening Conference with ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kbfpd8zp3mk</td>
+      <td>['8,000+ Films, Shows &amp; Classes on Gaia. Start...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8669</th>
+      <td>ZS3sOfs5jBY</td>
+      <td>['Thanks', 'A legend is born..', 'Currently go...</td>
+    </tr>
+    <tr>
+      <th>8670</th>
+      <td>mlIYVsuIofs</td>
+      <td>['Great video 💫', 'Inspiring', 'Thanks', 'Than...</td>
+    </tr>
+    <tr>
+      <th>8671</th>
+      <td>8cbtMhHpLC8</td>
+      <td>['Thanks.', '0:00 a legend was born', 'Magic.'...</td>
+    </tr>
+    <tr>
+      <th>8672</th>
+      <td>C1QYF5WYzCo</td>
+      <td>['Thanks', "If you discovered this/him you've ...</td>
+    </tr>
+    <tr>
+      <th>8673</th>
+      <td>_874QVgwvEk</td>
+      <td>['Proud of you man. You helped me a lot', 'Who...</td>
+    </tr>
+  </tbody>
 </table>
-
 <p>8674 rows × 2 columns</p>
 </div>
 </div>
@@ -1482,304 +1505,303 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>viddf </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="196">
+
 <div>
 
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">video_id</th>
-<th data-quarto-table-cell-role="th">channelTitle</th>
-<th data-quarto-table-cell-role="th">title</th>
-<th data-quarto-table-cell-role="th">description</th>
-<th data-quarto-table-cell-role="th">tags</th>
-<th data-quarto-table-cell-role="th">viewCount</th>
-<th data-quarto-table-cell-role="th">likeCount</th>
-<th data-quarto-table-cell-role="th">commentCount</th>
-<th data-quarto-table-cell-role="th">duration</th>
-<th data-quarto-table-cell-role="th">definition</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">publishingYear</th>
-<th data-quarto-table-cell-role="th">publishingMonth</th>
-<th data-quarto-table-cell-role="th">publishingTime</th>
-<th data-quarto-table-cell-role="th">publishingMonthName</th>
-<th data-quarto-table-cell-role="th">durationSecs</th>
-<th data-quarto-table-cell-role="th">tagsstr</th>
-<th data-quarto-table-cell-role="th">tagsCount</th>
-<th data-quarto-table-cell-role="th">likeRatio</th>
-<th data-quarto-table-cell-role="th">commentRatio</th>
-<th data-quarto-table-cell-role="th">titleLength</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Q8dOR0bN-Mw</td>
-<td>Gaia</td>
-<td>Man Able to Project Thoughts Through Crystals</td>
-<td>Learn how crystals can hold a powerful place i...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>7218.0</td>
-<td>1309.0</td>
-<td>31.0</td>
-<td>PT1M</td>
-<td>hd</td>
-<td>...</td>
-<td>2023</td>
-<td>4</td>
-<td>15:00:28</td>
-<td>April</td>
-<td>60.0</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>26</td>
-<td>181.352175</td>
-<td>4.294819</td>
-<td>45</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Ja1m4mHjZJY</td>
-<td>Gaia</td>
-<td>FULL EPISODE: Channeling - A Bridge to the Beyond</td>
-<td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>18104.0</td>
-<td>1394.0</td>
-<td>113.0</td>
-<td>PT26M53S</td>
-<td>hd</td>
-<td>...</td>
-<td>2023</td>
-<td>3</td>
-<td>16:00:07</td>
-<td>March</td>
-<td>1613.0</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>26</td>
-<td>76.999558</td>
-<td>6.241715</td>
-<td>49</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>qixrU_pwvD0</td>
-<td>Gaia</td>
-<td>This Man Taught Princess Diana to Express Hers...</td>
-<td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>9462.0</td>
-<td>640.0</td>
-<td>51.0</td>
-<td>PT4M47S</td>
-<td>hd</td>
-<td>...</td>
-<td>2023</td>
-<td>3</td>
-<td>16:00:40</td>
-<td>March</td>
-<td>287.0</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>26</td>
-<td>67.638977</td>
-<td>5.389981</td>
-<td>63</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>deZsy9GYn8w</td>
-<td>Gaia</td>
-<td>Mysterious, Ancient Satellite Is Monitoring Earth</td>
-<td>Five of the world’s leading experts unravel my...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>73915.0</td>
-<td>10072.0</td>
-<td>338.0</td>
-<td>PT1M</td>
-<td>hd</td>
-<td>...</td>
-<td>2023</td>
-<td>3</td>
-<td>15:00:21</td>
-<td>March</td>
-<td>60.0</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>26</td>
-<td>136.264628</td>
-<td>4.572820</td>
-<td>49</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Kbfpd8zp3mk</td>
-<td>Gaia</td>
-<td>How Shamanic Dancing Leads to Altered States o...</td>
-<td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>14585.0</td>
-<td>932.0</td>
-<td>54.0</td>
-<td>PT3M56S</td>
-<td>hd</td>
-<td>...</td>
-<td>2023</td>
-<td>3</td>
-<td>16:00:21</td>
-<td>March</td>
-<td>236.0</td>
-<td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
-<td>26</td>
-<td>63.901268</td>
-<td>3.702434</td>
-<td>61</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8695</td>
-<td>ZS3sOfs5jBY</td>
-<td>Actualized.org</td>
-<td>Get Coached</td>
-<td>http://www.actualized.org/coaching\n\nResults ...</td>
-<td>['life coaching', 'Coaching (Profession)']</td>
-<td>10102.0</td>
-<td>323.0</td>
-<td>31.0</td>
-<td>PT16M23S</td>
-<td>hd</td>
-<td>...</td>
-<td>2013</td>
-<td>5</td>
-<td>11:48:19</td>
-<td>May</td>
-<td>983.0</td>
-<td>['life coaching', 'Coaching (Profession)']</td>
-<td>2</td>
-<td>31.973867</td>
-<td>3.068699</td>
-<td>11</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8696</td>
-<td>mlIYVsuIofs</td>
-<td>Actualized.org</td>
-<td>Be Different to Be Successful</td>
-<td>How doing things differently in your life is n...</td>
-<td>NaN</td>
-<td>27343.0</td>
-<td>929.0</td>
-<td>41.0</td>
-<td>PT26M5S</td>
-<td>hd</td>
-<td>...</td>
-<td>2013</td>
-<td>4</td>
-<td>10:24:43</td>
-<td>April</td>
-<td>1565.0</td>
-<td>nan</td>
-<td>0</td>
-<td>33.975789</td>
-<td>1.499470</td>
-<td>29</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8697</td>
-<td>8cbtMhHpLC8</td>
-<td>Actualized.org</td>
-<td>Why Life Coaching Works</td>
-<td>An explanation of how coaching works and why i...</td>
-<td>NaN</td>
-<td>20081.0</td>
-<td>647.0</td>
-<td>42.0</td>
-<td>PT21M</td>
-<td>hd</td>
-<td>...</td>
-<td>2013</td>
-<td>4</td>
-<td>08:53:35</td>
-<td>April</td>
-<td>1260.0</td>
-<td>nan</td>
-<td>0</td>
-<td>32.219511</td>
-<td>2.091529</td>
-<td>23</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">8698</td>
-<td>C1QYF5WYzCo</td>
-<td>Actualized.org</td>
-<td>How to Invest In Yourself</td>
-<td>How a long-term investment mindset in yourself...</td>
-<td>NaN</td>
-<td>61685.0</td>
-<td>1805.0</td>
-<td>193.0</td>
-<td>PT19M13S</td>
-<td>hd</td>
-<td>...</td>
-<td>2013</td>
-<td>4</td>
-<td>07:29:27</td>
-<td>April</td>
-<td>1153.0</td>
-<td>nan</td>
-<td>0</td>
-<td>29.261571</td>
-<td>3.128800</td>
-<td>25</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8699</td>
-<td>_874QVgwvEk</td>
-<td>Actualized.org</td>
-<td>Mastery Part 1</td>
-<td>Test video for self-development blog. This vid...</td>
-<td>['mastery', 'self-help', 'self-development', '...</td>
-<td>5496.0</td>
-<td>217.0</td>
-<td>63.0</td>
-<td>PT16M12S</td>
-<td>hd</td>
-<td>...</td>
-<td>2012</td>
-<td>8</td>
-<td>08:24:31</td>
-<td>August</td>
-<td>972.0</td>
-<td>['mastery', 'self-help', 'self-development', '...</td>
-<td>5</td>
-<td>39.483261</td>
-<td>11.462882</td>
-<td>14</td>
-</tr>
-</tbody>
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>video_id</th>
+      <th>channelTitle</th>
+      <th>title</th>
+      <th>description</th>
+      <th>tags</th>
+      <th>viewCount</th>
+      <th>likeCount</th>
+      <th>commentCount</th>
+      <th>duration</th>
+      <th>definition</th>
+      <th>...</th>
+      <th>publishingYear</th>
+      <th>publishingMonth</th>
+      <th>publishingTime</th>
+      <th>publishingMonthName</th>
+      <th>durationSecs</th>
+      <th>tagsstr</th>
+      <th>tagsCount</th>
+      <th>likeRatio</th>
+      <th>commentRatio</th>
+      <th>titleLength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Q8dOR0bN-Mw</td>
+      <td>Gaia</td>
+      <td>Man Able to Project Thoughts Through Crystals</td>
+      <td>Learn how crystals can hold a powerful place i...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>7218.0</td>
+      <td>1309.0</td>
+      <td>31.0</td>
+      <td>PT1M</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2023</td>
+      <td>4</td>
+      <td>15:00:28</td>
+      <td>April</td>
+      <td>60.0</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>26</td>
+      <td>181.352175</td>
+      <td>4.294819</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ja1m4mHjZJY</td>
+      <td>Gaia</td>
+      <td>FULL EPISODE: Channeling - A Bridge to the Beyond</td>
+      <td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>18104.0</td>
+      <td>1394.0</td>
+      <td>113.0</td>
+      <td>PT26M53S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>16:00:07</td>
+      <td>March</td>
+      <td>1613.0</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>26</td>
+      <td>76.999558</td>
+      <td>6.241715</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>qixrU_pwvD0</td>
+      <td>Gaia</td>
+      <td>This Man Taught Princess Diana to Express Hers...</td>
+      <td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>9462.0</td>
+      <td>640.0</td>
+      <td>51.0</td>
+      <td>PT4M47S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>16:00:40</td>
+      <td>March</td>
+      <td>287.0</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>26</td>
+      <td>67.638977</td>
+      <td>5.389981</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>deZsy9GYn8w</td>
+      <td>Gaia</td>
+      <td>Mysterious, Ancient Satellite Is Monitoring Earth</td>
+      <td>Five of the world’s leading experts unravel my...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>73915.0</td>
+      <td>10072.0</td>
+      <td>338.0</td>
+      <td>PT1M</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>15:00:21</td>
+      <td>March</td>
+      <td>60.0</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>26</td>
+      <td>136.264628</td>
+      <td>4.572820</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kbfpd8zp3mk</td>
+      <td>Gaia</td>
+      <td>How Shamanic Dancing Leads to Altered States o...</td>
+      <td>8,000+ Films, Shows &amp; Classes on Gaia. Start Y...</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>14585.0</td>
+      <td>932.0</td>
+      <td>54.0</td>
+      <td>PT3M56S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>16:00:21</td>
+      <td>March</td>
+      <td>236.0</td>
+      <td>['gaia', 'yoga on gaia', 'cosmic disclosure', ...</td>
+      <td>26</td>
+      <td>63.901268</td>
+      <td>3.702434</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8695</th>
+      <td>ZS3sOfs5jBY</td>
+      <td>Actualized.org</td>
+      <td>Get Coached</td>
+      <td>http://www.actualized.org/coaching\n\nResults ...</td>
+      <td>['life coaching', 'Coaching (Profession)']</td>
+      <td>10102.0</td>
+      <td>323.0</td>
+      <td>31.0</td>
+      <td>PT16M23S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2013</td>
+      <td>5</td>
+      <td>11:48:19</td>
+      <td>May</td>
+      <td>983.0</td>
+      <td>['life coaching', 'Coaching (Profession)']</td>
+      <td>2</td>
+      <td>31.973867</td>
+      <td>3.068699</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>8696</th>
+      <td>mlIYVsuIofs</td>
+      <td>Actualized.org</td>
+      <td>Be Different to Be Successful</td>
+      <td>How doing things differently in your life is n...</td>
+      <td>NaN</td>
+      <td>27343.0</td>
+      <td>929.0</td>
+      <td>41.0</td>
+      <td>PT26M5S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2013</td>
+      <td>4</td>
+      <td>10:24:43</td>
+      <td>April</td>
+      <td>1565.0</td>
+      <td>nan</td>
+      <td>0</td>
+      <td>33.975789</td>
+      <td>1.499470</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>8697</th>
+      <td>8cbtMhHpLC8</td>
+      <td>Actualized.org</td>
+      <td>Why Life Coaching Works</td>
+      <td>An explanation of how coaching works and why i...</td>
+      <td>NaN</td>
+      <td>20081.0</td>
+      <td>647.0</td>
+      <td>42.0</td>
+      <td>PT21M</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2013</td>
+      <td>4</td>
+      <td>08:53:35</td>
+      <td>April</td>
+      <td>1260.0</td>
+      <td>nan</td>
+      <td>0</td>
+      <td>32.219511</td>
+      <td>2.091529</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>8698</th>
+      <td>C1QYF5WYzCo</td>
+      <td>Actualized.org</td>
+      <td>How to Invest In Yourself</td>
+      <td>How a long-term investment mindset in yourself...</td>
+      <td>NaN</td>
+      <td>61685.0</td>
+      <td>1805.0</td>
+      <td>193.0</td>
+      <td>PT19M13S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2013</td>
+      <td>4</td>
+      <td>07:29:27</td>
+      <td>April</td>
+      <td>1153.0</td>
+      <td>nan</td>
+      <td>0</td>
+      <td>29.261571</td>
+      <td>3.128800</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>8699</th>
+      <td>_874QVgwvEk</td>
+      <td>Actualized.org</td>
+      <td>Mastery Part 1</td>
+      <td>Test video for self-development blog. This vid...</td>
+      <td>['mastery', 'self-help', 'self-development', '...</td>
+      <td>5496.0</td>
+      <td>217.0</td>
+      <td>63.0</td>
+      <td>PT16M12S</td>
+      <td>hd</td>
+      <td>...</td>
+      <td>2012</td>
+      <td>8</td>
+      <td>08:24:31</td>
+      <td>August</td>
+      <td>972.0</td>
+      <td>['mastery', 'self-help', 'self-development', '...</td>
+      <td>5</td>
+      <td>39.483261</td>
+      <td>11.462882</td>
+      <td>14</td>
+    </tr>
+  </tbody>
 </table>
-
 <p>8700 rows × 22 columns</p>
 </div>
 </div>
@@ -2233,23 +2255,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -2314,92 +2322,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2445,9 +2367,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org">Quarto</a></div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

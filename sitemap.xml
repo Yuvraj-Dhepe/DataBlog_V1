@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/index.html</loc>
-    <lastmod>2023-06-07T21:37:12.159Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/blog/welcome/index.html</loc>
+    <lastmod>2023-06-25T04:56:39.231Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/B1_Sales_Insights.html</loc>
-    <lastmod>2023-06-07T21:37:14.371Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/blog/post-with-code/index.html</loc>
+    <lastmod>2023-06-25T04:56:40.281Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/index.html</loc>
-    <lastmod>2023-06-07T21:37:14.879Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/blog/index.html</loc>
+    <lastmod>2023-06-25T04:56:41.631Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/StudPerformance_end_to_end.html</loc>
-    <lastmod>2023-06-07T21:37:16.815Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/spotify_project.html</loc>
+    <lastmod>2023-06-25T04:56:44.441Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/Youtube_API_EDA.html</loc>
-    <lastmod>2023-06-07T21:37:19.199Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/index.html</loc>
+    <lastmod>2023-06-25T04:56:45.391Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/post-with-code/index.html</loc>
-    <lastmod>2023-06-07T21:37:19.583Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/StudPerformance_end_to_end.html</loc>
+    <lastmod>2023-06-25T04:56:47.151Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/welcome/index.html</loc>
-    <lastmod>2023-06-07T21:37:19.955Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/Youtube_API_EDA.html</loc>
+    <lastmod>2023-06-25T04:56:48.971Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/blog/index.html</loc>
-    <lastmod>2023-06-07T21:37:20.475Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/B1_Sales_Insights.html</loc>
+    <lastmod>2023-06-25T04:56:50.891Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/notes/Docker_Notes.html</loc>
-    <lastmod>2023-06-07T21:37:21.879Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/notes/index.html</loc>
+    <lastmod>2023-06-25T04:56:52.671Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/notes/index.html</loc>
-    <lastmod>2023-06-07T21:37:22.283Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/notes/Docker_Notes.html</loc>
+    <lastmod>2023-06-25T04:56:55.031Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/Yuvraj-Dhepe/DataBlog_V1/Self_Instructions.html</loc>
-    <lastmod>2023-06-07T21:37:22.731Z</lastmod>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/index.html</loc>
+    <lastmod>2023-06-25T04:56:56.071Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Yuvraj-Dhepe.github.io/DataBlog_V1/Self_Instructions.html</loc>
+    <lastmod>2023-06-25T04:56:56.571Z</lastmod>
   </url>
 </urlset>

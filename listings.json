@@ -1,22 +1,5 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/docs/notes/Docker_Notes.html",
-      "/docs/projects/StudPerformance_end_to_end.html",
-      "/docs/projects/B1_Sales_Insights.html",
-      "/docs/projects/Youtube_API_EDA.html"
-    ]
-  },
-  {
-    "listing": "/docs/projects/index.html",
-    "items": [
-      "/docs/projects/B1_Sales_Insights.html",
-      "/docs/projects/StudPerformance_end_to_end.html",
-      "/docs/projects/Youtube_API_EDA.html"
-    ]
-  },
-  {
     "listing": "/docs/blog/index.html",
     "items": [
       "/docs/blog/welcome/index.html",
@@ -24,9 +7,27 @@
     ]
   },
   {
+    "listing": "/docs/projects/index.html",
+    "items": [
+      "/docs/projects/spotify_project.html",
+      "/docs/projects/StudPerformance_end_to_end.html",
+      "/docs/projects/Youtube_API_EDA.html",
+      "/docs/projects/B1_Sales_Insights.html"
+    ]
+  },
+  {
     "listing": "/docs/notes/index.html",
     "items": [
       "/docs/notes/Docker_Notes.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/docs/notes/Docker_Notes.html",
+      "/docs/projects/StudPerformance_end_to_end.html",
+      "/docs/projects/B1_Sales_Insights.html",
+      "/docs/projects/Youtube_API_EDA.html"
     ]
   }
 ]

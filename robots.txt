@@ -1,1 +1,1 @@
-Sitemap: https://github.com/Yuvraj-Dhepe/DataBlog_V1/sitemap.xml
+Sitemap: https://Yuvraj-Dhepe.github.io/DataBlog_V1/sitemap.xml

@@ -685,7 +685,7 @@ memory usage: 6.8 MB</code></pre>
 <ul>
 <li>For any year, all countries who have less than 1% of total origins are grouped together into others category</li>
 </ul>
-<div class="cell" data-tags="[]" data-execution_count="84">
+<div class="cell" data-tags="[]" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -755,14 +755,90 @@ memory usage: 6.8 MB</code></pre>
 <span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="st">'All'</span>] <span class="op">+</span> df[<span class="st">'year'</span>].unique().tolist()</span>
 <span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot</span></span>
-<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>interact(treemap, year<span class="op">=</span>years)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a>interact(treemap, year<span class="op">=</span>years)</span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"e3b72bc48690446cb262342f76794c22","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"e502b0f67e6c45bd9c8c14a623749907","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="84">
-<pre><code>&lt;function __main__.treemap(year)&gt;</code></pre>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> treemap(year):</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="op">!=</span> <span class="st">'All'</span>:</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> df.query(<span class="st">'year == @year'</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="ss">f'Artist Origins Distribution for </span><span class="sc">{</span>year<span class="sc">}</span><span class="ss"> - Treemap (Thresholded)'</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> df</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        min_year <span class="op">=</span> np.<span class="bu">min</span>(df[<span class="st">'year'</span>])</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        max_year <span class="op">=</span> np.<span class="bu">max</span>(df[<span class="st">'year'</span>])</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="ss">f'Artist Origins Distribution from </span><span class="sc">{</span>min_year<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>max_year<span class="sc">}</span><span class="ss"> - Treemap (Thresholded)'</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the threshold count</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    threshold <span class="op">=</span> <span class="fl">0.01</span> <span class="op">*</span> data.shape[<span class="dv">0</span>]</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the counts of artist origins</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    artist_counts <span class="op">=</span> data[<span class="st">'artist_origin'</span>].value_counts()</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Identify countries with counts less than the threshold</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    other_countries <span class="op">=</span> artist_counts[artist_counts <span class="op">&lt;</span> threshold]</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sum the counts of other countries</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    other_count <span class="op">=</span> other_countries.<span class="bu">sum</span>()</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Exclude other countries from the main data</span></span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    filtered_counts <span class="op">=</span> artist_counts.drop(other_countries.index)</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the other count as a separate entry</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    filtered_counts[<span class="st">'Other'</span>] <span class="op">=</span> other_count</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the total size</span></span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    total_size <span class="op">=</span> filtered_counts.<span class="bu">sum</span>()</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the treemap</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> filtered_counts.index.tolist()</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>    values <span class="op">=</span> filtered_counts.tolist()</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Retrieve the muted color palette from Seaborn</span></span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>    color_palette <span class="op">=</span> sns.color_palette(<span class="st">"muted"</span>)</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> go.Figure(go.Treemap(</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>labels,</span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>        parents<span class="op">=</span>[<span class="st">""</span>] <span class="op">*</span> <span class="bu">len</span>(labels),</span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>        values<span class="op">=</span>values,</span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>        textinfo<span class="op">=</span><span class="st">"label+value+percent parent"</span>,</span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>        marker_colors<span class="op">=</span>color_palette[:<span class="bu">len</span>(labels)],</span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>        hovertemplate<span class="op">=</span><span class="st">"&lt;b&gt;%</span><span class="sc">{label}</span><span class="st">&lt;/b&gt;&lt;br&gt;Count: %</span><span class="sc">{value}</span><span class="st">&lt;br&gt;Percentage: %</span><span class="sc">{percentParent:.1%}</span><span class="st">&lt;extra&gt;&lt;/extra&gt;"</span>,</span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>        textposition<span class="op">=</span><span class="st">'middle center'</span>,  <span class="co"># Center the label text in the treemap cells</span></span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a>        textfont<span class="op">=</span><span class="bu">dict</span>(</span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a>            size<span class="op">=</span><span class="dv">24</span>,  <span class="co"># Set the font size for the text inside the treemap</span></span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a>            family<span class="op">=</span><span class="st">'Times New Roman'</span></span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>    fig.update_layout(</span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span>title,</span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a>        margin<span class="op">=</span><span class="bu">dict</span>(l<span class="op">=</span><span class="dv">0</span>, r<span class="op">=</span><span class="dv">0</span>, t<span class="op">=</span><span class="dv">40</span>, b<span class="op">=</span><span class="dv">0</span>),</span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">1800</span>,</span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">900</span></span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>    fig.write_image(<span class="ss">f'</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">.png'</span>)</span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a>    fig.show()</span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="st">'All'</span>] <span class="op">+</span> df[<span class="st">'year'</span>].unique().tolist()</span>
+<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot</span></span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a>interact(treemap, year<span class="op">=</span>years)</span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"c2767470bf3b4afab8a8855705212128","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="71">

@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.427">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="An End to End ML project">
+<meta name="description" content="Data Viz Project From Uni">
 
-<title>Data Science Blog - Yuvraj Dhepe - End to End Machine Learning Project on Student Performance Dataset</title>
+<title>Data Science Blog - Yuvraj Dhepe - Spotify World Insights Viz</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -121,7 +92,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -148,14 +120,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         });
         }
         </script>
-        
+
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - End to End Machine Learning Project on Student Performance Dataset">
-<meta property="og:description" content="An End to End ML project">
-<meta property="og:image" content="https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/images/Spotify.png">
+<meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - Spotify World Insights Viz">
+<meta property="og:description" content="Data Viz Project From Uni">
+<meta property="og:image" content="https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/images/Spotify.png">
 <meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
 <meta property="og:image:height" content="548">
 <meta property="og:image:width" content="768">
@@ -167,37 +139,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Hello There</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/projects/index.html">
+    <a class="nav-link" href="../../docs/projects/index.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/blog/index.html">
+    <a class="nav-link" href="../../docs/blog/index.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/notes/index.html">
+    <a class="nav-link" href="../../docs/notes/index.html" rel="" target="">
  <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools ms-auto tools-wide">
+    <a href="https://github.com/Yuvraj-Dhepe" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -243,7 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">End to End Machine Learning Project on Student Performance Dataset</h1>
+<h1 class="title">Spotify World Insights Viz</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Data Viz</div>
   </div>
@@ -251,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div>
   <div class="description">
-    An End to End ML project
+    Data Viz Project From Uni
   </div>
 </div>
 
@@ -269,18 +242,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="installing-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="installing-libraries">Installing Libraries</h3>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-06-25T03:11:55.922291Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-06-25T03:11:55.921873Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-06-25T03:11:55.926573Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-06-25T03:11:55.925764Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2023-06-25T03:11:55.922255Z&quot;}" data-execution_count="2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %%capture</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># #!pip install squarify geopandas plotly Ipython ipywidget dash</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </section>
 <section id="importing-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="importing-libraries">Importing Libraries</h3>
 <p>::: {.cell _cell_guid=‘b1076dfc-b9ad-4769-8c92-a6c4dae69d19’ _uuid=‘8f2839f25d086af736a60e9eeb907d3b93b6e0e5’ tags=‘[]’ execution_count=17}</p>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> squarify</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -295,26 +263,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, Dropdown</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># from googlesearch import search</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <p>:::</p>
 </section>
 <section id="importing-the-dataset-and-processing-a-bit" class="level3">
 <h3 class="anchored" data-anchor-id="importing-the-dataset-and-processing-a-bit">Importing the Dataset and Processing a Bit</h3>
 <div class="cell" data-tags="[]" data-execution_count="3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"~/side_projects/Projects/DataVizProject/spotify_with_locations.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(225456, 28)</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="4">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 Int64Index: 225456 entries, 0 to 225455
@@ -354,11 +315,8 @@ memory usage: 49.9+ MB</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="5">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How much of the data is null</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>acousticness            0
 artists                12
@@ -392,65 +350,57 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing columns which are not useful</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.drop([<span class="st">'mbid'</span>,<span class="st">'country_lastfm'</span>, <span class="st">'tags_mb'</span>, <span class="st">'listeners_lastfm'</span>,<span class="st">'scrobbles_lastfm'</span>,<span class="st">'id'</span>, <span class="st">'ambiguous_artist'</span>,<span class="st">'artist_lastfm'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.rename(columns <span class="op">=</span> {<span class="st">'country_mb'</span>:<span class="st">'artist_origin'</span>,<span class="st">'tags_lastfm'</span>:<span class="st">'genres'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="7">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now checking the null values and dropping the rows with null values in any of the column</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_missing <span class="op">=</span> data.isnull().<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">0</span>).reset_index()</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df_missing.columns <span class="op">=</span> [<span class="st">'column_name'</span>, <span class="st">'missing_count'</span>]</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df_missing[<span class="st">'missing_ratio'</span>] <span class="op">=</span> df_missing[<span class="st">'missing_count'</span>]<span class="op">/</span>data.shape[<span class="dv">0</span>]</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df_missing.query(<span class="st">'missing_ratio&gt;0'</span>).sort_values(by <span class="op">=</span> <span class="st">'missing_ratio'</span>, ascending <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="7">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>column_name</th>
-      <th>missing_count</th>
-      <th>missing_ratio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>19</th>
-      <td>genres</td>
-      <td>64615</td>
-      <td>0.286597</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>artist_origin</td>
-      <td>53851</td>
-      <td>0.238854</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>artists</td>
-      <td>12</td>
-      <td>0.000053</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">column_name</th>
+<th data-quarto-table-cell-role="th">missing_count</th>
+<th data-quarto-table-cell-role="th">missing_ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>genres</td>
+<td>64615</td>
+<td>0.286597</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>artist_origin</td>
+<td>53851</td>
+<td>0.238854</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>artists</td>
+<td>12</td>
+<td>0.000053</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="8">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_cleaned <span class="op">=</span> data.dropna(subset <span class="op">=</span> [<span class="st">'artist_origin'</span>,<span class="st">'artists'</span>,<span class="st">'genres'</span>],axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_cleaned.isna().<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>acousticness        0
 artists             0
@@ -476,19 +426,14 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="9">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a copy of data to work on</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df_cleaned.copy()</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>(156512, 20)</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="10">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Doing some processing, like choosing year as discussed</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>min_year <span class="op">=</span> <span class="dv">1979</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.query(<span class="st">"year &gt; @min_year"</span>).copy()</span>
@@ -498,194 +443,189 @@ dtype: int64</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the duration_ms column</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>df.drop(<span class="st">'duration_ms'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>(73887, 20)</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="11">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="11">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>acousticness</th>
-      <th>danceability</th>
-      <th>energy</th>
-      <th>explicit</th>
-      <th>instrumentalness</th>
-      <th>key</th>
-      <th>liveness</th>
-      <th>loudness</th>
-      <th>mode</th>
-      <th>popularity</th>
-      <th>speechiness</th>
-      <th>tempo</th>
-      <th>valence</th>
-      <th>year</th>
-      <th>duration</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-      <td>73887.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>0.270194</td>
-      <td>0.572947</td>
-      <td>0.623204</td>
-      <td>0.162004</td>
-      <td>0.094045</td>
-      <td>5.261115</td>
-      <td>0.200284</td>
-      <td>-8.982739</td>
-      <td>0.683733</td>
-      <td>47.005820</td>
-      <td>0.088800</td>
-      <td>120.083159</td>
-      <td>0.520840</td>
-      <td>1999.056816</td>
-      <td>247.873261</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.304551</td>
-      <td>0.178310</td>
-      <td>0.244244</td>
-      <td>0.368457</td>
-      <td>0.241324</td>
-      <td>3.562242</td>
-      <td>0.175176</td>
-      <td>5.129790</td>
-      <td>0.465022</td>
-      <td>12.571747</td>
-      <td>0.101303</td>
-      <td>30.003903</td>
-      <td>0.254652</td>
-      <td>11.332604</td>
-      <td>88.925993</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-60.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1980.000000</td>
-      <td>30.080000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>0.020500</td>
-      <td>0.456000</td>
-      <td>0.462500</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>2.000000</td>
-      <td>0.093100</td>
-      <td>-11.216000</td>
-      <td>0.000000</td>
-      <td>38.000000</td>
-      <td>0.034500</td>
-      <td>96.013500</td>
-      <td>0.318000</td>
-      <td>1989.000000</td>
-      <td>200.095500</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>0.132000</td>
-      <td>0.587000</td>
-      <td>0.661000</td>
-      <td>0.000000</td>
-      <td>0.000024</td>
-      <td>5.000000</td>
-      <td>0.130000</td>
-      <td>-7.688000</td>
-      <td>1.000000</td>
-      <td>46.000000</td>
-      <td>0.046600</td>
-      <td>117.956000</td>
-      <td>0.526000</td>
-      <td>1999.000000</td>
-      <td>236.253000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>0.458000</td>
-      <td>0.705000</td>
-      <td>0.822000</td>
-      <td>0.000000</td>
-      <td>0.006290</td>
-      <td>8.000000</td>
-      <td>0.258000</td>
-      <td>-5.440000</td>
-      <td>1.000000</td>
-      <td>55.000000</td>
-      <td>0.090500</td>
-      <td>139.557000</td>
-      <td>0.729000</td>
-      <td>2009.000000</td>
-      <td>279.933000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>0.996000</td>
-      <td>0.986000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>0.999000</td>
-      <td>11.000000</td>
-      <td>0.998000</td>
-      <td>1.342000</td>
-      <td>1.000000</td>
-      <td>100.000000</td>
-      <td>0.960000</td>
-      <td>244.091000</td>
-      <td>0.998000</td>
-      <td>2020.000000</td>
-      <td>3816.373000</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">acousticness</th>
+<th data-quarto-table-cell-role="th">danceability</th>
+<th data-quarto-table-cell-role="th">energy</th>
+<th data-quarto-table-cell-role="th">explicit</th>
+<th data-quarto-table-cell-role="th">instrumentalness</th>
+<th data-quarto-table-cell-role="th">key</th>
+<th data-quarto-table-cell-role="th">liveness</th>
+<th data-quarto-table-cell-role="th">loudness</th>
+<th data-quarto-table-cell-role="th">mode</th>
+<th data-quarto-table-cell-role="th">popularity</th>
+<th data-quarto-table-cell-role="th">speechiness</th>
+<th data-quarto-table-cell-role="th">tempo</th>
+<th data-quarto-table-cell-role="th">valence</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+<td>73887.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>0.270194</td>
+<td>0.572947</td>
+<td>0.623204</td>
+<td>0.162004</td>
+<td>0.094045</td>
+<td>5.261115</td>
+<td>0.200284</td>
+<td>-8.982739</td>
+<td>0.683733</td>
+<td>47.005820</td>
+<td>0.088800</td>
+<td>120.083159</td>
+<td>0.520840</td>
+<td>1999.056816</td>
+<td>247.873261</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>0.304551</td>
+<td>0.178310</td>
+<td>0.244244</td>
+<td>0.368457</td>
+<td>0.241324</td>
+<td>3.562242</td>
+<td>0.175176</td>
+<td>5.129790</td>
+<td>0.465022</td>
+<td>12.571747</td>
+<td>0.101303</td>
+<td>30.003903</td>
+<td>0.254652</td>
+<td>11.332604</td>
+<td>88.925993</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>-60.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1980.000000</td>
+<td>30.080000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>0.020500</td>
+<td>0.456000</td>
+<td>0.462500</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2.000000</td>
+<td>0.093100</td>
+<td>-11.216000</td>
+<td>0.000000</td>
+<td>38.000000</td>
+<td>0.034500</td>
+<td>96.013500</td>
+<td>0.318000</td>
+<td>1989.000000</td>
+<td>200.095500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>0.132000</td>
+<td>0.587000</td>
+<td>0.661000</td>
+<td>0.000000</td>
+<td>0.000024</td>
+<td>5.000000</td>
+<td>0.130000</td>
+<td>-7.688000</td>
+<td>1.000000</td>
+<td>46.000000</td>
+<td>0.046600</td>
+<td>117.956000</td>
+<td>0.526000</td>
+<td>1999.000000</td>
+<td>236.253000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>0.458000</td>
+<td>0.705000</td>
+<td>0.822000</td>
+<td>0.000000</td>
+<td>0.006290</td>
+<td>8.000000</td>
+<td>0.258000</td>
+<td>-5.440000</td>
+<td>1.000000</td>
+<td>55.000000</td>
+<td>0.090500</td>
+<td>139.557000</td>
+<td>0.729000</td>
+<td>2009.000000</td>
+<td>279.933000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>0.996000</td>
+<td>0.986000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>0.999000</td>
+<td>11.000000</td>
+<td>0.998000</td>
+<td>1.342000</td>
+<td>1.000000</td>
+<td>100.000000</td>
+<td>0.960000</td>
+<td>244.091000</td>
+<td>0.998000</td>
+<td>2020.000000</td>
+<td>3816.373000</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="12">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dtypes <span class="op">=</span> {</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'acousticness'</span>: <span class="st">'float32'</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'danceability'</span>: <span class="st">'float32'</span>,</span>
@@ -709,13 +649,9 @@ dtype: int64</code></pre>
 <span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'artist_origin'</span>: <span class="st">'string'</span></span>
 <span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.astype(dtypes) <span class="co">#Changing the dtypes for efficient processing.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="13">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 Int64Index: 73887 entries, 5920 to 225454
@@ -747,17 +683,11 @@ memory usage: 6.8 MB</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="14">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"PowerBI_Spotify_Cleaned_data"</span>,index <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="15">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grouped_df = df.groupby("name", sort=False).apply(lambda x: x.reset_index(drop=True))</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># grouped_df[grouped_df['artists'] == 'Sade']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <ul>
 <li>Observing this we can see that the same song is released in multiple years maybe by different producers or in different albums.</li>
@@ -778,8 +708,6 @@ memory usage: 6.8 MB</code></pre>
 <li>For any year, all countries who have less than 1% of total origins are grouped together into others category</li>
 </ul>
 <div class="cell" data-tags="[]" data-execution_count="18">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> treemap(year):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="op">!=</span> <span class="st">'All'</span>:</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> df.query(<span class="st">'year == @year'</span>)</span>
@@ -833,10 +761,9 @@ memory usage: 6.8 MB</code></pre>
 <span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot</span></span>
 <span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>interact(treemap, year<span class="op">=</span>years)</span>
 <span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"30c38de11f3f4b82ba44ecabe81fd88a","version_major":2,"version_minor":0}
+{"model_id":"30c38de11f3f4b82ba44ecabe81fd88a","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -844,8 +771,6 @@ memory usage: 6.8 MB</code></pre>
 <section id="plot-1-alternative" class="level3">
 <h3 class="anchored" data-anchor-id="plot-1-alternative">Plot 1 Alternative</h3>
 <div class="cell" data-tags="[]" data-execution_count="19">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data into a pandas DataFrame</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data = df  # Replace 'your_data_file.csv' with your actual data file path</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -881,7 +806,6 @@ memory usage: 6.8 MB</code></pre>
 <span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the figure</span></span>
 <span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
 <span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 
 <div>                            <div id="3d0baa55-e752-4b0f-8395-cc636ada9df8" class="plotly-graph-div" style="height:1200px; width:1500px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("3d0baa55-e752-4b0f-8395-cc636ada9df8")) {                    Plotly.newPlot(                        "3d0baa55-e752-4b0f-8395-cc636ada9df8",                        [{"colorscale":[[0.0,"rgb(255,255,204)"],[0.125,"rgb(255,237,160)"],[0.25,"rgb(254,217,118)"],[0.375,"rgb(254,178,76)"],[0.5,"rgb(253,141,60)"],[0.625,"rgb(252,78,42)"],[0.75,"rgb(227,26,28)"],[0.875,"rgb(189,0,38)"],[1.0,"rgb(128,0,38)"]],"locationmode":"country names","locations":["United States","United Kingdom","Canada","Mexico","Australia","France","Germany","Spain","Jamaica","Japan","Ireland","Italy","Sweden","Colombia","Netherlands","Austria","Argentina","Brazil","Finland","Norway","India","Russia","Denmark","Belgium","Dominican Republic","Philippines","New Zealand","Hungary","Switzerland","South Africa","Iceland","Cuba","South Korea","Turkey","Venezuela","Senegal","Greece","Estonia","Poland","Guatemala","Slovakia","Panama","Indonesia","Israel","Chile","Czech Republic","Taiwan","Romania","Malaysia","Uruguay","China","Lithuania","U.S. Virgin Islands","Nigeria","Samoa","Latvia","Slovenia","Nepal","Bermuda","Mali","Costa Rica","Singapore","Nicaragua","Bahamas","Ecuador","Peru","Monaco","Pakistan","Trinidad and Tobago","Serbia","Croatia","Portugal","Barbados","British Virgin Islands","Ukraine","Egypt","Iran","Georgia","Bolivia","Honduras","Thailand","Luxembourg","Ivory Coast","Congo","Ghana","Kenya","Europe","Cameroon","Yugoslavia","Tunisia","United Arab Emirates","Jersey","Angola","Andorra","Faroe Islands","Saint Vincent and The Grenadines","Albania","Netherlands Antilles","Bosnia and Herzegovina","Cyprus","Moldova","Azerbaijan","Democratic Republic of the Congo","Benin","Paraguay","Algeria"],"reversescale":false,"z":[47643,9440,2447,2185,1148,1111,1095,768,763,700,591,535,478,366,352,308,293,286,262,220,215,201,153,144,144,138,134,121,113,110,102,101,98,94,83,81,77,59,47,46,44,44,43,43,32,30,26,25,22,22,21,19,17,16,15,13,12,11,11,9,8,8,8,7,7,7,7,7,6,6,6,6,5,5,4,4,4,4,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1],"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"Artist Origins Count by Country from 1980 to 2020"},"geo":{"projection":{"type":"equirectangular"},"showframe":false,"showcoastlines":false},"height":1200,"width":1500},                        {"responsive": true}                    ).then(function(){
@@ -930,8 +854,6 @@ if (outputEl) {{
 <li>Also because of digitization, I think the new artists are most popular since new generation has access to share there likes, with the new artists, and they don’t listen to the old artists that much.</li>
 </ul>
 <div class="cell" data-tags="[]" data-execution_count="20">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_plot(year, country):</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter the data for the selected year and country</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> country <span class="op">!=</span> <span class="st">'All'</span>:</span>
@@ -994,10 +916,9 @@ if (outputEl) {{
 <span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot</span></span>
 <span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a>interact(create_plot, year<span class="op">=</span>years, country<span class="op">=</span>countries)</span>
 <span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"8806c2e3549243c49b913cf5cc69ab10","version_major":2,"version_minor":0}
+{"model_id":"8806c2e3549243c49b913cf5cc69ab10","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -1019,8 +940,6 @@ if (outputEl) {{
 <li>For few countries we don’t get top 5 since the data is not available</li>
 </ul>
 <div class="cell" data-tags="[]" data-execution_count="21">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_plot(year, country, feature, top_n<span class="op">=</span><span class="dv">5</span>):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Filter the data for the selected feature then for countries and years</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    data_dummy <span class="op">=</span> df.copy()</span>
@@ -1128,10 +1047,9 @@ if (outputEl) {{
 <span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot</span></span>
 <span id="cb26-106"><a href="#cb26-106" aria-hidden="true" tabindex="-1"></a>interact(create_plot, year<span class="op">=</span>years,country<span class="op">=</span>countries, feature <span class="op">=</span> features, top_n<span class="op">=</span>tops)</span>
 <span id="cb26-107"><a href="#cb26-107" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"1725941868994625a782bcfb5c316281","version_major":2,"version_minor":0}
+{"model_id":"1725941868994625a782bcfb5c316281","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -1143,8 +1061,6 @@ if (outputEl) {{
 <li>Able to answer questions such as which countries has most danceable songs, most loud songs and so on in a given time frame.</li>
 </ul>
 <div class="cell" data-tags="[]" data-execution_count="22">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'danceability'</span>, <span class="st">'energy'</span>, <span class="st">'acousticness'</span>,<span class="st">'instrumentalness'</span>, <span class="st">'key'</span>, <span class="st">'liveness'</span>, <span class="st">'loudness'</span>, <span class="st">'mode'</span>, <span class="st">'popularity'</span>,<span class="st">'speechiness'</span>, <span class="st">'tempo'</span>, <span class="st">'valence'</span>, <span class="st">'duration'</span>]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function to update the plot based on the selected feature</span></span>
@@ -1187,18 +1103,15 @@ if (outputEl) {{
 <span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>interact(update_plot, feature<span class="op">=</span>Dropdown(options<span class="op">=</span>features))</span>
 <span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"9d21f23943c14f7ea09dfb8a2470d28d","version_major":2,"version_minor":0}
+{"model_id":"9d21f23943c14f7ea09dfb8a2470d28d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
 <section id="rest-good-plots" class="level3">
 <h3 class="anchored" data-anchor-id="rest-good-plots">Rest Good Plots</h3>
 <div class="cell" data-tags="[]" data-execution_count="23">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The distribution of features over the years by aggregating them detailed of this is the plot below this</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the list of features</span></span>
@@ -1220,16 +1133,13 @@ if (outputEl) {{
 <span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive dropdown widget using interact</span></span>
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>interact(plot_histogram, feature<span class="op">=</span>Dropdown(options<span class="op">=</span>features, description<span class="op">=</span><span class="st">'Select Feature'</span>))</span>
 <span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"db5a6ee53b0a4cfe8d9e2e1faf8a278c","version_major":2,"version_minor":0}
+{"model_id":"db5a6ee53b0a4cfe8d9e2e1faf8a278c","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="24">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data into a pandas DataFrame</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data = df  # Replace 'your_data_file.csv' with your actual data file path</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1264,16 +1174,13 @@ if (outputEl) {{
 <span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive dropdown widget using interact</span></span>
 <span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>interact(plot_histogram, feature<span class="op">=</span>Dropdown(options<span class="op">=</span>features, description<span class="op">=</span><span class="st">'Select Feature'</span>))</span>
 <span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"aa724fed4eeb4d54bc8b8fcfacd750e1","version_major":2,"version_minor":0}
+{"model_id":"aa724fed4eeb4d54bc8b8fcfacd750e1","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="25">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data into a pandas DataFrame</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data = df  # Replace 'your_data_file.csv' with your actual data file path</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1319,10 +1226,9 @@ if (outputEl) {{
 <span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive dropdown widget using interact</span></span>
 <span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>interact(plot_histogram, feature<span class="op">=</span>Dropdown(options<span class="op">=</span>features, description<span class="op">=</span><span class="st">'Select Feature'</span>))</span>
 <span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ca4bc3716dbe4db59966bfc99f8876f0","version_major":2,"version_minor":0}
+{"model_id":"ca4bc3716dbe4db59966bfc99f8876f0","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -1331,21 +1237,13 @@ if (outputEl) {{
 <section id="rough-plots" class="level2">
 <h2 class="anchored" data-anchor-id="rough-plots">Rough Plots</h2>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-06-21T04:40:36.152771Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-06-21T04:40:36.152376Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-06-21T04:40:36.696823Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-06-21T04:40:36.695672Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2023-06-21T04:40:36.152739Z&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ac = df.copy()</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># # ac[['genre_1', 'genre_2', 'genre_3','rest_genres']] = ac.genres.str.split(';', n=3, expand=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-06-21T04:41:00.050625Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-06-21T04:41:00.050218Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-06-21T04:41:00.115842Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-06-21T04:41:00.113789Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2023-06-21T04:41:00.050595Z&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ac.isnull().sum()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2023-06-21T04:42:48.027273Z&quot;,&quot;iopub.status.busy&quot;:&quot;2023-06-21T04:42:48.026123Z&quot;,&quot;iopub.status.idle&quot;:&quot;2023-06-21T04:42:48.034206Z&quot;,&quot;shell.execute_reply&quot;:&quot;2023-06-21T04:42:48.032744Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2023-06-21T04:42:48.027214Z&quot;}">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import geopandas as gpd</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas as pd</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import plotly.graph_objects as go</span></span>
@@ -1406,7 +1304,6 @@ if (outputEl) {{
 <span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a><span class="co"># # Use interact to create the interactive dropdown widget</span></span>
 <span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a><span class="co"># interact(update_plot, year=Dropdown(options=years))</span></span>
 <span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 
 
@@ -1555,9 +1452,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1622,6 +1533,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1667,6 +1664,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org">Quarto</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

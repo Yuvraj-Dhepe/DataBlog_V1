@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.427">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -82,7 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,21 +96,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Data Science Blog - Yuvraj Dhepe - Youtube API Scraping of Spiritual Channels">
 <meta property="og:description" content="Finding what Makes Spiritual Channels A Hit">
-<meta property="og:image" content="https://github.com/Yuvraj-Dhepe/DataBlog_V1/docs/projects/images/Yt_Scraping.png">
-<meta property="og:site-name" content="Data Science Blog - Yuvraj Dhepe">
+<meta property="og:image" content="https://Yuvraj-Dhepe.github.io/DataBlog_V1/docs/projects/images/Yt_Scraping.png">
+<meta property="og:site_name" content="Data Science Blog - Yuvraj Dhepe">
 <meta property="og:image:height" content="520">
 <meta property="og:image:width" content="1020">
 </head>
@@ -114,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -123,24 +129,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Hello There</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Hello There</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/projects/index.html" rel="" target="">
- <span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../../docs/projects/index.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../docs/blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../docs/notes/index.html" rel="" target="">
- <span class="menu-text">Notes</span></a>
+    <a class="nav-link" href="../../docs/notes/index.html"> 
+<span class="menu-text">Notes</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="https://github.com/Yuvraj-Dhepe" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/Yuvraj-Dhepe" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -148,7 +155,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -202,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#wordcloud-for-video-comments" id="toc-wordcloud-for-video-comments" class="nav-link" data-scroll-target="#wordcloud-for-video-comments">Wordcloud for video comments</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/quarto-dev/quarto-demo/blob/main/docs/projects/Youtube_API_EDA.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/quarto-dev/quarto-demo/blob/main/docs/projects/Youtube_API_EDA.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,7 +237,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="exploratory-data-anlysis-using-youtube-data-videos-from-most-popular-indian-spirituality-channels" class="level1">
 <h1>Exploratory Data Anlysis Using Youtube Data Videos from Most Popular Indian Spirituality Channels</h1>
@@ -284,8 +292,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="library-imports" class="level2">
 <h2 class="anchored" data-anchor-id="library-imports">Library Imports</h2>
-<div class="cell" data-tags="[]" data-execution_count="158">
-<details>
+<div id="baf7acdd-9473-4812-b9fb-61b412e49b43" class="cell" data-tags="[]" data-execution_count="158">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -341,8 +349,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Got the channel ID’s from my favorite channels which I would like to get stats on.</li>
 <li>Finally created the functions for getting the channel stats.</li>
 </ul>
-<div class="cell" data-tags="[]" data-execution_count="159">
-<details>
+<div id="52a00be1-7e9a-4cc2-a80a-0a9e313087dd" class="cell" data-tags="[]" data-execution_count="159">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>api_key_1 <span class="op">=</span> os.environ.get(<span class="st">'yt_1'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#api_key_2 = os.environ.get('yt_2')</span></span>
@@ -351,8 +359,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(api_key)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="160">
-<details>
+<div id="d0a38772-8659-48de-978f-e772183bf0a6" class="cell" data-tags="[]" data-execution_count="160">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>api_key_1 <span class="op">=</span> os.environ.get(<span class="st">'yt_1'</span>)</span>
@@ -387,8 +395,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="functions" class="level3">
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
-<div class="cell" data-tags="[]" data-execution_count="161">
-<details>
+<div id="90603483-c873-46d3-aa19-a6e583e61155" class="cell" data-tags="[]" data-execution_count="161">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_channel_stats(channel_ids,yt<span class="op">=</span>youtube):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''</span></span>
@@ -421,8 +429,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(all_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="162">
-<details>
+<div id="95f10e55-85c5-4cd1-a8b3-f0ac931bb3ba" class="cell" data-tags="[]" data-execution_count="162">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_video_ids(playlist_id, max_results<span class="op">=</span><span class="dv">1500</span>,yt <span class="op">=</span> youtube):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -478,8 +486,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> video_ids</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="163">
-<details>
+<div id="6d927228-54ff-4044-9454-3b23680fcba1" class="cell" data-tags="[]" data-execution_count="163">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_video_details(video_ids,yt <span class="op">=</span> youtube):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -525,8 +533,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(all_video_info)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="164">
-<details>
+<div id="dd14f812-0327-4f2a-a997-7104fba4ef36" class="cell" data-tags="[]" data-execution_count="164">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_comments_in_videos(video_ids, yt <span class="op">=</span> youtube):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -566,21 +574,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="get-channel-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="get-channel-statistics">Get Channel statistics</h3>
 <p>Using the get_channel_stats function defined below, now we are going to obtain the channel statistics for the above channels in scope</p>
-<div class="cell" data-tags="[]" data-execution_count="165">
-<details>
+<div id="54c49ec5-a98d-442c-bc2b-02ffb6471378" class="cell" data-tags="[]" data-execution_count="165">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>channel_data <span class="op">=</span> get_channel_stats(channel_ids)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>channel_data.to_csv(<span class="st">"./files/spiritual_channel_data_original.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="166">
-<details>
+<div id="29d50717-e752-492c-a4d1-fa0971de0fd3" class="cell" data-tags="[]" data-execution_count="166">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#channel_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="167">
-<details>
+<div id="ba9f8c0f-e9f8-4649-87ed-c47468791820" class="cell" data-tags="[]" data-execution_count="167">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creation of copy so that I save a dummy df and also a csv, to not keep reusing youtube credits i.e. 10k per day.</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>l_channel_data <span class="op">=</span> pd.read_csv(<span class="st">"./files/spiritual_channel_data_original.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>)</span>
@@ -588,125 +596,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-display" data-execution_count="167">
 <div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">channelName</th>
-<th data-quarto-table-cell-role="th">subscribers</th>
-<th data-quarto-table-cell-role="th">views</th>
-<th data-quarto-table-cell-role="th">totalVideos</th>
-<th data-quarto-table-cell-role="th">playlistId</th>
-<th data-quarto-table-cell-role="th">publishedAt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Aaron Doughty</td>
-<td>1450000</td>
-<td>141121587</td>
-<td>1793</td>
-<td>UU48MclMZIY_EaOQwatzCpvw</td>
-<td>2014-07-10 04:24:58+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>The School of Life</td>
-<td>8380000</td>
-<td>820210489</td>
-<td>902</td>
-<td>UU7IcJI8PUf5Z3zKxnZvTBog</td>
-<td>2010-05-18 16:46:57+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Psych2Go</td>
-<td>10800000</td>
-<td>1477376571</td>
-<td>2380</td>
-<td>UUkJEpR7JmS36tajD34Gp4VA</td>
-<td>2014-10-05 06:27:31+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Gaia</td>
-<td>1520000</td>
-<td>127649328</td>
-<td>645</td>
-<td>UUFVqzO9_qHVckKqNC95o9tw</td>
-<td>2008-08-06 15:26:41+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Universe Inside You</td>
-<td>1790000</td>
-<td>118060252</td>
-<td>126</td>
-<td>UUOnnmKlDZltHAqJLz-XIpGA</td>
-<td>2017-03-30 10:55:39+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Mindvalley</td>
-<td>2260000</td>
-<td>468381830</td>
-<td>1662</td>
-<td>UUg3F5jxUrSvJQICen48cX4w</td>
-<td>2014-04-23 08:21:13+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Gaur Gopal Das</td>
-<td>4860000</td>
-<td>288878180</td>
-<td>356</td>
-<td>UUz22l7kbce-uFJAoaZqxD1A</td>
-<td>2016-04-12 18:16:24+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Vishuddha Das</td>
-<td>596000</td>
-<td>40838427</td>
-<td>381</td>
-<td>UUFJZQtrh5Ksncayy2FaoNbQ</td>
-<td>2014-09-24 14:04:59+00:00</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Actualized.org</td>
-<td>1100000</td>
-<td>107549192</td>
-<td>528</td>
-<td>UUgeicB5AuF3MyyUto0-M5Lw</td>
-<td>2012-01-23 20:08:34+00:00</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Spirit Science</td>
-<td>1300000</td>
-<td>79311991</td>
-<td>306</td>
-<td>UUEcMWs6GudljuLw0-Umf97A</td>
-<td>2011-12-29 05:49:29+00:00</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-tags="[]" data-execution_count="168">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy used for further manipulation and original of l_channel_data can be used to load this chdd any time.</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>chdd <span class="op">=</span> l_channel_data.copy()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>chdd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="168">
 <div>
 
 
@@ -819,8 +708,131 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="169">
-<details>
+</div>
+<div id="d5e1bc32-9170-428c-a648-ae30157028d8" class="cell" data-tags="[]" data-execution_count="168">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy used for further manipulation and original of l_channel_data can be used to load this chdd any time.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>chdd <span class="op">=</span> l_channel_data.copy()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>chdd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="168">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">channelName</th>
+<th data-quarto-table-cell-role="th">subscribers</th>
+<th data-quarto-table-cell-role="th">views</th>
+<th data-quarto-table-cell-role="th">totalVideos</th>
+<th data-quarto-table-cell-role="th">playlistId</th>
+<th data-quarto-table-cell-role="th">publishedAt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Aaron Doughty</td>
+<td>1450000</td>
+<td>141121587</td>
+<td>1793</td>
+<td>UU48MclMZIY_EaOQwatzCpvw</td>
+<td>2014-07-10 04:24:58+00:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>The School of Life</td>
+<td>8380000</td>
+<td>820210489</td>
+<td>902</td>
+<td>UU7IcJI8PUf5Z3zKxnZvTBog</td>
+<td>2010-05-18 16:46:57+00:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Psych2Go</td>
+<td>10800000</td>
+<td>1477376571</td>
+<td>2380</td>
+<td>UUkJEpR7JmS36tajD34Gp4VA</td>
+<td>2014-10-05 06:27:31+00:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Gaia</td>
+<td>1520000</td>
+<td>127649328</td>
+<td>645</td>
+<td>UUFVqzO9_qHVckKqNC95o9tw</td>
+<td>2008-08-06 15:26:41+00:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Universe Inside You</td>
+<td>1790000</td>
+<td>118060252</td>
+<td>126</td>
+<td>UUOnnmKlDZltHAqJLz-XIpGA</td>
+<td>2017-03-30 10:55:39+00:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Mindvalley</td>
+<td>2260000</td>
+<td>468381830</td>
+<td>1662</td>
+<td>UUg3F5jxUrSvJQICen48cX4w</td>
+<td>2014-04-23 08:21:13+00:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Gaur Gopal Das</td>
+<td>4860000</td>
+<td>288878180</td>
+<td>356</td>
+<td>UUz22l7kbce-uFJAoaZqxD1A</td>
+<td>2016-04-12 18:16:24+00:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Vishuddha Das</td>
+<td>596000</td>
+<td>40838427</td>
+<td>381</td>
+<td>UUFJZQtrh5Ksncayy2FaoNbQ</td>
+<td>2014-09-24 14:04:59+00:00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Actualized.org</td>
+<td>1100000</td>
+<td>107549192</td>
+<td>528</td>
+<td>UUgeicB5AuF3MyyUto0-M5Lw</td>
+<td>2012-01-23 20:08:34+00:00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Spirit Science</td>
+<td>1300000</td>
+<td>79311991</td>
+<td>306</td>
+<td>UUEcMWs6GudljuLw0-Umf97A</td>
+<td>2011-12-29 05:49:29+00:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div id="41101562-323f-4eca-b53b-02ce0a9c9bbc" class="cell" data-tags="[]" data-execution_count="169">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting Numeric n Categorical columns</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">'subscribers'</span>,<span class="st">'views'</span>,<span class="st">'totalVideos'</span>]</span>
@@ -841,16 +853,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>chdd.drop([<span class="st">'publishedAt'</span>],axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="170">
-<details>
+<div id="b011d924-203d-4150-96ae-8ba8f6fb7295" class="cell" data-tags="[]" data-execution_count="170">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chdd['channelName'] = chdd['channelName'].replace('STAR भारत','Star Bharat')</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chdd </span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Was for other spiritual channels, but isn't necessary now.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="171">
-<details>
+<div id="6f0b99b2-12af-4830-b6ec-f8d4eda40778" class="cell" data-tags="[]" data-execution_count="171">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>chdd.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -876,8 +888,8 @@ memory usage: 800.0+ bytes</code></pre>
 </section>
 <section id="popularity-measure-via-number-of-subscribers-per-channel" class="level3">
 <h3 class="anchored" data-anchor-id="popularity-measure-via-number-of-subscribers-per-channel">Popularity Measure via Number of Subscribers Per Channel</h3>
-<div class="cell" data-tags="[]" data-execution_count="172">
-<details>
+<div id="e5728f59-96f0-4f9c-95d8-b830639e2e50" class="cell" data-tags="[]" data-execution_count="172">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>matplotlib.get_backend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -885,15 +897,15 @@ memory usage: 800.0+ bytes</code></pre>
 <pre><code>'module://matplotlib_inline.backend_inline'</code></pre>
 </div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="173">
-<details>
+<div id="f924f06c-0297-4f5f-a7e8-106e9186db00" class="cell" data-tags="[]" data-execution_count="173">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#matplotlib.use??</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.barplot??</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="177">
-<details>
+<div id="3a753989-2f8f-42ab-9353-eafe87ccc46d" class="cell" data-tags="[]" data-execution_count="177">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fixing colors for each channel</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#palette = sns.color_palette('pastel6', n_colors=10)</span></span>
@@ -905,33 +917,41 @@ memory usage: 800.0+ bytes</code></pre>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    channel_colors[channel] <span class="op">=</span> colors[i]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="178">
-<details>
+<div id="4d2f3f2e-fe26-4a40-915f-a5a8866c2817" class="cell" data-tags="[]" data-execution_count="178">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">'channelName'</span>, y<span class="op">=</span><span class="st">'subscribers'</span>, data<span class="op">=</span>chdd.sort_values(<span class="st">'subscribers'</span>, ascending<span class="op">=</span><span class="va">False</span>), palette<span class="op">=</span>channel_colors)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(ax.get_xticklabels(),rotation <span class="op">=</span> <span class="dv">90</span>)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="popularity-measure-via-number-of-views-per-channel" class="level3">
 <h3 class="anchored" data-anchor-id="popularity-measure-via-number-of-views-per-channel">Popularity measure via Number of Views Per Channel</h3>
-<div class="cell" data-tags="[]" data-execution_count="179">
-<details>
+<div id="2a9f9fc5-89f9-4dc0-87ae-5e0254a71fbf" class="cell" data-tags="[]" data-execution_count="179">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># matplotlib.use('module://matplotlib_inline.backend_inline')</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#%matplotlib inline</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">'channelName'</span>, y<span class="op">=</span><span class="st">'views'</span>, data<span class="op">=</span>chdd.sort_values(<span class="st">'views'</span>, ascending<span class="op">=</span><span class="va">False</span>),palette<span class="op">=</span>channel_colors)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(ax.get_xticklabels(),rotation <span class="op">=</span> <span class="dv">90</span>)</span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <section id="observation-from-above-plots" class="level4">
@@ -945,8 +965,8 @@ memory usage: 800.0+ bytes</code></pre>
 <section id="get-video-statistics-for-all-the-channels" class="level3">
 <h3 class="anchored" data-anchor-id="get-video-statistics-for-all-the-channels">Get video statistics for all the channels</h3>
 <p>In the next step, we will obtain the video statistics for all the channels. In total, we obtained 8700 videos as seen in below.</p>
-<div class="cell" data-tags="[]" data-execution_count="180">
-<details>
+<div id="959970fb-d999-4257-8182-2947012ba66a" class="cell" data-tags="[]" data-execution_count="180">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Create a dataframe with video statistics and comments from all channels</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># video_df = pd.DataFrame()</span></span>
@@ -967,29 +987,29 @@ memory usage: 800.0+ bytes</code></pre>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     comments_df = comments_df.append(comments_data, ignore_index=True)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="181">
-<details>
+<div id="f9e4ff68-5c39-4d8e-9075-b0af0082150f" class="cell" data-execution_count="181">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># video_df.to_csv("./files/spirituality_video_df_original.csv")</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># comments_df.to_csv("./files/spirituality_comments_df_original.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="182">
-<details>
+<div id="7ac6b7a3-5a6f-4092-9d0d-6af546bb49a0" class="cell" data-execution_count="182">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>l_video_df <span class="op">=</span> pd.read_csv(<span class="st">"./files/spirituality_video_df_original.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>l_comments_df <span class="op">=</span> pd.read_csv(<span class="st">"./files/spirituality_comments_df_original.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="183">
-<details>
+<div id="feb7aeaa-e5bb-4560-bc4b-62683dfa774d" class="cell" data-tags="[]" data-execution_count="183">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>viddf <span class="op">=</span> l_video_df.copy()</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>comdf <span class="op">=</span> l_comments_df.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="184">
-<details>
+<div id="ec118468-d6f2-4f71-8b4a-e491d82ecb00" class="cell" data-tags="[]" data-execution_count="184">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create publish day (in the week) column</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'publishedAt'</span>] <span class="op">=</span>  viddf[<span class="st">'publishedAt'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: parser.parse(x)) </span>
@@ -1011,12 +1031,13 @@ memory usage: 800.0+ bytes</code></pre>
 <span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>viddf.drop([<span class="st">'publishedAt'</span>],axis <span class="op">=</span> <span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="185">
-<details>
+<div id="f0e445fe-0f35-4102-a68a-c5905963780d" class="cell" data-tags="[]" data-execution_count="185">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>viddf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="185">
+<div>
 <div>
 
 
@@ -1271,13 +1292,15 @@ memory usage: 800.0+ bytes</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Let’s take a look at the comment_df as well. We only get 8674 comments in total due to the fact that we limited to 10 first comments on the video to avoid exceeding the Youtube API quota limit.</p>
-<div class="cell" data-tags="[]" data-execution_count="186">
-<details>
+<div id="8e057df0-8fd2-4b1c-bf0e-acd5d9ce20e5" class="cell" data-tags="[]" data-execution_count="186">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>comdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="186">
+<div>
 <div>
 
 
@@ -1352,6 +1375,7 @@ memory usage: 800.0+ bytes</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 <section id="preprocessing-feature-engineering" class="level2">
@@ -1359,8 +1383,8 @@ memory usage: 800.0+ bytes</code></pre>
 <p>To be able to make use of the data for analysis, we need to perform a few pre-processing steps. Firstly, I would like reformat some columns, especially the date and time columns such as “pushlishedAt” and “duration”. In addition, I also think it is necessary to enrich the data with some new features that might be useful for understanding the videos’ characteristics. Also I removed the favorite count column as it’s completely blank, rest other columns having null values weren’t modified for simplicity.</p>
 <section id="check-for-empty-values" class="level3">
 <h3 class="anchored" data-anchor-id="check-for-empty-values">Check for empty values</h3>
-<div class="cell" data-tags="[]" data-execution_count="187">
-<details>
+<div id="a817dc3c-8800-40de-8a38-fab797f62bb7" class="cell" data-tags="[]" data-execution_count="187">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>viddf.isnull().<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1385,8 +1409,8 @@ publishingMonthName       0
 dtype: int64</code></pre>
 </div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="188">
-<details>
+<div id="85478c8a-43ff-4611-bbe9-db829ac48f28" class="cell" data-tags="[]" data-execution_count="188">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># matplotlib.use('module://matplotlib_inline.backend_inline')</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %matplotlib inline</span></span>
@@ -1394,14 +1418,18 @@ dtype: int64</code></pre>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="formatting-dates" class="level3">
 <h3 class="anchored" data-anchor-id="formatting-dates">Formatting Dates</h3>
-<div class="cell" data-tags="[]" data-execution_count="189">
-<details>
+<div id="0dfa7809-6f80-46df-9fb0-b74d92e90b8a" class="cell" data-tags="[]" data-execution_count="189">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>viddf.publishingYear.sort_values().value_counts()</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Videos are from 2011 to 2023</span></span>
@@ -1427,8 +1455,8 @@ Name: publishingYear, dtype: int64</code></pre>
 </section>
 <section id="correcting-data-types" class="level3">
 <h3 class="anchored" data-anchor-id="correcting-data-types">Correcting Data types</h3>
-<div class="cell" data-tags="[]" data-execution_count="190">
-<details>
+<div id="5238f0a9-0086-47cd-8af2-238bfa3f769e" class="cell" data-tags="[]" data-execution_count="190">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">'viewCount'</span>, <span class="st">'likeCount'</span>,<span class="st">'commentCount'</span>]</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>viddf[cols] <span class="op">=</span> viddf[cols].<span class="bu">apply</span>(pd.to_numeric, errors<span class="op">=</span><span class="st">'coerce'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1437,51 +1465,52 @@ Name: publishingYear, dtype: int64</code></pre>
 <section id="enriching-data" class="level4">
 <h4 class="anchored" data-anchor-id="enriching-data">Enriching data</h4>
 <p>I want to enrich the data for further analyses, for example: - convert video duration to seconds instead of the current default string format - calculate number of tags for each video - calculate comments and likes per 1000 view ratio - calculate title character length</p>
-<div class="cell" data-tags="[]" data-execution_count="191">
-<details>
+<div id="0ea75f4a-3618-4ce6-ad49-9da1658c7c43" class="cell" data-tags="[]" data-execution_count="191">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert duration to seconds</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'durationSecs'</span>] <span class="op">=</span> viddf[<span class="st">'duration'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: isodate.parse_duration(x))</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'durationSecs'</span>] <span class="op">=</span> viddf[<span class="st">'durationSecs'</span>].astype(<span class="st">'timedelta64[s]'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="192">
-<details>
+<div id="ee9b22d9-ffe5-446e-94a4-4e6ee7c383de" class="cell" data-tags="[]" data-execution_count="192">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add number of tags</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'tagsstr'</span>] <span class="op">=</span> viddf.tags.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">0</span> <span class="cf">if</span> x <span class="kw">is</span> <span class="va">None</span> <span class="cf">else</span> <span class="bu">str</span>((x))) <span class="co">#tags were not in proper format so converting them to str</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'tagsCount'</span>] <span class="op">=</span> viddf.tagsstr.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">0</span> <span class="cf">if</span> (x <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> x <span class="op">==</span><span class="st">'nan'</span>) <span class="cf">else</span> <span class="bu">len</span>(<span class="bu">eval</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="193">
-<details>
+<div id="68cd72ea-2ee6-415b-973d-458c39de8469" class="cell" data-tags="[]" data-execution_count="193">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comments and likes per 1000 view ratio</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'likeRatio'</span>] <span class="op">=</span> viddf[<span class="st">'likeCount'</span>]<span class="op">/</span> viddf[<span class="st">'viewCount'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'commentRatio'</span>] <span class="op">=</span> viddf[<span class="st">'commentCount'</span>]<span class="op">/</span> viddf[<span class="st">'viewCount'</span>] <span class="op">*</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="194">
-<details>
+<div id="094ecd04-bced-42cf-ad66-ab0d2af19924" class="cell" data-tags="[]" data-execution_count="194">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Title character length</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'titleLength'</span>] <span class="op">=</span> viddf[<span class="st">'title'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">len</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="195">
-<details>
+<div id="16e82061-8670-4e89-b589-500dae5a5667" class="cell" data-execution_count="195">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dropping the favourite Count as all of it is empty</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>viddf.drop([<span class="st">'favouriteCount'</span>],axis <span class="op">=</span> <span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="196">
-<details>
+<div id="bc21986b-cdcd-452e-9405-692d46b87936" class="cell" data-tags="[]" data-execution_count="196">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Observing df before proceeding further</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>viddf </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="196">
+<div>
 <div>
 
 
@@ -1784,6 +1813,7 @@ Name: publishingYear, dtype: int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 </section>
@@ -1791,24 +1821,28 @@ Name: publishingYear, dtype: int64</code></pre>
 <h2 class="anchored" data-anchor-id="exploratory-analysis">Exploratory Analysis</h2>
 <section id="checking-total-videos-per-channel" class="level3">
 <h3 class="anchored" data-anchor-id="checking-total-videos-per-channel">Checking total videos per channel</h3>
-<div class="cell" data-tags="[]" data-execution_count="197">
-<details>
+<div id="9d247414-01ff-4971-9b5f-9fbc1924005a" class="cell" data-tags="[]" data-execution_count="197">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(rc<span class="op">=</span>{<span class="st">'figure.figsize'</span>:(<span class="dv">10</span>,<span class="dv">12</span>),<span class="st">'figure.dpi'</span>:<span class="dv">100</span>})</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">'channelName'</span>, y<span class="op">=</span><span class="st">'totalVideos'</span>, data<span class="op">=</span>chdd.sort_values(<span class="st">'totalVideos'</span>, ascending<span class="op">=</span><span class="va">False</span>),palette<span class="op">=</span>channel_colors)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(ax.get_xticklabels(),rotation <span class="op">=</span> <span class="dv">90</span>)</span>
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-38-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="checking-number-of-videos-per-channel-per-year" class="level3">
 <h3 class="anchored" data-anchor-id="checking-number-of-videos-per-channel-per-year">Checking number of videos per channel per year</h3>
-<div class="cell" data-tags="[]" data-execution_count="198">
-<details>
+<div id="d94fedf0-5117-42a6-b677-af3643196bcf" class="cell" data-tags="[]" data-execution_count="198">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group by channel and year, count the videos</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>count_data <span class="op">=</span> viddf.groupby([<span class="st">'channelTitle'</span>, <span class="st">'publishingYear'</span>])[<span class="st">'video_id'</span>].count().reset_index(name<span class="op">=</span><span class="st">"count"</span>)</span>
@@ -1820,7 +1854,11 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-39-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1835,33 +1873,41 @@ Name: publishingYear, dtype: int64</code></pre>
 </section>
 <section id="violinplot" class="level4">
 <h4 class="anchored" data-anchor-id="violinplot">ViolinPlot</h4>
-<div class="cell" data-tags="[]" data-execution_count="199">
-<details>
+<div id="317fb0cc-3dc3-45ee-841c-97d64338fc29" class="cell" data-tags="[]" data-execution_count="199">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.violinplot(x<span class="op">=</span><span class="st">'channelTitle'</span>, y<span class="op">=</span><span class="st">'viewCount'</span>, data<span class="op">=</span>viddf.sort_values(<span class="st">'viewCount'</span>, ascending<span class="op">=</span><span class="va">False</span>), palette <span class="op">=</span> channel_colors)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#ax.set_ylim(ymin = -1e3, ymax = 1e5)</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(ax.get_xticklabels(),rotation <span class="op">=</span> <span class="dv">90</span>)</span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-40-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="boxplot" class="level4">
 <h4 class="anchored" data-anchor-id="boxplot">BoxPlot</h4>
-<div class="cell" data-tags="[]" data-execution_count="200">
-<details>
+<div id="f824b79e-533e-4b6d-9ba2-733d93c5621c" class="cell" data-tags="[]" data-execution_count="200">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.boxplot(x<span class="op">=</span><span class="st">'channelTitle'</span>, y<span class="op">=</span><span class="st">'viewCount'</span>, data<span class="op">=</span>viddf.sort_values(<span class="st">'viewCount'</span>, ascending<span class="op">=</span><span class="va">False</span>), palette <span class="op">=</span> channel_colors)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(ymin <span class="op">=</span> <span class="op">-</span><span class="fl">1e3</span>, ymax <span class="op">=</span> <span class="fl">2.4e6</span>)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(ax.get_xticklabels(),rotation <span class="op">=</span> <span class="dv">90</span>)</span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-41-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1874,8 +1920,8 @@ Name: publishingYear, dtype: int64</code></pre>
 </section>
 <section id="correlation-plots-of-comment-count-like-count-vs-view-count" class="level4">
 <h4 class="anchored" data-anchor-id="correlation-plots-of-comment-count-like-count-vs-view-count">Correlation Plots of comment count, like count vs view Count</h4>
-<div class="cell" data-tags="[]" data-execution_count="201">
-<details>
+<div id="e2f5f2c5-5542-4abe-91cf-aaf675a843ab" class="cell" data-tags="[]" data-execution_count="201">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span>plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> viddf, x <span class="op">=</span> <span class="st">"commentCount"</span>, y <span class="op">=</span> <span class="st">"viewCount"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>])</span>
@@ -1883,15 +1929,19 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-42-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-42-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="correlation-plots-of-comment-ration-like-ratio-vs-view-count" class="level4">
 <h4 class="anchored" data-anchor-id="correlation-plots-of-comment-ration-like-ratio-vs-view-count">Correlation Plots of comment ration, like ratio vs view Count</h4>
 <p>Now we will take a look at the correlation if we look at the comment ratio and like ratio instead of the absolute number. It seems that more views is leading to more comments and more likes as well, but after a certain point I think, with views viewers, don’t write comments that much.</p>
-<div class="cell" data-tags="[]" data-execution_count="202">
-<details>
+<div id="96f7db2e-098a-4f35-bc47-0477b0c38a4c" class="cell" data-tags="[]" data-execution_count="202">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span>plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> viddf, x <span class="op">=</span> <span class="st">"commentRatio"</span>, y <span class="op">=</span> <span class="st">"viewCount"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>])</span>
@@ -1901,7 +1951,11 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-43-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-43-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1914,38 +1968,46 @@ Name: publishingYear, dtype: int64</code></pre>
 </section>
 <section id="histplot-of-number-of-videos-with-their-duration" class="level4">
 <h4 class="anchored" data-anchor-id="histplot-of-number-of-videos-with-their-duration">Histplot of number of videos with their duration</h4>
-<div class="cell" data-tags="[]" data-execution_count="203">
-<details>
+<div id="8137f933-5118-42aa-bd3b-be1b978a27db" class="cell" data-tags="[]" data-execution_count="203">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(data<span class="op">=</span>viddf[viddf[<span class="st">'durationSecs'</span>] <span class="op">&lt;</span> <span class="dv">10000</span>], x<span class="op">=</span><span class="st">"durationSecs"</span>, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">"#9368b7"</span>)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-44-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-44-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now we plot the duration against comment count and like count. It can be seen that actually shorter videos tend to get more likes and comments than very long videos.</p>
 </section>
 <section id="duration-vs-comment-count-like-count-plots" class="level4">
 <h4 class="anchored" data-anchor-id="duration-vs-comment-count-like-count-plots">Duration vs Comment Count, Like Count Plots</h4>
-<div class="cell" data-tags="[]" data-execution_count="204">
-<details>
+<div id="566fa38c-490f-4534-8e1c-a068ef458d8d" class="cell" data-tags="[]" data-execution_count="204">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># matplotlib.use('module://matplotlib_inline.backend_inline')</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %matplotlib inline</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span>plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> viddf, x <span class="op">=</span> <span class="st">"durationSecs"</span>, y <span class="op">=</span> <span class="st">"commentCount"</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>])</span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> viddf, x <span class="op">=</span> <span class="st">"durationSecs"</span>, y <span class="op">=</span> <span class="st">"likeCount"</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>])</span>
 <span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ax[0].set_ylim(0,1e5)</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="co">#ax[1].set_ylim(0,1e5)</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
 <span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-45-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-45-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1955,16 +2017,20 @@ Name: publishingYear, dtype: int64</code></pre>
 <section id="observations-3" class="level4">
 <h4 class="anchored" data-anchor-id="observations-3">Observations</h4>
 <p>There is no clear relationship between title length and views as seen the scatterplot below, but most-viewed videos tend to have average title length of 35-60 characters</p>
-<div class="cell" data-tags="[]" data-execution_count="205">
-<details>
+<div id="173b58e2-f22f-4f78-aa87-ce1ee66cb8ff" class="cell" data-tags="[]" data-execution_count="205">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.scatterplot(data <span class="op">=</span> viddf, x <span class="op">=</span> <span class="st">"titleLength"</span>, y <span class="op">=</span> <span class="st">"viewCount"</span>)</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>,<span class="fl">1e7</span>)</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-46-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1975,8 +2041,8 @@ Name: publishingYear, dtype: int64</code></pre>
 <section id="observations-4" class="level4">
 <h4 class="anchored" data-anchor-id="observations-4">Observations</h4>
 <p>As I’m interested to see what the creators are making videos about and which terms most frequently appear in their video titles, I will create a wordcloud for the most common words. We first need to remove the stopwords such as “you”, “I”, “the”, etc. which do note contribute a lot to the meaning of the title. It can be seen that the main words posted in title are Life, Attraction, Love, Meditation, People and Thing.</p>
-<div class="cell" data-tags="[]" data-execution_count="206">
-<details>
+<div id="d8d06823-223d-454b-ad1d-1fd9e341c4f0" class="cell" data-tags="[]" data-execution_count="206">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'english'</span>))</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>viddf[<span class="st">'title_no_stopwords'</span>] <span class="op">=</span> viddf[<span class="st">'title'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [item <span class="cf">for</span> item <span class="kw">in</span> <span class="bu">str</span>(x).split() <span class="cf">if</span> item <span class="kw">not</span> <span class="kw">in</span> stop_words])</span>
@@ -1988,8 +2054,8 @@ Name: publishingYear, dtype: int64</code></pre>
 </section>
 <section id="wordcloud-for-spiritual-content-video-titles" class="level4">
 <h4 class="anchored" data-anchor-id="wordcloud-for-spiritual-content-video-titles">WordCloud for Spiritual Content Video Titles</h4>
-<div class="cell" data-tags="[]" data-execution_count="207">
-<details>
+<div id="d3468933-6e44-42fe-a7bd-3b0b3f8624e7" class="cell" data-tags="[]" data-execution_count="207">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># matplotlib.use('module://matplotlib_inline.backend_inline')</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %matplotlib inline</span></span>
@@ -2004,11 +2070,15 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-48-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="224">
-<details>
+</div>
+<div id="c5532dde-53ff-4f51-aa51-1f326ad2aaf4" class="cell" data-tags="[]" data-execution_count="224">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for i in sorted(wordcloud.words_.items(), key = lambda x: x[1],reverse = False):</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     if i[0] == 'sign gaur':</span></span>
@@ -2019,15 +2089,19 @@ Name: publishingYear, dtype: int64</code></pre>
 <section id="number-of-tags-vs-views" class="level3">
 <h3 class="anchored" data-anchor-id="number-of-tags-vs-views">Number of tags vs views</h3>
 <p>It seems that most videos have between 10 and 45 tags. The relationship between number of tags and view count is not clearly seen, but too few tags or too many tags do seem to correlate with fewer views.</p>
-<div class="cell" data-tags="[]" data-execution_count="209">
-<details>
+<div id="0061934e-f9d7-4c77-96d9-5134e1aaf296" class="cell" data-tags="[]" data-execution_count="209">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.scatterplot(data <span class="op">=</span> viddf, x <span class="op">=</span> <span class="st">"tagsCount"</span>, y <span class="op">=</span> <span class="st">"viewCount"</span>)</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>plot.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'{:,.0f}'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>plot.yaxis.set_major_formatter(ticker.FuncFormatter(<span class="kw">lambda</span> x, pos: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>.<span class="bu">format</span>(x<span class="op">/</span><span class="dv">1000</span>) <span class="op">+</span> <span class="st">'K'</span>))</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-50-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-50-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2036,8 +2110,8 @@ Name: publishingYear, dtype: int64</code></pre>
 <section id="observations-5" class="level4">
 <h4 class="anchored" data-anchor-id="observations-5">Observations</h4>
 <p>It’s interesting to see that more videos are uploaded on Mondays, Wednesdays and Fridays. It seems the pattern is alternative in uploading the videos. This might be because of maintaining a consistency on channel, like when the user can more expect the videos, on a consistent basis.</p>
-<div class="cell" data-tags="[]" data-execution_count="210">
-<details>
+<div id="21d721ce-affb-4c03-aa35-3a8019804031" class="cell" data-tags="[]" data-execution_count="210">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>day_df <span class="op">=</span> pd.DataFrame(viddf[<span class="st">'pushblishDayName'</span>].value_counts())</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>weekdays <span class="op">=</span> [ <span class="st">'Monday'</span>, <span class="st">'Tuesday'</span>, <span class="st">'Wednesday'</span>, <span class="st">'Thursday'</span>, <span class="st">'Friday'</span>, <span class="st">'Saturday'</span>, <span class="st">'Sunday'</span>]</span>
@@ -2049,7 +2123,11 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-51-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-51-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2060,8 +2138,8 @@ Name: publishingYear, dtype: int64</code></pre>
 <section id="observations-6" class="level4">
 <h4 class="anchored" data-anchor-id="observations-6">Observations</h4>
 <p>Like the video titles, the video comments also revolve around Love, Life, Sign, Thing, Attraction words</p>
-<div class="cell" data-tags="[]" data-execution_count="211">
-<details>
+<div id="c4152aae-7a65-46b7-820e-db5e13cdf093" class="cell" data-tags="[]" data-execution_count="211">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'english'</span>))</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>comdf[<span class="st">'comments_no_stopwords'</span>] <span class="op">=</span> comdf[<span class="st">'comments'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [item <span class="cf">for</span> item <span class="kw">in</span> <span class="bu">str</span>(x).split() <span class="cf">if</span> item <span class="kw">not</span> <span class="kw">in</span> stop_words])</span>
@@ -2070,8 +2148,8 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>all_words_str <span class="op">=</span> <span class="st">' '</span>.join(all_words) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="212">
-<details>
+<div id="ad16a34c-142d-4e4c-a058-a71f959c557a" class="cell" data-tags="[]" data-execution_count="212">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># matplotlib.use('module://matplotlib_inline.backend_inline')</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %matplotlib inline</span></span>
@@ -2081,7 +2159,11 @@ Name: publishingYear, dtype: int64</code></pre>
 <span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="Youtube_API_EDA_files/figure-html/cell-53-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Youtube_API_EDA_files/figure-html/cell-53-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -2132,6 +2214,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -2200,13 +2309,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'alternate';
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2285,10 +2396,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/Yuvraj-Dhepe\.github\.io\/DataBlog_V1\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2298,8 +2426,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2311,7 +2448,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2355,6 +2615,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2380,6 +2641,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2441,17 +2728,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="Yuvraj-Dhepe/DataBlog_V1" data-repo-id="R_kgDOJMncgA" data-category="Announcements" data-category-id="DIC_kwDOJMncgM4CVqbZ" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light_protanopia" data-lang="en" crossorigin="anonymous" async="">
 </script>
+<input type="hidden" id="giscus-base-theme" value="light_protanopia">
+<input type="hidden" id="giscus-alt-theme" value="light_protanopia">
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org">Quarto</a></div>   
+    <div class="nav-footer-left">
+<p>This page is built with ❤️ and <a href="https://quarto.org">Quarto</a></p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/quarto-dev/quarto-demo/blob/main/docs/projects/Youtube_API_EDA.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/">
+    <a class="nav-link" href="https://www.linkedin.com/in/yuvraj-shivaji-dhepe/">
       <i class="bi bi-linkedin" role="img" aria-label="My LinkedIn">
 </i> 
     </a>
@@ -2472,6 +2763,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

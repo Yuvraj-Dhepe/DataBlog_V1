@@ -22,7 +22,7 @@ website:
     left: "This page is built with ❤️ and [Quarto](https://quarto.org)"
     right:
       - icon: linkedin
-        href: https://www.linkedin.com/in/yuvraj-shivaji-dhepe-22974919a/
+        href: https://www.linkedin.com/in/yuvraj-shivaji-dhepe/
         aria-label: "My LinkedIn"
       - icon: github
         href: https://github.com/Yuvraj-Dhepe
